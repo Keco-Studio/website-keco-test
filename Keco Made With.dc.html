@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="ext-resource-dependency" content="./assets/keco-logo.png" data-resource-id="kecoLogo" />
+<meta name="ext-resource-dependency" content="https://cdn.simpleicons.org/discord/4a4a5e" data-resource-id="social-discord" />
+<meta name="ext-resource-dependency" content="https://cdn.simpleicons.org/youtube/4a4a5e" data-resource-id="social-youtube" />
+<meta name="ext-resource-dependency" content="https://cdn.simpleicons.org/x/4a4a5e" data-resource-id="social-x" />
+<meta name="ext-resource-dependency" content="https://cdn.simpleicons.org/instagram/4a4a5e" data-resource-id="social-instagram" />
+<meta name="ext-resource-dependency" content="https://cdn.simpleicons.org/tiktok/4a4a5e" data-resource-id="social-tiktok" />
+<meta name="ext-resource-dependency" content="https://cdn.simpleicons.org/reddit/4a4a5e" data-resource-id="social-reddit" />
+<meta name="ext-resource-dependency" content="https://cdn.simpleicons.org/github/4a4a5e" data-resource-id="social-github" />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preload" as="image" href="./assets/keco-logo.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700;9..40,800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="./image-slot.js"></script>
+<style>
+html,body{margin:0;padding:0;background:#F9F9FD;}
+*{box-sizing:border-box;}
+a{color:#1a1a2e;text-decoration:none;}
+a:hover{color:#4a5bb8;}
+button{font:inherit;}
+</style>
+</helmet>
+<div style="min-height:100vh;font-family:'Inter',system-ui,sans-serif;color:#0f0f1a;background:#FCFCFD url('./assets/home-bg.png') top center / 100% auto no-repeat;position:relative;overflow-x:clip;">
+  <dc-import name="KecoNav" active="Made with Keco" style="position:sticky;top:0;z-index:50;display:block;" hint-size="100%,96px"></dc-import>
+
+  <section style="position:relative;z-index:1;max-width:1340px;margin:0 auto;padding:36px clamp(20px,3vw,48px) 120px;">
+    <div style="display:flex;align-items:center;gap:8px;font-size:14px;letter-spacing:-0.01em;color:#4a4a5e;">
+      <a href="Keco Community.dc.html" style="color:#4a4a5e;">Community</a><span>/</span><span style="color:#0f0f1a;">Made with Keco</span>
+    </div>
+    <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap;">
+      <div>
+        <h1 style="margin:14px 0 0;font-family:'DM Sans',sans-serif;font-weight:700;font-size:26px;line-height:1.2;letter-spacing:-0.035em;">Made with Keco</h1>
+        <p style="margin:14px 0 0;max-width:680px;font-size:15px;line-height:1.6;letter-spacing:-0.015em;color:#15151f;text-wrap:pretty;">A curated showcase of games designed by the Keco community. Get inspired, play what others have built, and submit your own.</p>
+      </div>
+      <a href="#" style="display:flex;align-items:center;justify-content:center;height:46px;padding:0 22px;border-radius:14px;background:linear-gradient(90deg,#CDCBF3 0%,#C1C5F1 55%,#B3BCEC 100%);font-family:'DM Sans',sans-serif;font-weight:600;font-size:15px;letter-spacing:-0.02em;color:#0f0f1a;white-space:nowrap;" style-hover="color:#0f0f1a;transform:translateY(-1px);">Submit your game</a>
+    </div>
+
+    <a href="#" style="margin-top:36px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));border-radius:24px;overflow:hidden;background:rgba(255,255,255,0.8);border:1px solid #E6E5FA;box-shadow:0 10px 40px rgba(80,90,180,0.08);color:#0f0f1a;" style-hover="color:#0f0f1a;">
+      <div style="aspect-ratio:16/10;background:repeating-linear-gradient(135deg,#E6E5FA 0 10px,#EEEDFB 10px 20px);">
+        <image-slot id="madewith-featured" shape="rect" placeholder="featured game key art"></image-slot>
+      </div>
+      <div style="display:flex;flex-direction:column;justify-content:center;gap:10px;padding:clamp(24px,3vw,48px);">
+        <span style="align-self:flex-start;padding:2px 10px;border-radius:999px;background:#E6E5FA;font-size:14px;letter-spacing:-0.01em;">Featured this month</span>
+        <h2 style="margin:6px 0 0;font-family:'DM Sans',sans-serif;font-weight:700;font-size:22px;letter-spacing:-0.035em;">Lanternfall</h2>
+        <p style="margin:0;font-size:15px;line-height:1.6;letter-spacing:-0.015em;color:#4a4a5e;text-wrap:pretty;">A cozy puzzle-adventure where every lantern changes the rules. Its 40-level difficulty curve was balanced entirely in Keco before the first line of code.</p>
+        <span style="font-size:14px;letter-spacing:-0.01em;color:#4a4a5e;">by Paper Co. · Puzzle · PC, Switch</span>
+      </div>
+    </a>
+
+    <div style="display:flex;gap:8px;flex-wrap:wrap;margin:44px 0 26px;">
+      <sc-for list="{{ genres }}" as="c" hint-placeholder-count="6">
+        <button onClick="{{ c.select }}" style="border:0;cursor:pointer;padding:5px 12px;border-radius:999px;background:{{ c.bg }};color:#0f0f1a;font-size:15px;letter-spacing:-0.02em;white-space:nowrap;" style-hover="background:#E6E5FA;">{{ c.label }}</button>
+      </sc-for>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:40px 28px;">
+      <sc-for list="{{ games }}" as="g" hint-placeholder-count="8">
+        <a href="#" style="display:flex;flex-direction:column;gap:10px;color:#0f0f1a;transition:transform .15s;" style-hover="color:#0f0f1a;transform:translateY(-3px);">
+          <div style="aspect-ratio:4/3;border-radius:14px;overflow:hidden;background:repeating-linear-gradient(135deg,#E6E5FA 0 10px,#EEEDFB 10px 20px);box-shadow:0 4px 16px rgba(80,90,180,0.10);">
+            <image-slot id="{{ g.slot }}" shape="rect" placeholder="game screenshot"></image-slot>
+          </div>
+          <span style="font-family:'DM Sans',sans-serif;font-weight:600;font-size:16px;letter-spacing:-0.025em;">{{ g.title }}</span>
+          <span style="display:flex;justify-content:space-between;gap:8px;font-size:14px;letter-spacing:-0.01em;color:#4a4a5e;"><span>by {{ g.studio }}</span><span>{{ g.genre }}</span></span>
+        </a>
+      </sc-for>
+    </div>
+  </section>
+  <dc-import name="KecoFooter" style="display:block;" hint-size="100%,420px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { genre: 'All' };
+  games = [['Moss & Metal','Rogue Forge','Action'],['Tiny Tavern','Mika Studio','Simulation'],['Deckbound','8bit Lab','Strategy'],['Starlit Letters','Paper Co.','Narrative'],['Crypt Hopper','8bit Lab','Action'],['Harvest Moonlight','Mika Studio','Simulation'],['Rune Tactics','Rogue Forge','Strategy'],['Glass Garden','Paper Co.','Puzzle']];
+  renderVals() {
+    const genres = ['All', 'Action', 'Strategy', 'Simulation', 'Narrative', 'Puzzle'];
+    return {
+      genres: genres.map(g => ({ label: g, bg: g === this.state.genre ? '#F4F3FC' : 'transparent', select: () => this.setState({ genre: g }) })),
+      games: this.games.map(([title, studio, genre], i) => ({ title, studio, genre, slot: `madewith-${i}` })).filter(g => this.state.genre === 'All' || g.genre === this.state.genre)
+    };
+  }
+}
+</script>
+</body>
+</html>

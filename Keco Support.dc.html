@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="ext-resource-dependency" content="./assets/keco-logo.png" data-resource-id="kecoLogo" />
+<meta name="ext-resource-dependency" content="https://cdn.simpleicons.org/discord/4a4a5e" data-resource-id="social-discord" />
+<meta name="ext-resource-dependency" content="https://cdn.simpleicons.org/youtube/4a4a5e" data-resource-id="social-youtube" />
+<meta name="ext-resource-dependency" content="https://cdn.simpleicons.org/x/4a4a5e" data-resource-id="social-x" />
+<meta name="ext-resource-dependency" content="https://cdn.simpleicons.org/instagram/4a4a5e" data-resource-id="social-instagram" />
+<meta name="ext-resource-dependency" content="https://cdn.simpleicons.org/tiktok/4a4a5e" data-resource-id="social-tiktok" />
+<meta name="ext-resource-dependency" content="https://cdn.simpleicons.org/reddit/4a4a5e" data-resource-id="social-reddit" />
+<meta name="ext-resource-dependency" content="https://cdn.simpleicons.org/github/4a4a5e" data-resource-id="social-github" />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preload" as="image" href="./assets/keco-logo.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700;9..40,800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+html,body{margin:0;padding:0;background:#F9F9FD;}
+*{box-sizing:border-box;}
+a{color:#1a1a2e;text-decoration:none;}
+a:hover{color:#4a5bb8;}
+button{font:inherit;}
+</style>
+</helmet>
+<div style="min-height:100vh;font-family:'Inter',system-ui,sans-serif;color:#0f0f1a;background:#FCFCFD url('./assets/home-bg.png') top center / 100% auto no-repeat;position:relative;overflow-x:clip;">
+  <dc-import name="KecoNav" style="position:sticky;top:0;z-index:50;display:block;" hint-size="100%,96px"></dc-import>
+
+  <section style="position:relative;z-index:1;max-width:1180px;margin:0 auto;padding:36px clamp(20px,3vw,48px) 120px;">
+    <div style="display:flex;align-items:center;gap:8px;font-size:14px;letter-spacing:-0.01em;color:#4a4a5e;">
+      <span style="color:#0f0f1a;">Support</span>
+    </div>
+    <h1 style="margin:14px 0 0;font-family:'DM Sans',sans-serif;font-weight:700;font-size:26px;line-height:1.2;letter-spacing:-0.035em;">Get in touch with the team</h1>
+    <p style="margin:14px 0 0;max-width:680px;font-size:15px;line-height:1.6;letter-spacing:-0.015em;color:#15151f;text-wrap:pretty;">Questions about your account, billing, or a bug you’ve found? Send us a message and we’ll reply within one business day.</p>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:clamp(24px,3vw,40px);margin-top:40px;align-items:start;">
+      <div style="grid-column:span 2;min-width:0;padding:clamp(24px,3vw,36px);border-radius:24px;background:rgba(255,255,255,0.86);border:1px solid #E6E5FA;box-shadow:0 10px 40px rgba(80,90,180,0.08);">
+        <sc-if value="{{ sent }}" hint-placeholder-val="{{ false }}">
+          <div style="display:flex;flex-direction:column;align-items:flex-start;gap:12px;padding:24px 0;">
+            <span style="width:44px;height:44px;border-radius:999px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#CDCBF3 0%,#B3BCEC 100%);"><svg width="20" height="20" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.2 3L13 4.5" stroke="#0f0f1a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+            <h2 style="margin:0;font-family:'DM Sans',sans-serif;font-weight:700;font-size:22px;letter-spacing:-0.035em;">Message sent</h2>
+            <p style="margin:0;font-size:15px;line-height:1.6;letter-spacing:-0.015em;color:#4a4a5e;">Thanks, {{ firstName }}. We’ll reply to {{ email }} within one business day.</p>
+            <button onClick="{{ reset }}" style="margin-top:8px;height:44px;padding:0 20px;border-radius:14px;background:#ffffff;border:1px solid #D2D3F5;cursor:pointer;font-family:'DM Sans',sans-serif;font-weight:600;font-size:15px;letter-spacing:-0.02em;color:#0f0f1a;" style-hover="background:#ECEBFA;">Send another message</button>
+          </div>
+        </sc-if>
+        <sc-if value="{{ notSent }}" hint-placeholder-val="{{ true }}">
+          <form onSubmit="{{ submit }}" style="display:flex;flex-direction:column;gap:18px;">
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;">
+              <label style="display:flex;flex-direction:column;gap:6px;font-size:14px;font-weight:500;letter-spacing:-0.01em;">Name
+                <input value="{{ name }}" onChange="{{ onName }}" placeholder="Your name" style="height:46px;padding:0 16px;border-radius:12px;border:1px solid #D2D3F5;background:#ffffff;outline:0;font:inherit;font-weight:400;font-size:15px;letter-spacing:-0.015em;color:#0f0f1a;" style-focus="border-color:#8FA3E0;box-shadow:0 0 0 3px rgba(179,188,236,0.4);">
+              </label>
+              <label style="display:flex;flex-direction:column;gap:6px;font-size:14px;font-weight:500;letter-spacing:-0.01em;">Email
+                <input type="email" value="{{ email }}" onChange="{{ onEmail }}" placeholder="you@studio.com" style="height:46px;padding:0 16px;border-radius:12px;border:1px solid #D2D3F5;background:#ffffff;outline:0;font:inherit;font-weight:400;font-size:15px;letter-spacing:-0.015em;color:#0f0f1a;" style-focus="border-color:#8FA3E0;box-shadow:0 0 0 3px rgba(179,188,236,0.4);">
+              </label>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:8px;font-size:14px;font-weight:500;letter-spacing:-0.01em;">Topic
+              <div style="display:flex;gap:8px;flex-wrap:wrap;">
+                <sc-for list="{{ topics }}" as="t" hint-placeholder-count="5">
+                  <button type="button" onClick="{{ t.select }}" style="cursor:pointer;padding:6px 14px;border-radius:999px;border:1px solid {{ t.border }};background:{{ t.bg }};font-size:15px;font-weight:400;letter-spacing:-0.02em;color:#0f0f1a;" style-hover="background:#ECEBFA;">{{ t.label }}</button>
+                </sc-for>
+              </div>
+            </div>
+            <label style="display:flex;flex-direction:column;gap:6px;font-size:14px;font-weight:500;letter-spacing:-0.01em;">Message
+              <textarea value="{{ message }}" onChange="{{ onMessage }}" rows="6" placeholder="Tell us what’s going on. For bugs, include steps to reproduce." style="padding:14px 16px;border-radius:12px;border:1px solid #D2D3F5;background:#ffffff;outline:0;resize:vertical;font:inherit;font-weight:400;font-size:15px;line-height:1.6;letter-spacing:-0.015em;color:#0f0f1a;" style-focus="border-color:#8FA3E0;box-shadow:0 0 0 3px rgba(179,188,236,0.4);"></textarea>
+            </label>
+            <sc-if value="{{ error }}" hint-placeholder-val="{{ false }}">
+              <span style="font-size:14px;letter-spacing:-0.01em;color:#B4234A;">{{ error }}</span>
+            </sc-if>
+            <button type="submit" style="align-self:flex-start;height:52px;padding:0 32px;border:0;border-radius:15px;cursor:pointer;background:linear-gradient(90deg,#CDCBF3 0%,#C1C5F1 55%,#B3BCEC 100%);box-shadow:0 18px 44px rgba(160,150,230,0.3);font-family:'Inter',sans-serif;font-weight:700;font-size:16px;letter-spacing:-0.025em;color:#0a0a12;transition:transform .15s;" style-hover="transform:translateY(-1px);">Send message</button>
+          </form>
+        </sc-if>
+      </div>
+
+      <div style="min-width:0;display:flex;flex-direction:column;gap:14px;align-self:center;">
+        <span style="font-family:'DM Sans',sans-serif;font-weight:700;font-size:18px;letter-spacing:-0.03em;">Helpful resources</span>
+        <nav style="display:flex;flex-direction:column;border-top:1px solid #E6E5FA;">
+          <sc-for list="{{ channels }}" as="c" hint-placeholder-count="8">
+            <a href="{{ c.href }}" target="{{ c.target }}" rel="noopener" style="display:flex;align-items:center;justify-content:space-between;gap:12px;padding:13px 2px;border-bottom:1px solid #E6E5FA;font-size:15px;letter-spacing:-0.015em;color:#15151f;transition:color .15s,padding .15s;" style-hover="color:#4a5bb8;padding-left:6px;">{{ c.label }}<svg width="14" height="14" viewBox="0 0 16 16" fill="none" style="flex-shrink:0;"><path d="{{ c.icon }}" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
+          </sc-for>
+        </nav>
+        <p style="margin:10px 0 0;font-size:14px;line-height:1.5;letter-spacing:-0.01em;color:#4a4a5e;">Prefer email? <a href="mailto:support@kecostudio.com" style="color:#0f0f1a;border-bottom:1px solid #B3BCEC;">support@kecostudio.com</a></p>
+      </div>
+    </div>
+  </section>
+  <dc-import name="KecoFooter" style="display:block;" hint-size="100%,420px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { name: '', email: '', topic: 'General', message: '', sent: false, error: '' };
+  componentDidMount() {
+    try { const u = JSON.parse(localStorage.getItem('keco-auth') || 'null'); if (u) this.setState({ name: u.name || '', email: u.email || '' }); } catch (e) {}
+  }
+  renderVals() {
+    const s = this.state;
+    return {
+      ...s, notSent: !s.sent,
+      firstName: (s.name || 'there').split(' ')[0],
+      onName: e => this.setState({ name: e.target.value, error: '' }),
+      onEmail: e => this.setState({ email: e.target.value, error: '' }),
+      onMessage: e => this.setState({ message: e.target.value, error: '' }),
+      topics: ['General', 'Account', 'Billing', 'Bug report', 'Partnership'].map(t => ({ label: t, bg: t === s.topic ? '#ECEBFA' : '#ffffff', border: t === s.topic ? '#B3BCEC' : '#D2D3F5', select: () => this.setState({ topic: t }) })),
+      submit: e => {
+        e.preventDefault();
+        if (!s.name.trim()) return this.setState({ error: 'Please enter your name.' });
+        if (!/^\S+@\S+\.\S+$/.test(s.email)) return this.setState({ error: 'Please enter a valid email address.' });
+        if (s.message.trim().length < 10) return this.setState({ error: 'Please add a few more details to your message.' });
+        this.setState({ sent: true });
+      },
+      reset: () => this.setState({ sent: false, message: '', topic: 'General' }),
+      channels: [
+        ['Keco Forums', 'Keco Open Source.dc.html#developers'],
+        ['Learning Center', 'Keco Tutorials.dc.html'],
+        ['Documentation', 'Keco Docs.dc.html'],
+        ['Developer Resources', 'Keco Open Source.dc.html'],
+        ['Release notes', 'Keco Docs.dc.html#release-notes'],
+        ['Account & billing FAQ', 'Keco Pricing.dc.html'],
+        ['System status', 'https://status.kecostudio.com'],
+        ['Discord community', 'https://discord.com/invite/KecoStudio']
+      ].map(([label, href]) => { const ext = /^https?:/.test(href); return { label, href, target: ext ? '_blank' : '_self', icon: ext ? 'M5 11l6-6M6 5h5v5' : 'M3 8h9M8.5 4.5L12 8l-3.5 3.5' }; })
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<header style="position:relative;display:flex;align-items:center;justify-content:space-between;gap:clamp(8px,1.2vw,16px);padding:18px clamp(16px,3.3vw,56px);flex-wrap:nowrap;background:rgba(240,240,252,0.42);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,0.45);font-family:'DM Sans',sans-serif;color:#0f0f1a;">
+  <a href="{{ logoHref }}" style="display:flex;flex-shrink:0;"><img src="{{ logoSrc }}" alt="Keco Studio Logo" style="display:block;height:clamp(40px,3.9vw,60px);width:auto;"></a>
+  <nav style="display:flex;align-items:center;justify-content:space-between;flex:0 1 640px;gap:clamp(0px,0.6vw,28px);flex-wrap:nowrap;min-width:0;font-weight:600;font-size:15px;letter-spacing:-0.02em;">
+    <sc-for list="{{ navItems }}" as="n" hint-placeholder-count="5">
+      <div onMouseEnter="{{ n.onEnter }}" onMouseLeave="{{ n.onLeave }}" style="position:relative;display:flex;">
+        <a href="{{ n.href }}" data-toggle="{{ n.toggleOnly }}" onClick="{{ n.onClick }}" style="display:flex;align-items:center;gap:4px;color:#0f0f1a;padding:8px clamp(6px,0.8vw,12px);border-radius:999px;background:{{ n.bg }};transition:background .15s;white-space:nowrap;" style-hover="background:#ECEBFA;color:#0f0f1a;">{{ n.label }}<sc-if value="{{ n.hasMenu }}" hint-placeholder-val="{{ false }}"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" style="transition:transform .15s;transform:{{ n.chev }};"><path d="M3 5l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></sc-if></a>
+        <sc-if value="{{ n.open }}" hint-placeholder-val="{{ false }}">
+          <div style="position:absolute;top:100%;left:{{ n.menuLeft }};right:{{ n.menuRight }};transform:{{ n.menuShift }};padding-top:10px;z-index:60;">
+            <div style="display:flex;flex-direction:column;gap:6px;padding:8px;border-radius:18px;background:#ffffff;border:1px solid #ECEBFA;box-shadow:0 18px 50px rgba(80,90,180,0.18);">
+              <div style="display:flex;gap:6px;">
+                <sc-for list="{{ n.groups }}" as="g" hint-placeholder-count="1">
+                  <div style="width:{{ g.width }};display:flex;flex-direction:column;gap:2px;">
+                    <sc-if value="{{ g.title }}" hint-placeholder-val="{{ false }}">
+                      <span style="padding:8px 14px 4px;font-family:'Inter',sans-serif;font-weight:500;font-size:14px;letter-spacing:-0.01em;color:#4a4a5e;">{{ g.title }}</span>
+                    </sc-if>
+                    <div style="display:grid;grid-template-columns:{{ g.cols }};gap:2px 6px;">
+                    <sc-for list="{{ g.links }}" as="m" hint-placeholder-count="4">
+                      <a href="{{ m.href }}" target="{{ m.target }}" rel="noopener" style="display:flex;flex-direction:column;gap:2px;padding:10px 14px;border-radius:12px;background:{{ m.bg }};color:#0f0f1a;" style-hover="background:#F4F3FC;color:#0f0f1a;">
+                        <span style="display:flex;align-items:center;gap:6px;font-weight:600;font-size:15px;letter-spacing:-0.02em;">{{ m.label }}<sc-if value="{{ m.ext }}" hint-placeholder-val="{{ false }}"><svg width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M5 11l6-6M6 5h5v5" stroke="#4a4a5e" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></sc-if></span>
+                        <span style="font-family:'Inter',sans-serif;font-weight:400;font-size:14px;line-height:1.45;letter-spacing:-0.01em;color:#4a4a5e;">{{ m.desc }}</span>
+                      </a>
+                    </sc-for>
+                    </div>
+                  </div>
+                </sc-for>
+              </div>
+              <sc-if value="{{ n.footer }}" hint-placeholder-val="{{ false }}">
+                <a href="{{ n.footerHref }}" style="display:flex;align-items:center;justify-content:space-between;padding:12px 14px;border-radius:12px;background:#F4F3FC;font-weight:600;font-size:15px;letter-spacing:-0.02em;color:#0f0f1a;" style-hover="background:#ECEBFA;color:#0f0f1a;">{{ n.footer }}<svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7h8M7.5 3.5L11 7l-3.5 3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
+              </sc-if>
+            </div>
+          </div>
+        </sc-if>
+      </div>
+    </sc-for>
+  </nav>
+  <div style="display:flex;align-items:center;flex-shrink:0;gap:clamp(0px,0.5vw,16px);font-weight:600;font-size:15px;letter-spacing:-0.02em;">
+    <button onClick="{{ toggleSearch }}" aria-label="Search" style="background:{{ searchBtnBg }};border:0;padding:7px;border-radius:999px;cursor:pointer;display:flex;color:#0f0f1a;transition:background .15s;" style-hover="background:#ECEBFA;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="10.5" cy="10.5" r="7" stroke="currentColor" stroke-width="1.8"></circle><path d="M16 16l5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path></svg></button>
+    <div onMouseLeave="{{ closeLang }}" style="position:relative;display:flex;">
+      <button onClick="{{ toggleLang }}" aria-label="Language" aria-expanded="{{ langOpen }}" style="background:{{ langBtnBg }};border:0;padding:7px;border-radius:999px;cursor:pointer;display:flex;color:#0f0f1a;transition:background .15s;" style-hover="background:#ECEBFA;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="12" cy="12" r="9"></circle><ellipse cx="12" cy="12" rx="4" ry="9"></ellipse><path d="M3 12h18M4.5 7.5h15M4.5 16.5h15M12 3v18"></path></svg></button>
+      <sc-if value="{{ langOpen }}" hint-placeholder-val="{{ false }}">
+        <div style="position:absolute;top:100%;right:-8px;padding-top:10px;z-index:60;">
+          <div style="width:200px;display:flex;flex-direction:column;gap:2px;padding:8px;border-radius:18px;background:#ffffff;border:1px solid #ECEBFA;box-shadow:0 18px 50px rgba(80,90,180,0.18);">
+            <span style="padding:6px 12px 4px;font-family:'Inter',sans-serif;font-weight:500;font-size:14px;letter-spacing:-0.01em;color:#4a4a5e;">{{ langTitle }}</span>
+            <sc-for list="{{ langs }}" as="l" hint-placeholder-count="2">
+              <button onClick="{{ l.select }}" style="display:flex;align-items:center;justify-content:space-between;gap:8px;border:0;cursor:pointer;text-align:left;padding:10px 12px;border-radius:12px;background:{{ l.bg }};font-family:'DM Sans',sans-serif;font-weight:600;font-size:15px;letter-spacing:-0.02em;color:#0f0f1a;" style-hover="background:#F4F3FC;">
+                <span style="display:flex;flex-direction:column;gap:1px;"><span>{{ l.native }}</span><span style="font-family:'Inter',sans-serif;font-weight:400;font-size:14px;color:#4a4a5e;">{{ l.english }}</span></span>
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" style="opacity:{{ l.check }};"><path d="M3 8.5l3.2 3L13 4.5" stroke="#4a5bb8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+              </button>
+            </sc-for>
+          </div>
+        </div>
+      </sc-if>
+    </div>
+    <sc-if value="{{ loggedOut }}" hint-placeholder-val="{{ true }}">
+      <a href="Keco Auth.dc.html#login" style="color:#0f0f1a;padding:8px clamp(6px,0.8vw,12px);border-radius:999px;background:transparent;transition:background .15s;white-space:nowrap;" style-hover="background:#ECEBFA;color:#0f0f1a;">{{ tLogin }}</a>
+      <a href="Keco Auth.dc.html#signup" style="background:#F4F3FC;padding:8px 16px;border-radius:999px;white-space:nowrap;color:#0f0f1a;box-shadow:0 2px 10px rgba(80,90,180,0.12);" style-hover="background:#ffffff;color:#0f0f1a;">{{ tSignup }}</a>
+    </sc-if>
+    <sc-if value="{{ loggedIn }}" hint-placeholder-val="{{ false }}">
+      <div onMouseEnter="{{ openProfile }}" onMouseLeave="{{ closeProfile }}" style="position:relative;display:flex;margin-left:6px;">
+        <button onClick="{{ toggleProfile }}" aria-label="Account menu" style="width:40px;height:40px;border-radius:999px;border:2px solid #ffffff;padding:0;cursor:pointer;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#CDCBF3 0%,#B3BCEC 100%);box-shadow:0 4px 14px rgba(120,120,210,0.3);font-family:'DM Sans',sans-serif;font-weight:700;font-size:15px;color:#0f0f1a;">{{ initial }}</button>
+        <sc-if value="{{ profileOpen }}" hint-placeholder-val="{{ false }}">
+          <div style="position:absolute;top:100%;right:0;padding-top:10px;z-index:60;">
+            <div style="width:260px;display:flex;flex-direction:column;gap:2px;padding:8px;border-radius:18px;background:#ffffff;border:1px solid #ECEBFA;box-shadow:0 18px 50px rgba(80,90,180,0.18);">
+              <a href="Keco Workspace.dc.html" style="display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:12px;color:#0f0f1a;" style-hover="background:#F4F3FC;color:#0f0f1a;">
+                <span style="flex-shrink:0;width:36px;height:36px;border-radius:999px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#CDCBF3 0%,#B3BCEC 100%);font-weight:700;font-size:14px;">{{ initial }}</span>
+                <span style="display:flex;flex-direction:column;min-width:0;">
+                  <span style="font-weight:600;font-size:15px;letter-spacing:-0.02em;">{{ userName }}</span>
+                  <span style="font-family:'Inter',sans-serif;font-weight:400;font-size:14px;letter-spacing:-0.01em;color:#4a4a5e;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">{{ userEmail }}</span>
+                </span>
+              </a>
+              <div style="height:1px;background:#ECEBFA;margin:4px 6px;"></div>
+              <sc-for list="{{ profileLinks }}" as="p" hint-placeholder-count="3">
+                <a href="{{ p.href }}" target="{{ p.target }}" rel="noopener" style="display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:12px;font-weight:600;font-size:15px;letter-spacing:-0.02em;color:#0f0f1a;" style-hover="background:#F4F3FC;color:#0f0f1a;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4a4a5e" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="{{ p.icon }}"></path></svg>{{ p.label }}</a>
+              </sc-for>
+              <div style="height:1px;background:#ECEBFA;margin:4px 6px;"></div>
+              <button onClick="{{ logout }}" style="border:0;background:transparent;cursor:pointer;text-align:left;padding:10px 12px;border-radius:12px;font-family:'DM Sans',sans-serif;font-weight:600;font-size:15px;letter-spacing:-0.02em;color:#4a4a5e;" style-hover="background:#F4F3FC;color:#0f0f1a;">{{ tLogout }}</button>
+            </div>
+          </div>
+        </sc-if>
+      </div>
+    </sc-if>
+  </div>
+  <sc-if value="{{ searchOpen }}" hint-placeholder-val="{{ false }}">
+    <div style="position:absolute;top:100%;left:0;right:0;z-index:55;display:flex;justify-content:center;padding:12px clamp(16px,3.3vw,56px) 0;">
+      <div style="width:100%;max-width:680px;display:flex;flex-direction:column;border-radius:22px;background:#ffffff;border:1px solid #ECEBFA;box-shadow:0 24px 70px rgba(80,90,180,0.2);overflow:hidden;">
+        <label style="display:flex;align-items:center;gap:12px;padding:14px 18px;border-bottom:1px solid #ECEBFA;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" style="flex-shrink:0;"><circle cx="10.5" cy="10.5" r="7" stroke="#4a4a5e" stroke-width="1.8"></circle><path d="M16 16l5 5" stroke="#4a4a5e" stroke-width="1.8" stroke-linecap="round"></path></svg>
+          <input ref="{{ searchRef }}" value="{{ query }}" onChange="{{ onQuery }}" onKeyDown="{{ onSearchKey }}" placeholder="{{ searchPlaceholder }}" style="flex:1;min-width:0;border:0;outline:0;background:transparent;font-family:'Inter',sans-serif;font-weight:400;font-size:16px;letter-spacing:-0.015em;color:#0f0f1a;">
+          <button onClick="{{ closeSearch }}" style="flex-shrink:0;border:1px solid #E6E5FA;background:#F9F9FD;border-radius:8px;padding:2px 8px;cursor:pointer;font-family:'Inter',sans-serif;font-weight:500;font-size:14px;color:#4a4a5e;">Esc</button>
+        </label>
+        <div style="display:flex;flex-direction:column;gap:2px;padding:8px;max-height:min(60vh,420px);overflow-y:auto;">
+          <span style="padding:8px 12px 4px;font-family:'Inter',sans-serif;font-weight:500;font-size:14px;letter-spacing:-0.01em;color:#4a4a5e;">{{ resultsTitle }}</span>
+          <sc-for list="{{ results }}" as="r" hint-placeholder-count="5">
+            <a href="{{ r.href }}" style="display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 12px;border-radius:12px;background:{{ r.bg }};color:#0f0f1a;" style-hover="background:#F4F3FC;color:#0f0f1a;">
+              <span style="display:flex;flex-direction:column;gap:2px;min-width:0;">
+                <span style="font-weight:600;font-size:15px;letter-spacing:-0.02em;">{{ r.label }}</span>
+                <span style="font-family:'Inter',sans-serif;font-weight:400;font-size:14px;letter-spacing:-0.01em;color:#4a4a5e;">{{ r.section }} · {{ r.desc }}</span>
+              </span>
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" style="flex-shrink:0;"><path d="M3 7h8M7.5 3.5L11 7l-3.5 3.5" stroke="#4a4a5e" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+            </a>
+          </sc-for>
+          <sc-if value="{{ noResults }}" hint-placeholder-val="{{ false }}">
+            <span style="padding:20px 12px;font-family:'Inter',sans-serif;font-weight:400;font-size:15px;color:#4a4a5e;">{{ noResultsText }}</span>
+          </sc-if>
+        </div>
+      </div>
+    </div>
+  </sc-if>
+  <sc-if value="{{ toastOn }}" hint-placeholder-val="{{ false }}">
+    <div role="status" style="position:fixed;left:50%;bottom:28px;transform:translateX(-50%);z-index:80;max-width:min(92vw,520px);display:flex;align-items:center;gap:12px;padding:14px 18px;border-radius:16px;background:#0f0f1a;color:#ffffff;box-shadow:0 18px 50px rgba(15,15,26,0.3);font-family:'Inter',sans-serif;font-weight:400;font-size:15px;line-height:1.45;letter-spacing:-0.015em;">
+      <span>{{ toastText }}</span>
+      <button onClick="{{ hideToast }}" aria-label="Close" style="flex-shrink:0;border:0;background:rgba(255,255,255,0.14);color:#ffffff;width:26px;height:26px;border-radius:999px;cursor:pointer;display:flex;align-items:center;justify-content:center;"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M1.5 1.5l7 7M8.5 1.5l-7 7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path></svg></button>
+    </div>
+  </sc-if>
+</header>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:&quot;1280px&quot;,&quot;height&quot;:&quot;520px&quot;},&quot;active&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;&quot;,&quot;Tutorials&quot;,&quot;Use cases&quot;,&quot;Marketplace&quot;,&quot;Documentation&quot;,&quot;Pricing&quot;,&quot;Community&quot;,&quot;Made with Keco&quot;,&quot;Events&quot;,&quot;Open source&quot;],&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
+class Component extends DCLogic {
+  state = { open: null, user: null, profileOpen: false, lang: 'en', langOpen: false, searchOpen: false, query: '', sel: 0 };
+  searchRef = React.createRef();
+  isPublished = () => !!window.__resources;
+  isHomeHref = f => /Keco Homepage(\.dc\.html)?$/.test(decodeURIComponent(f || ''));
+  goLocal = href => {
+    const [file, hash] = href.split('#');
+    this.setState({ open: null, searchOpen: false, profileOpen: false, langOpen: false, query: '' });
+    if (!file || this.isHomeHref(file)) {
+      const el = hash && document.getElementById(hash);
+      window.scrollTo({ top: el ? el.getBoundingClientRect().top + window.scrollY - 90 : 0, behavior: 'smooth' });
+      return;
+    }
+  };
+  showToast = () => { clearTimeout(this.toastTimer); this.setState({ toast: true }); this.toastTimer = setTimeout(() => this.setState({ toast: false }), 4000); };
+  guardLinks = e => {
+    if (!this.isPublished()) return;
+    const a = e.target && e.target.closest && e.target.closest('a[href]');
+    if (!a || a.getAttribute('data-toggle') === 'true') return;
+    const href = a.getAttribute('href') || '';
+    if (!/\.dc\.html/.test(href)) return;
+    e.preventDefault(); e.stopPropagation();
+    this.goLocal(href);
+  };
+  ZH = {
+    'Product': '产品', 'Solutions': '解决方案', 'Resources': '资源', 'Pricing': '价格', 'Community': '社区',
+    'By role': '按角色', 'For Game Designers': '游戏策划', 'For Narrative Teams': '叙事团队', 'For Technical Designers': '技术策划', 'For Creators': '创作者',
+    'Characters, skills, items and balance data': '角色、技能、道具与数值平衡数据', 'Scripts, branches, characters and assets': '剧本、分支、角色与素材', 'Structured data to engine-ready workflows': '结构化数据到引擎工作流', 'Publish and sell on the Marketplace': '在市场发布并出售作品',
+    'Tutorials': '教程', 'Use cases': '使用案例', 'Marketplace': '市场', 'Documentation': '文档',
+    'Video tutorials and guides from the community': '来自社区的视频教程与指南', 'Sample games and how they were built': '示例游戏及其制作方式', 'Templates, components and plugins': '模板、组件与插件', 'Technical docs and API reference': '技术文档与 API 参考',
+    'On Keco': 'Keco 官方', 'Follow, chat, & build': '关注、交流与共建', 'All community channels': '全部社区渠道',
+    'Made with Keco': 'Made with Keco', 'Events': '活动', 'Keco Forums': 'Keco 论坛', 'Developer Community': '开发者社区',
+    'Games built by the community': '社区创作的游戏', 'Game jams, meetups and launches': 'Game Jam、线下聚会与发布', 'Tools and extensions by developers': '开发者制作的工具与扩展', 'The open-source Keco repo': 'Keco 开源仓库', 'Ask questions and share feedback': '提问与反馈',
+    'Chat live with designers and the team': '与设计者和团队实时交流', 'r/KecoStudio discussions': 'r/KecoStudio 讨论区', 'Walkthroughs and release videos': '操作演示与发布视频', 'Product updates and news': '产品动态与新闻', 'Art and behind-the-scenes': '美术与幕后花絮', 'Short tips and game clips': '小技巧与游戏片段',
+    'Profile': '个人主页', 'Projects': '项目', 'Support': '支持', 'Log in': '登录', 'Sign Up Free': '免费注册', 'Log out': '退出登录',
+    'Homepage': '首页', 'Keco Studio': 'Keco Studio', 'GDD to game': 'GDD 生成游戏', 'Keco agent': 'Keco Agent', 'MCP integration': 'MCP 集成', 'Platform': '平台', 'Turn a design doc into a playable game': '把设计文档变成可玩游戏', 'Edit tables, generate assets and docs': '编辑表格、生成素材与文档', 'Connect any LLM to your engine': '把任意大模型连接到游戏引擎', 'Data, balance, versions and more': '数据、平衡、版本管理等', 'Sign up': '注册', 'Open source': '开源', 'Page': '页面'
+  };
+  t = s => (this.state.lang === 'zh' && this.ZH[s]) || s;
+  setLang = l => { try { localStorage.setItem('keco-lang', l); } catch (e) {} this.setState({ lang: l, langOpen: false }); window.dispatchEvent(new CustomEvent('keco-lang', { detail: l })); };
+  readLang = () => { let l = 'en'; try { l = localStorage.getItem('keco-lang') || 'en'; } catch (e) {} if (l !== this.state.lang) this.setState({ lang: l }); };
+  openSearch = () => { this.setState({ searchOpen: true, open: null, langOpen: false, profileOpen: false, sel: 0 }); setTimeout(() => this.searchRef.current && this.searchRef.current.focus(), 30); };
+  closeSearch = () => this.setState({ searchOpen: false, query: '', sel: 0 });
+  onGlobalKey = e => {
+    if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') { e.preventDefault(); this.state.searchOpen ? this.closeSearch() : this.openSearch(); }
+    else if (e.key === 'Escape' && (this.state.searchOpen || this.state.langOpen)) { this.closeSearch(); this.setState({ langOpen: false }); }
+  };
+  onDocDown = e => { if (this.state.searchOpen && !e.target.closest('header')) this.closeSearch(); };
+  searchIndex() {
+    const P = (label, section, desc, href) => ({ label, section, desc, href });
+    const t = this.t;
+    return [
+      P(t('Homepage'), t('Page'), 'Keco Studio', 'Keco Homepage.dc.html'),
+      P(t('Product'), t('Page'), 'GDD to game, Keco agent, MCP integration', 'Keco Homepage.dc.html'),
+      P(t('For Game Designers'), t('Solutions'), t('Characters, skills, items and balance data'), 'Keco Solutions.dc.html#game-designers'),
+      P(t('For Narrative Teams'), t('Solutions'), t('Scripts, branches, characters and assets'), 'Keco Solutions.dc.html#narrative-teams'),
+      P(t('For Technical Designers'), t('Solutions'), t('Structured data to engine-ready workflows'), 'Keco Solutions.dc.html#technical-designers'),
+      P(t('For Creators'), t('Solutions'), t('Publish and sell on the Marketplace'), 'Keco Solutions.dc.html#creators'),
+      P(t('Tutorials'), t('Resources'), t('Video tutorials and guides from the community'), 'Keco Tutorials.dc.html'),
+      P(t('Use cases'), t('Resources'), t('Sample games and how they were built'), 'Keco Use Cases.dc.html'),
+      P(t('Marketplace'), t('Resources'), t('Templates, components and plugins'), 'Keco Marketplace.dc.html'),
+      P('Templates', t('Marketplace'), 'Pixel Map, Fantastic, Princess', 'Keco Marketplace.dc.html#templates'),
+      P('Components', t('Marketplace'), 'Cat icon, retro pix, 3D room', 'Keco Marketplace.dc.html#components'),
+      P('Plugins', t('Marketplace'), 'Balance Sim, Sheet Sync, Loot Tables', 'Keco Marketplace.dc.html#plugins'),
+      P(t('Documentation'), t('Resources'), t('Technical docs and API reference'), 'Keco Docs.dc.html'),
+      P('Quickstart', t('Documentation'), 'Install, import data, validate balance', 'Keco Docs.dc.html'),
+      P(t('Pricing'), t('Page'), 'Starter, Pro, Studio, Enterprise', 'Keco Pricing.dc.html'),
+      P(t('Community'), t('Page'), t('All community channels'), 'Keco Community.dc.html'),
+      P(t('Made with Keco'), t('Community'), t('Games built by the community'), 'Keco Made With.dc.html'),
+      P(t('Events'), t('Community'), t('Game jams, meetups and launches'), 'Keco Events.dc.html'),
+      P(t('Keco Forums'), t('Community'), t('Tools and extensions by developers'), 'Keco Open Source.dc.html#developers'),
+      P(t('Support'), t('Page'), 'Get in touch with the team', 'Keco Support.dc.html'),
+      P(t('Log in'), t('Page'), 'Keco account', 'Keco Auth.dc.html#login'),
+      P(t('Sign up'), t('Page'), 'Keco account', 'Keco Auth.dc.html#signup')
+    ];
+  }
+  searchVals() {
+    const zh = this.state.lang === 'zh';
+    const q = this.state.query.trim().toLowerCase();
+    const idx = this.searchIndex();
+    const list = q ? idx.filter(r => (r.label + ' ' + r.section + ' ' + r.desc + ' ' + r.href).toLowerCase().includes(q)).slice(0, 8) : [idx[1], idx[5], idx[7], idx[12], idx[13]];
+    const sel = Math.min(this.state.sel, Math.max(list.length - 1, 0));
+    return {
+      searchOpen: this.state.searchOpen,
+      searchBtnBg: this.state.searchOpen ? '#ECEBFA' : 'transparent',
+      toggleSearch: () => this.state.searchOpen ? this.closeSearch() : this.openSearch(),
+      closeSearch: this.closeSearch,
+      searchRef: this.searchRef,
+      query: this.state.query,
+      onQuery: e => this.setState({ query: e.target.value, sel: 0 }),
+      onSearchKey: e => {
+        if (e.key === 'ArrowDown') { e.preventDefault(); this.setState({ sel: Math.min(sel + 1, list.length - 1) }); }
+        else if (e.key === 'ArrowUp') { e.preventDefault(); this.setState({ sel: Math.max(sel - 1, 0) }); }
+        else if (e.key === 'Enter' && list[sel]) { if (this.isPublished()) this.goLocal(list[sel].href); else location.href = list[sel].href; }
+      },
+      searchPlaceholder: zh ? '搜索页面、模板、文档…' : 'Search pages, templates, docs…',
+      resultsTitle: q ? (zh ? '搜索结果' : 'Results') : (zh ? '热门' : 'Popular'),
+      results: list.map((r, i) => ({ ...r, bg: i === sel ? '#F4F3FC' : 'transparent' })),
+      noResults: list.length === 0,
+      noResultsText: zh ? `没有找到与“${this.state.query}”相关的结果` : `No results for “${this.state.query}”`
+    };
+  }
+  langVals() {
+    const cur = this.state.lang;
+    return {
+      langOpen: this.state.langOpen,
+      langBtnBg: this.state.langOpen ? '#ECEBFA' : 'transparent',
+      toggleLang: () => this.setState(s => ({ langOpen: !s.langOpen, searchOpen: false })),
+      closeLang: () => this.setState({ langOpen: false }),
+      langTitle: cur === 'zh' ? '语言' : 'Language',
+      langs: [['en', 'English', 'English'], ['zh', '简体中文', 'Chinese (Simplified)']].map(([k, native, english]) => ({ native, english, bg: k === cur ? '#F4F3FC' : 'transparent', check: k === cur ? 1 : 0, select: () => this.setLang(k) })),
+      tLogin: this.t('Log in'), tSignup: this.t('Sign Up Free'), tLogout: this.t('Log out')
+    };
+  }
+  readUser = () => { let u = null; try { u = JSON.parse(localStorage.getItem('keco-auth') || 'null'); } catch (e) {} this.setState({ user: u }); };
+  componentDidMount() { document.addEventListener('click', this.guardLinks, true); this.readUser(); this.readLang(); window.addEventListener('storage', this.readUser); window.addEventListener('storage', this.readLang); window.addEventListener('keco-auth', this.readUser); window.addEventListener('keydown', this.onGlobalKey); document.addEventListener('mousedown', this.onDocDown); }
+  componentWillUnmount() { document.removeEventListener('click', this.guardLinks, true); clearTimeout(this.toastTimer); window.removeEventListener('storage', this.readUser); window.removeEventListener('storage', this.readLang); window.removeEventListener('keco-auth', this.readUser); window.removeEventListener('keydown', this.onGlobalKey); document.removeEventListener('mousedown', this.onDocDown); }
+  accountVals() {
+    const u = this.state.user || (this.props.demoUser && !this.state.demoOut ? { name: 'Alex Chen', email: 'alex@kecostudio.com' } : null);
+    return {
+      loggedIn: !!u, loggedOut: !u,
+      userName: u?.name || 'Keco user', userEmail: u?.email || '',
+      initial: ((u?.name || u?.email || 'K').trim()[0] || 'K').toUpperCase(),
+      profileOpen: this.state.profileOpen,
+      openProfile: () => this.setState({ profileOpen: true }),
+      closeProfile: () => this.setState({ profileOpen: false }),
+      toggleProfile: () => this.setState(s => ({ profileOpen: !s.profileOpen })),
+      profileLinks: [
+        { label: this.t('Profile'), href: 'Keco Workspace.dc.html', target: '_self', icon: 'M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM4 21a8 8 0 0 1 16 0' },
+        { label: this.t('Projects'), href: 'https://keco-studio-main.vercel.app/projects', target: '_blank', icon: 'M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z' },
+        { label: this.t('Support'), href: 'Keco Support.dc.html', target: '_self', icon: 'M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18zM9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.6.3-1 .9-1 1.6V14M12 17h.01' }
+      ],
+      logout: () => { try { localStorage.removeItem('keco-auth'); } catch (e) {} this.setState({ user: null, profileOpen: false, demoOut: true }); }
+    };
+  }
+  renderVals() {
+    const active = this.props.active || '';
+    const L = (label, desc, href) => ({ label, desc, href, ext: /^https?:/.test(href) });
+    const items = [
+      { label: 'Product', href: 'Keco Homepage.dc.html' },
+      { label: 'Solutions', href: '#', groups: [{ title: 'By role', links: [
+        L('For Game Designers', 'Characters, skills, items and balance data', 'Keco Solutions.dc.html#game-designers'),
+        L('For Narrative Teams', 'Scripts, branches, characters and assets', 'Keco Solutions.dc.html#narrative-teams'),
+        L('For Technical Designers', 'Structured data to engine-ready workflows', 'Keco Solutions.dc.html#technical-designers'),
+        L('For Creators', 'Publish and sell on the Marketplace', 'Keco Solutions.dc.html#creators')
+      ] }] },
+      { label: 'Resources', href: '#', groups: [{ links: [
+        L('Tutorials', 'Video tutorials and guides from the community', 'Keco Tutorials.dc.html'),
+        L('Use cases', 'Sample games and how they were built', 'Keco Use Cases.dc.html'),
+        L('Marketplace', 'Templates, components and plugins', 'Keco Marketplace.dc.html'),
+        L('Documentation', 'Technical docs and API reference', 'Keco Docs.dc.html')
+      ] }] },
+      { label: 'Pricing', href: 'Keco Pricing.dc.html' },
+      { label: 'Community', href: 'Keco Community.dc.html', alignRight: true, footer: 'All community channels', footerHref: 'Keco Community.dc.html', groups: [
+        { title: 'On Keco', links: [
+          L('Made with Keco', 'Games built by the community', 'Keco Made With.dc.html'),
+          L('Events', 'Game jams, meetups and launches', 'Keco Events.dc.html'),
+          L('Keco Forums', 'Tools and extensions by developers', 'Keco Open Source.dc.html#developers')
+        ] },
+        { title: 'Follow, chat, & build', cols: 2, links: [
+          L('GitHub', 'The open-source Keco repo', 'https://github.com/keco-studio'),
+          L('Developer Community', 'Ask questions and share feedback', 'https://forum.kecostudio.com'),
+          L('Discord', 'Chat live with designers and the team', 'https://discord.com/invite/KecoStudio'),
+          L('Reddit', 'r/KecoStudio discussions', 'https://www.reddit.com/r/KecoStudio'),
+          L('YouTube', 'Walkthroughs and release videos', 'https://www.youtube.com/@KecoStudio'),
+          L('X', 'Product updates and news', 'https://x.com/KecoStudio'),
+          L('Instagram', 'Art and behind-the-scenes', 'https://www.instagram.com/kecostudio'),
+          L('TikTok', 'Short tips and game clips', 'https://www.tiktok.com/@kecostudio')
+        ] }
+      ] }
+    ];
+    const t = this.t;
+    const home = !!this.props.isHome;
+    return {
+      logoSrc: (window.__resources && window.__resources.kecoLogo) || './assets/keco-logo.png',
+      logoHref: home ? '#' : 'Keco Homepage.dc.html',
+      toastOn: !!this.state.toast,
+      toastText: this.state.lang === 'zh' ? '此预览只包含首页。完整的 Keco 网站上线后即可访问其他页面。' : 'This preview includes the homepage only. Other pages will be available on the full Keco site.',
+      hideToast: () => this.setState({ toast: false }),
+      ...this.accountVals(),
+      ...this.langVals(),
+      ...this.searchVals(),
+      navItems: items.map(it => {
+        const hasMenu = !!it.groups;
+        const open = hasMenu && this.state.open === it.label;
+        const flat = hasMenu ? it.groups.flatMap(g => g.links) : [];
+        const isActive = it.label === active || flat.some(m => m.label === active) || (it.label === 'Community' && active === 'Open source');
+        const enter = e => {
+            if (!hasMenu) return;
+            const r = e.currentTarget.getBoundingClientRect();
+            const W = (it.groups || []).reduce((s, g) => s + (g.cols || 1) * 280 + ((g.cols || 1) - 1) * 6, 0) + ((it.groups || []).length - 1) * 6 + 18;
+            const vw = document.documentElement.clientWidth;
+            const want = it.alignRight ? r.width - W : r.width / 2 - W / 2;
+            const x = Math.max(16 - r.left, Math.min(want, vw - 16 - W - r.left));
+            this.setState({ open: it.label, menuX: Math.round(x) });
+          };
+        return {
+          label: t(it.label), href: (home && it.href === 'Keco Homepage.dc.html') ? '#' : it.href, hasMenu, open, toggleOnly: hasMenu && !it.navigates ? 'true' : 'false',
+          bg: isActive || open ? '#ECEBFA' : 'transparent',
+          chev: open ? 'rotate(180deg)' : 'none',
+          menuLeft: open ? (this.state.menuX ?? 0) + 'px' : '0px',
+          menuRight: 'auto',
+          menuShift: 'none',
+          footer: it.footer ? t(it.footer) : '', footerHref: it.footerHref || '#',
+          onEnter: enter,
+          onLeave: () => hasMenu && this.setState({ open: null }),
+          onClick: e => { if (hasMenu && !it.navigates) { e.preventDefault(); if (this.state.open === it.label) this.setState({ open: null }); else enter({ currentTarget: e.currentTarget.parentElement }); } },
+          groups: (it.groups || []).map(g => ({ title: g.title ? t(g.title) : '', width: (g.cols || 1) * 280 + ((g.cols || 1) - 1) * 6 + 'px', cols: `repeat(${g.cols || 1}, minmax(0,1fr))`, links: g.links.map(m => ({ ...m, label: t(m.label), desc: t(m.desc), target: m.ext ? '_blank' : '_self', bg: m.label === active ? '#F4F3FC' : 'transparent' })) }))
+        };
+      })
+    };
+  }
+}
+</script>
+</body>
+</html>

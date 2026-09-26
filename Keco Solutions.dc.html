@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="ext-resource-dependency" content="./assets/keco-logo.png" data-resource-id="kecoLogo" />
+<meta name="ext-resource-dependency" content="https://cdn.simpleicons.org/discord/4a4a5e" data-resource-id="social-discord" />
+<meta name="ext-resource-dependency" content="https://cdn.simpleicons.org/youtube/4a4a5e" data-resource-id="social-youtube" />
+<meta name="ext-resource-dependency" content="https://cdn.simpleicons.org/x/4a4a5e" data-resource-id="social-x" />
+<meta name="ext-resource-dependency" content="https://cdn.simpleicons.org/instagram/4a4a5e" data-resource-id="social-instagram" />
+<meta name="ext-resource-dependency" content="https://cdn.simpleicons.org/tiktok/4a4a5e" data-resource-id="social-tiktok" />
+<meta name="ext-resource-dependency" content="https://cdn.simpleicons.org/reddit/4a4a5e" data-resource-id="social-reddit" />
+<meta name="ext-resource-dependency" content="https://cdn.simpleicons.org/github/4a4a5e" data-resource-id="social-github" />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preload" as="image" href="./assets/keco-logo.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700;9..40,800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="./image-slot.js"></script>
+<style>
+html,body{margin:0;padding:0;background:#F9F9FD;}
+*{box-sizing:border-box;}
+a{color:#1a1a2e;text-decoration:none;}
+a:hover{color:#4a5bb8;}
+button{font:inherit;}
+</style>
+</helmet>
+<div style="min-height:100vh;font-family:'Inter',system-ui,sans-serif;color:#0f0f1a;background:#FCFCFD url('./assets/home-bg.png') top center / 100% auto no-repeat;position:relative;overflow-x:clip;">
+  <dc-import name="KecoNav" active="{{ navActive }}" style="position:sticky;top:0;z-index:50;display:block;" hint-size="100%,96px"></dc-import>
+
+  <section style="position:relative;z-index:1;max-width:1180px;margin:0 auto;padding:36px clamp(20px,3vw,48px) 0;">
+    <div style="display:flex;align-items:center;gap:8px;font-size:14px;letter-spacing:-0.01em;color:#4a4a5e;">
+      <span>Solutions</span><span>/</span><span style="color:#0f0f1a;">{{ r.label }}</span>
+    </div>
+    <div style="display:flex;gap:clamp(4px,1.4vw,24px);flex-wrap:wrap;margin-top:14px;font-family:'DM Sans',sans-serif;font-weight:600;font-size:15px;letter-spacing:-0.02em;">
+      <sc-for list="{{ tabs }}" as="t" hint-placeholder-count="4">
+        <button onClick="{{ t.select }}" style="border:0;cursor:pointer;padding:8px 12px;border-radius:999px;background:{{ t.bg }};color:#0f0f1a;font-weight:600;font-size:15px;letter-spacing:-0.02em;white-space:nowrap;transition:background .15s;" style-hover="background:#ECEBFA;">{{ t.label }}</button>
+      </sc-for>
+    </div>
+
+    <div style="display:flex;flex-direction:column;align-items:center;text-align:center;padding:clamp(40px,5vw,72px) 0 0;">
+      <span style="padding:4px 14px;border-radius:999px;background:#F4F3FC;box-shadow:0 2px 10px rgba(80,90,180,0.10);font-family:'DM Sans',sans-serif;font-weight:600;font-size:15px;letter-spacing:-0.02em;">{{ r.label }}</span>
+      <h1 style="margin:22px 0 0;max-width:760px;font-family:'DM Sans',sans-serif;font-weight:700;font-size:clamp(36px,4vw,56px);line-height:1.08;letter-spacing:-0.01em;text-wrap:balance;">{{ r.headline }}</h1>
+      <p style="margin:24px 0 0;max-width:640px;font-size:15px;line-height:1.6;letter-spacing:-0.015em;color:#15151f;text-wrap:pretty;">{{ r.intro }}</p>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:32px;">
+        <a href="Keco Homepage.dc.html" style="display:flex;align-items:center;gap:10px;height:52px;padding:0 26px 0 14px;border-radius:15px;background:linear-gradient(90deg,#CDCBF3 0%,#C1C5F1 55%,#B3BCEC 100%);font-family:'DM Sans',sans-serif;font-weight:700;font-size:17px;letter-spacing:-0.03em;color:#0f0f1a;box-shadow:0 18px 44px rgba(143,163,224,0.35);transition:transform .15s;" style-hover="transform:translateY(-2px);color:#0f0f1a;"><img src="./assets/spark.png" alt="" style="display:block;width:34px;height:34px;object-fit:contain;">Download Keco Studio</a>
+        <a href="{{ r.secondaryHref }}" style="display:flex;align-items:center;height:52px;padding:0 24px;border-radius:15px;background:#ffffff;border:1px solid #D2D3F5;font-family:'DM Sans',sans-serif;font-weight:600;font-size:17px;letter-spacing:-0.03em;color:#0f0f1a;" style-hover="background:#ECEBFA;color:#0f0f1a;">{{ r.secondary }}</a>
+      </div>
+    </div>
+
+    <div style="margin-top:56px;aspect-ratio:16/8;border-radius:24px;overflow:hidden;background:repeating-linear-gradient(135deg,#E6E5FA 0 10px,#EEEDFB 10px 20px);border:1px solid #E6E5FA;box-shadow:0 24px 70px rgba(80,90,180,0.14);">
+      <image-slot id="{{ r.heroSlot }}" shape="rect" placeholder="product screenshot for this role"></image-slot>
+    </div>
+  </section>
+
+  <section style="position:relative;z-index:1;max-width:1180px;margin:0 auto;padding:clamp(64px,8vw,112px) clamp(20px,3vw,48px) 0;display:flex;flex-direction:column;gap:clamp(56px,7vw,96px);">
+    <sc-for list="{{ features }}" as="f" hint-placeholder-count="3">
+      <div style="display:flex;flex-direction:{{ f.dir }};align-items:center;gap:clamp(28px,5vw,72px);flex-wrap:wrap;">
+        <div style="flex:1 1 380px;min-width:0;display:flex;flex-direction:column;gap:14px;">
+          <span style="font-family:'DM Sans',sans-serif;font-weight:700;font-size:15px;letter-spacing:-0.02em;color:#4a5bb8;">{{ f.n }}</span>
+          <h2 style="margin:0;font-family:'DM Sans',sans-serif;font-weight:700;font-size:26px;line-height:1.2;letter-spacing:-0.035em;">{{ f.title }}</h2>
+          <p style="margin:0;font-size:15px;line-height:1.6;letter-spacing:-0.015em;color:#4a4a5e;text-wrap:pretty;">{{ f.desc }}</p>
+          <ul style="list-style:none;margin:8px 0 0;padding:0;display:flex;flex-direction:column;gap:12px;">
+            <sc-for list="{{ f.bullets }}" as="b" hint-placeholder-count="3">
+              <li style="display:flex;align-items:center;gap:12px;font-size:15px;letter-spacing:-0.015em;color:#15151f;"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" style="flex-shrink:0;"><path d="M3 8.5l3.2 3L13 4.5" stroke="#4a5bb8" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>{{ b }}</li>
+            </sc-for>
+          </ul>
+        </div>
+        <div style="flex:1 1 440px;min-width:0;aspect-ratio:4/3;border-radius:20px;overflow:hidden;background:repeating-linear-gradient(135deg,#E6E5FA 0 10px,#EEEDFB 10px 20px);border:1px solid #E6E5FA;box-shadow:0 10px 40px rgba(80,90,180,0.10);">
+          <image-slot id="{{ f.slot }}" shape="rect" placeholder="feature screenshot"></image-slot>
+        </div>
+      </div>
+    </sc-for>
+  </section>
+
+  <section style="position:relative;z-index:1;max-width:1180px;margin:0 auto;padding:clamp(72px,8vw,120px) clamp(20px,3vw,48px) 0;">
+    <h2 style="margin:0;font-family:'DM Sans',sans-serif;font-weight:700;font-size:26px;line-height:1.2;letter-spacing:-0.035em;">Start here</h2>
+    <p style="margin:6px 0 0;font-size:15px;letter-spacing:-0.015em;color:#4a4a5e;">Resources picked for {{ r.audience }}.</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-top:24px;">
+      <sc-for list="{{ starts }}" as="s" hint-placeholder-count="3">
+        <a href="{{ s.href }}" style="display:flex;flex-direction:column;gap:6px;padding:22px;border-radius:18px;background:rgba(255,255,255,0.8);border:1px solid #E6E5FA;box-shadow:0 6px 24px rgba(80,90,180,0.06);color:#0f0f1a;transition:transform .15s;" style-hover="color:#0f0f1a;transform:translateY(-2px);">
+          <span style="font-size:14px;letter-spacing:-0.01em;color:#4a5bb8;font-weight:500;">{{ s.kind }}</span>
+          <span style="display:flex;align-items:center;justify-content:space-between;gap:8px;font-family:'DM Sans',sans-serif;font-weight:600;font-size:17px;letter-spacing:-0.025em;">{{ s.title }}<svg width="14" height="14" viewBox="0 0 14 14" fill="none" style="flex-shrink:0;"><path d="M3 7h8M7.5 3.5L11 7l-3.5 3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+        </a>
+      </sc-for>
+    </div>
+  </section>
+
+  <section style="position:relative;z-index:1;max-width:1180px;margin:0 auto;padding:clamp(72px,8vw,120px) clamp(20px,3vw,48px) clamp(72px,8vw,120px);">
+    <div style="display:flex;flex-direction:column;align-items:center;text-align:center;padding:clamp(40px,5vw,64px) 24px;border-radius:28px;background:linear-gradient(180deg,#E6E5FA 0%,#F4F3FC 100%);border:1px solid #E6E5FA;">
+      <h2 style="margin:0;max-width:620px;font-family:'DM Sans',sans-serif;font-weight:700;font-size:clamp(28px,3vw,40px);line-height:1.08;letter-spacing:-0.01em;text-wrap:balance;">{{ r.closing }}</h2>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:28px;">
+        <a href="Keco Homepage.dc.html" style="display:flex;align-items:center;height:48px;padding:0 24px;border-radius:14px;background:#B3BCEC;font-family:'DM Sans',sans-serif;font-weight:700;font-size:16px;letter-spacing:-0.03em;color:#0f0f1a;" style-hover="background:#A5B0E8;color:#0f0f1a;">Download Keco Studio</a>
+        <a href="Keco Pricing.dc.html" style="display:flex;align-items:center;height:48px;padding:0 24px;border-radius:14px;background:#ffffff;border:1px solid #D2D3F5;font-family:'DM Sans',sans-serif;font-weight:600;font-size:16px;letter-spacing:-0.03em;color:#0f0f1a;" style-hover="background:#ECEBFA;color:#0f0f1a;">See pricing</a>
+      </div>
+    </div>
+  </section>
+  <section id="faq" style="position:relative;z-index:1;max-width:1180px;margin:0 auto;padding:clamp(24px,4vw,56px) clamp(20px,3vw,48px) 140px;">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:clamp(24px,5vw,96px);align-items:start;">
+      <div style="display:flex;flex-direction:column;gap:14px;">
+        <span style="font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:14px;letter-spacing:0.02em;color:#4a5bb8;">FAQ</span>
+        <h2 style="margin:0;font-family:'DM Sans',sans-serif;font-weight:700;font-size:clamp(34px,4vw,56px);line-height:1.08;letter-spacing:-0.01em;text-wrap:balance;">Frequently asked questions</h2>
+        <p style="display:flex;flex-direction:column;align-items:flex-start;gap:4px;margin:6px 0 0;max-width:360px;font-size:15px;line-height:1.6;letter-spacing:-0.015em;color:#4a4a5e;"><span>Questions about Keco {{ r.labelLower }}?</span><a href="Keco Support.dc.html" style="color:#0f0f1a;border-bottom:1px solid #B3BCEC;">Get in touch with the team</a></p>
+      </div>
+      <div style="display:flex;flex-direction:column;border-top:1px solid #E6E5FA;">
+        <sc-for list="{{ faqs }}" as="q" hint-placeholder-count="5">
+          <div style="border-bottom:1px solid #E6E5FA;">
+            <button onClick="{{ q.toggle }}" aria-expanded="{{ q.open }}" style="width:100%;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:22px 0;border:0;background:transparent;cursor:pointer;text-align:left;font-family:'DM Sans',sans-serif;font-weight:600;font-size:18px;letter-spacing:-0.025em;color:#0f0f1a;" style-hover="color:#4a5bb8;">{{ q.q }}<span style="flex-shrink:0;width:28px;height:28px;border-radius:999px;display:flex;align-items:center;justify-content:center;background:{{ q.iconBg }};transition:background .15s;"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" style="transition:transform .2s;transform:{{ q.rot }};"><path d="M7 2.5v9M2.5 7h9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path></svg></span></button>
+            <sc-if value="{{ q.open }}" hint-placeholder-val="{{ false }}">
+              <p style="margin:0;padding:0 44px 24px 0;font-size:15px;line-height:1.65;letter-spacing:-0.015em;color:#4a4a5e;text-wrap:pretty;">{{ q.a }}</p>
+            </sc-if>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+  <dc-import name="KecoFooter" style="display:block;" hint-size="100%,420px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { role: 'game-designers', faqOpen: 0 };
+  faqData = {
+    'game-designers': [
+      ['Do I need to know how to code?', 'No. You design mechanics, tables and balance rules visually or in plain language. Keco handles the structure and exports for your engine.'],
+      ['Can I import my existing spreadsheets?', 'Yes. Keco imports CSV and XLSX files and keeps references between tables intact, so an item’s loot table or a unit’s skills stay linked.'],
+      ['How does balance simulation work?', 'Keco runs thousands of simulated sessions using your real data and formulas, then charts progression, difficulty and economy curves so you can spot problems early.'],
+      ['Can the AI agent change my data?', 'Only when you ask. Every agent change is shown for review and saved as a version snapshot, so you can compare or roll back at any time.'],
+      ['Which genres does Keco work for?', 'Any game with systems behind it: RPGs, roguelikes, strategy, card games, simulations and more. Marketplace templates give you a head start in each.']
+    ],
+    'narrative-teams': [
+      ['Can I paste in an existing script?', 'Yes. Paste or import a script and Keco converts it into structured dialogue tables with speakers, lines and branches you can review and edit.'],
+      ['How are branches and conditions handled?', 'Each branch can be tied to game state, like a quest flag or relationship value, and Keco flags dead ends, loops and missing lines automatically.'],
+      ['Does Keco support localization?', 'Yes. Dialogue is stored as string tables with stable IDs, so translators work in their own columns without breaking links to scenes or characters.'],
+      ['Can writers and designers work at the same time?', 'Yes. Teams edit the same project together, with comments, change history and version snapshots on every table.'],
+      ['How does dialogue get into the game?', 'Export dialogue as JSON, CSV or an engine-specific format, or connect your engine over MCP so updates arrive without manual copying.']
+    ],
+    'technical-designers': [
+      ['Which engines does Keco support?', 'Godot and Unity exporters are available today, and any engine can read Keco’s JSON and CSV exports. More native integrations are on the way.'],
+      ['What does the MCP server let me do?', 'It lets AI assistants and your own scripts read and write Keco data directly, so a model can query your design docs or push changes into your engine.'],
+      ['Can I run exports in CI?', 'Yes. The Keco CLI can import data, run validation and simulations, and export builds from any CI pipeline.'],
+      ['How do versioning and rollback work?', 'Every change creates a snapshot. You can diff any two versions of a table and roll back a single table or a whole project in one click.'],
+      ['Is there an API?', 'Yes. A REST API and webhooks are available on paid plans, alongside plugins for custom workflows.']
+    ],
+    'creators': [
+      ['What can I sell on the Marketplace?', 'Game templates, component and asset packs, and plugins. You can list them as free or paid.'],
+      ['How much do creators earn?', 'Creators receive a revenue share on every paid sale, paid out monthly. Details are in the creator agreement when you apply.'],
+      ['Do I need a paid plan to publish?', 'No. Any Keco account can apply to publish on the Marketplace.'],
+      ['Who owns what I publish?', 'You keep ownership of your work. Buyers receive a license to use it in their own projects.'],
+      ['How can my work get featured?', 'Standout listings appear in Trending and Best on the Marketplace, and games built with your packs can be showcased in Made with Keco.']
+    ]
+  };
+  roles = {
+    'game-designers': {
+      label: 'For Game Designers', audience: 'game designers',
+      headline: 'Every character, skill and item in one living system.',
+      intro: 'Keco gives game designers one place to manage characters, skills, items and balance data, then test how it all plays before development starts.',
+      secondary: 'Browse templates', secondaryHref: 'Keco Marketplace.dc.html#templates',
+      closing: 'Design the system, then prove it works.',
+      features: [
+        ['Structured game data', 'Characters, skills, items and loot tables live in linked tables, so one change updates everywhere it’s referenced.', ['Linked references between tables', 'Import from CSV and XLSX', 'Version snapshots and rollback']],
+        ['Mechanics you can test', 'Describe a mechanic in plain language and let the AI agent draft the formulas, tables and edge cases for you to refine.', ['Formula editor with live preview', 'AI-generated first drafts', 'Reusable components from the Marketplace']],
+        ['Balance before build', 'Run thousands of simulated sessions to check progression, difficulty and economy curves before anything reaches your engine.', ['Progression and economy charts', 'Compare balance versions side by side', 'Shareable reports for the team']]
+      ],
+      starts: [['Template', 'Pixel Map', 'Keco Marketplace.dc.html#templates'], ['Tutorial', 'Balancing an RPG economy', 'Keco Tutorials.dc.html'], ['Use case', 'Pixel Dungeon Crawler', 'Keco Use Cases.dc.html']]
+    },
+    'narrative-teams': {
+      label: 'For Narrative Teams', audience: 'writers and narrative designers',
+      headline: 'Stories that stay connected as they grow.',
+      intro: 'Keep scripts, branches, characters and assets linked in one workspace, so writers and designers always work from the same source.',
+      secondary: 'See a narrative use case', secondaryHref: 'Keco Use Cases.dc.html',
+      closing: 'Write the story once. Keep every branch in sync.',
+      features: [
+        ['Branching made visible', 'Map dialogue as a tree and tie each branch to the game state that unlocks it.', ['Visual branch map', 'Conditions linked to game data', 'Catch dead ends and missing lines']],
+        ['Characters as data', 'Every character’s lines, traits and relationships stay linked, so a rename or rewrite never breaks a scene.', ['Character sheets linked to dialogue', 'Localization-ready string tables', 'Voice and art asset references']],
+        ['From script to engine', 'Paste a script and Keco converts it into structured dialogue tables your team can review and export.', ['Script conversion pipeline', 'AI dialogue table generation', 'Export to JSON, CSV and engine formats']]
+      ],
+      starts: [['Template', 'Princess', 'Keco Marketplace.dc.html#templates'], ['Tutorial', 'Prompting the AI agent for dialogue tables', 'Keco Tutorials.dc.html'], ['Use case', 'Visual Novel Starter', 'Keco Use Cases.dc.html']]
+    },
+    'technical-designers': {
+      label: 'For Technical Designers', audience: 'technical designers',
+      headline: 'Game data your engine can trust.',
+      intro: 'Turn structured game data into engine-ready workflows, with validation, versioning and integrations that fit your pipeline.',
+      secondary: 'Read the docs', secondaryHref: 'Keco Docs.dc.html',
+      closing: 'Ship data, not spreadsheets.',
+      features: [
+        ['Engine-ready exports', 'Export validated tables in the formats your engine expects, from a click in the app or a command in CI.', ['JSON, CSV and custom schemas', 'Godot and Unity exporters', 'CLI for build pipelines']],
+        ['Connect your tools', 'An MCP server lets AI assistants and scripts read and write Keco data directly, alongside a REST API and plugins.', ['MCP server', 'REST API and webhooks', 'Plugins for custom workflows']],
+        ['Iterate safely', 'Every change is versioned and checked against your rules, so you can experiment without breaking a build.', ['Version snapshots and diff', 'One-click rollback', 'Validation rules on every change']]
+      ],
+      starts: [['Documentation', 'Quickstart', 'Keco Docs.dc.html'], ['Community', 'Developer tools and exporters', 'Keco Open Source.dc.html#developers'], ['Plugin', 'Sheet Sync', 'Keco Marketplace.dc.html#plugins']]
+    },
+    'creators': {
+      label: 'For Creators', audience: 'creators and partners',
+      headline: 'Share what you build. Earn from it.',
+      intro: 'Publish templates, components and plugins to the Keco Marketplace and reach the designers who need them.',
+      secondary: 'Visit the Marketplace', secondaryHref: 'Keco Marketplace.dc.html',
+      closing: 'Your next template could start someone’s game.',
+      features: [
+        ['Publish in a few clicks', 'Package any project as a template or asset pack, add previews and tags, and choose free or paid.', ['Publish from any project', 'Free or paid pricing', 'Preview images and tags']],
+        ['Get discovered', 'Your name appears on every card, and standout work is featured across the Marketplace and Made with Keco.', ['Creator profile on every listing', 'Trending and Best listings', 'Features in Made with Keco']],
+        ['Earn a revenue share', 'Get paid for every sale and see how your work performs over time.', ['Revenue share on every sale', 'Monthly payouts', 'Sales and download stats']]
+      ],
+      starts: [['Marketplace', 'Browse top templates', 'Keco Marketplace.dc.html#templates'], ['Community', 'Made with Keco', 'Keco Made With.dc.html'], ['Documentation', 'Publishing guide', 'Keco Docs.dc.html']]
+    }
+  };
+  componentDidMount() {
+    this.onHash = () => { const k = location.hash.slice(1); if (this.roles[k] && k !== this.state.role) { this.setState({ role: k }); window.scrollTo(0, 0); } };
+    this.onHash();
+    window.addEventListener('hashchange', this.onHash);
+  }
+  componentWillUnmount() { window.removeEventListener('hashchange', this.onHash); }
+  renderVals() {
+    const key = this.state.role, r = this.roles[key];
+    return {
+      r: { ...r, heroSlot: `solutions-${key}-hero`, labelLower: r.label.replace(/^For /, 'for ').toLowerCase() },
+      faqs: this.faqData[key].map(([q, a], i) => { const open = this.state.faqOpen === i; return { q, a, open, rot: open ? 'rotate(45deg)' : 'none', iconBg: open ? '#ECEBFA' : '#F4F3FC', toggle: () => this.setState({ faqOpen: open ? -1 : i }) }; }),
+      navActive: r.label,
+      tabs: Object.entries(this.roles).map(([k, v]) => ({ label: v.label, bg: k === key ? '#ECEBFA' : 'transparent', select: () => { this.setState({ role: k, faqOpen: 0 }); try { history.replaceState(null, '', '#' + k); } catch (e) {} } })),
+      features: r.features.map(([title, desc, bullets], i) => ({ n: '0' + (i + 1), title, desc, bullets, dir: i % 2 ? 'row-reverse' : 'row', slot: `solutions-${key}-${i}` })),
+      starts: r.starts.map(([kind, title, href]) => ({ kind, title, href }))
+    };
+  }
+}
+</script>
+</body>
+</html>

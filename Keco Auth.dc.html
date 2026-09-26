@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="ext-resource-dependency" content="./assets/keco-logo.png" data-resource-id="kecoLogo" />
+<meta name="ext-resource-dependency" content="https://cdn.simpleicons.org/discord/4a4a5e" data-resource-id="social-discord" />
+<meta name="ext-resource-dependency" content="https://cdn.simpleicons.org/youtube/4a4a5e" data-resource-id="social-youtube" />
+<meta name="ext-resource-dependency" content="https://cdn.simpleicons.org/x/4a4a5e" data-resource-id="social-x" />
+<meta name="ext-resource-dependency" content="https://cdn.simpleicons.org/instagram/4a4a5e" data-resource-id="social-instagram" />
+<meta name="ext-resource-dependency" content="https://cdn.simpleicons.org/tiktok/4a4a5e" data-resource-id="social-tiktok" />
+<meta name="ext-resource-dependency" content="https://cdn.simpleicons.org/reddit/4a4a5e" data-resource-id="social-reddit" />
+<meta name="ext-resource-dependency" content="https://cdn.simpleicons.org/github/4a4a5e" data-resource-id="social-github" />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preload" as="image" href="./assets/keco-logo.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700;9..40,800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+html,body{margin:0;padding:0;background:#F9F9FD;}
+*{box-sizing:border-box;}
+a{color:#1a1a2e;text-decoration:none;}
+a:hover{color:#4a5bb8;}
+button{font:inherit;}
+</style>
+</helmet>
+<div style="min-height:100vh;font-family:'Inter',system-ui,sans-serif;color:#0f0f1a;background:#FCFCFD url('./assets/home-bg.png') top center / 100% auto no-repeat;position:relative;overflow-x:clip;">
+  <dc-import name="KecoNav" style="position:sticky;top:0;z-index:50;display:block;" hint-size="100%,96px"></dc-import>
+
+  <section style="position:relative;z-index:1;display:flex;justify-content:center;padding:clamp(40px,6vw,80px) 20px 120px;">
+    <div style="width:100%;max-width:440px;display:flex;flex-direction:column;padding:clamp(28px,4vw,40px);border-radius:28px;background:rgba(255,255,255,0.86);border:1px solid #E6E5FA;box-shadow:0 24px 70px rgba(80,90,180,0.14);backdrop-filter:blur(10px);">
+      <h1 style="margin:0;font-family:'DM Sans',sans-serif;font-weight:700;font-size:26px;line-height:1.2;letter-spacing:-0.035em;text-align:center;">{{ title }}</h1>
+      <p style="margin:10px 0 0;font-size:15px;line-height:1.6;letter-spacing:-0.015em;color:#4a4a5e;text-align:center;text-wrap:pretty;">{{ subtitle }}</p>
+
+      <div style="display:flex;flex-direction:column;gap:10px;margin-top:28px;">
+        <button onClick="{{ goGoogle }}" style="display:flex;align-items:center;justify-content:center;gap:10px;height:48px;border-radius:14px;background:#ffffff;border:1px solid #D2D3F5;cursor:pointer;font-family:'DM Sans',sans-serif;font-weight:600;font-size:15px;letter-spacing:-0.02em;color:#0f0f1a;transition:background .15s;" style-hover="background:#F4F3FC;"><img src="https://cdn.simpleicons.org/google" alt="" style="display:block;width:18px;height:18px;">Continue with Google</button>
+        <button onClick="{{ goGitHub }}" style="display:flex;align-items:center;justify-content:center;gap:10px;height:48px;border-radius:14px;background:#ffffff;border:1px solid #D2D3F5;cursor:pointer;font-family:'DM Sans',sans-serif;font-weight:600;font-size:15px;letter-spacing:-0.02em;color:#0f0f1a;transition:background .15s;" style-hover="background:#F4F3FC;"><img src="https://cdn.simpleicons.org/github" alt="" style="display:block;width:18px;height:18px;">Continue with GitHub</button>
+      </div>
+
+      <div style="display:flex;align-items:center;gap:12px;margin:24px 0;font-size:14px;letter-spacing:-0.01em;color:#4a4a5e;">
+        <span style="flex:1;height:1px;background:#E6E5FA;"></span>or<span style="flex:1;height:1px;background:#E6E5FA;"></span>
+      </div>
+
+      <form onSubmit="{{ submit }}" style="display:flex;flex-direction:column;gap:16px;">
+        <sc-if value="{{ isSignup }}" hint-placeholder-val="{{ false }}">
+          <label style="display:flex;flex-direction:column;gap:6px;font-size:14px;font-weight:500;letter-spacing:-0.01em;">Name
+            <input value="{{ name }}" onChange="{{ onName }}" placeholder="Your name" autocomplete="name" style="height:46px;padding:0 16px;border-radius:12px;border:1px solid #D2D3F5;background:#ffffff;outline:0;font:inherit;font-weight:400;font-size:15px;letter-spacing:-0.015em;color:#0f0f1a;" style-focus="border-color:#8FA3E0;box-shadow:0 0 0 3px rgba(179,188,236,0.4);">
+          </label>
+        </sc-if>
+        <label style="display:flex;flex-direction:column;gap:6px;font-size:14px;font-weight:500;letter-spacing:-0.01em;">Email
+          <input type="email" value="{{ email }}" onChange="{{ onEmail }}" placeholder="you@studio.com" autocomplete="email" style="height:46px;padding:0 16px;border-radius:12px;border:1px solid #D2D3F5;background:#ffffff;outline:0;font:inherit;font-weight:400;font-size:15px;letter-spacing:-0.015em;color:#0f0f1a;" style-focus="border-color:#8FA3E0;box-shadow:0 0 0 3px rgba(179,188,236,0.4);">
+        </label>
+        <label style="display:flex;flex-direction:column;gap:6px;font-size:14px;font-weight:500;letter-spacing:-0.01em;">
+          <span style="display:flex;justify-content:space-between;gap:8px;">Password<sc-if value="{{ isLogin }}" hint-placeholder-val="{{ true }}"><a href="#" style="font-weight:400;color:#4a5bb8;">Forgot password?</a></sc-if></span>
+          <input type="password" value="{{ password }}" onChange="{{ onPassword }}" placeholder="{{ pwPlaceholder }}" autocomplete="{{ pwAuto }}" style="height:46px;padding:0 16px;border-radius:12px;border:1px solid #D2D3F5;background:#ffffff;outline:0;font:inherit;font-weight:400;font-size:15px;letter-spacing:-0.015em;color:#0f0f1a;" style-focus="border-color:#8FA3E0;box-shadow:0 0 0 3px rgba(179,188,236,0.4);">
+        </label>
+        <sc-if value="{{ error }}" hint-placeholder-val="{{ false }}">
+          <span style="font-size:14px;letter-spacing:-0.01em;color:#B4234A;">{{ error }}</span>
+        </sc-if>
+        <button type="submit" style="margin-top:6px;height:52px;border:0;border-radius:15px;cursor:pointer;background:linear-gradient(90deg,#CDCBF3 0%,#C1C5F1 55%,#B3BCEC 100%);box-shadow:0 18px 44px rgba(160,150,230,0.3);font-family:'Inter',sans-serif;font-weight:700;font-size:16px;letter-spacing:-0.025em;color:#0a0a12;transition:transform .15s,box-shadow .15s;" style-hover="transform:translateY(-1px);box-shadow:0 22px 54px rgba(150,140,230,0.4);">{{ cta }}</button>
+      </form>
+
+      <sc-if value="{{ isSignup }}" hint-placeholder-val="{{ false }}">
+        <p style="margin:16px 0 0;font-size:14px;line-height:1.5;letter-spacing:-0.01em;color:#4a4a5e;text-align:center;text-wrap:pretty;">By signing up you agree to the <a href="#" style="color:#0f0f1a;border-bottom:1px solid #B3BCEC;">Terms</a> and <a href="#" style="color:#0f0f1a;border-bottom:1px solid #B3BCEC;">Privacy Policy</a>.</p>
+      </sc-if>
+      <p style="margin:24px 0 0;font-size:15px;letter-spacing:-0.015em;color:#4a4a5e;text-align:center;">{{ switchText }} <a href="{{ switchHref }}" style="font-weight:600;color:#0f0f1a;border-bottom:1px solid #B3BCEC;">{{ switchLink }}</a></p>
+    </div>
+  </section>
+  <dc-import name="KecoFooter" style="display:block;" hint-size="100%,420px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { mode: 'login', name: '', email: '', password: '', error: '' };
+  componentDidMount() {
+    this.onHash = () => { const m = location.hash.slice(1); if ((m === 'login' || m === 'signup') && m !== this.state.mode) this.setState({ mode: m, error: '' }); };
+    this.onHash();
+    window.addEventListener('hashchange', this.onHash);
+  }
+  componentWillUnmount() { window.removeEventListener('hashchange', this.onHash); }
+  finish(user) {
+    try { localStorage.setItem('keco-auth', JSON.stringify(user)); } catch (e) {}
+    window.dispatchEvent(new Event('keco-auth'));
+    location.href = 'Keco Homepage.dc.html';
+  }
+  renderVals() {
+    const { mode, name, email, password, error } = this.state;
+    const signup = mode === 'signup';
+    const submit = e => {
+      e.preventDefault();
+      if (signup && !name.trim()) return this.setState({ error: 'Please enter your name.' });
+      if (!/^\S+@\S+\.\S+$/.test(email)) return this.setState({ error: 'Please enter a valid email address.' });
+      if (password.length < 8) return this.setState({ error: 'Password must be at least 8 characters.' });
+      this.finish({ name: signup ? name.trim() : email.split('@')[0], email });
+    };
+    return {
+      isSignup: signup, isLogin: !signup,
+      title: signup ? 'Create your Keco account' : 'Welcome back',
+      subtitle: signup ? 'Sign up free to start organizing game data, building mechanics and validating balance.' : 'Log in to your Keco account to pick up where you left off.',
+      cta: signup ? 'Create account' : 'Log in',
+      pwPlaceholder: signup ? 'At least 8 characters' : 'Your password',
+      pwAuto: signup ? 'new-password' : 'current-password',
+      switchText: signup ? 'Already have an account?' : 'New to Keco?',
+      switchLink: signup ? 'Log in' : 'Sign up free',
+      switchHref: signup ? '#login' : '#signup',
+      goGoogle: () => this.finish({ name: 'Alex Chen', email: 'alex@google.com' }),
+      goGitHub: () => this.finish({ name: 'Alex Chen', email: 'alex@github.com' }),
+      name, email, password, error,
+      onName: e => this.setState({ name: e.target.value, error: '' }),
+      onEmail: e => this.setState({ email: e.target.value, error: '' }),
+      onPassword: e => this.setState({ password: e.target.value, error: '' }),
+      submit
+    };
+  }
+}
+</script>
+</body>
+</html>

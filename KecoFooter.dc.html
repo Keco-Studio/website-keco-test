@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<footer style="position:relative;z-index:1;border-top:1px solid #E6E5FA;background:linear-gradient(180deg,#F9F9FD 0%,#F1F0FB 100%);font-family:'Inter',system-ui,sans-serif;color:#0f0f1a;">
+  <div style="max-width:1240px;margin:0 auto;padding:clamp(56px,6vw,88px) clamp(20px,3vw,48px) 32px;">
+    <div style="display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:32px 20px;">
+      <sc-for list="{{ cols }}" as="c" hint-placeholder-count="5">
+        <nav style="display:flex;flex-direction:column;gap:9px;min-width:0;">
+          <span style="font-family:'DM Sans',sans-serif;font-weight:700;font-size:15px;letter-spacing:-0.02em;margin-bottom:4px;">{{ c.title }}</span>
+          <sc-for list="{{ c.links }}" as="l" hint-placeholder-count="5">
+            <a href="{{ l.href }}" target="{{ l.target }}" rel="noopener" style="font-size:14px;line-height:1.4;letter-spacing:-0.01em;color:#4a4a5e;" style-hover="color:#4a5bb8;">{{ l.label }}</a>
+          </sc-for>
+        </nav>
+      </sc-for>
+    </div>
+
+    <div style="display:flex;align-items:center;justify-content:space-between;gap:20px 32px;flex-wrap:wrap;margin-top:48px;padding-top:32px;border-top:1px solid #E6E5FA;">
+      <div style="display:flex;align-items:center;gap:14px 24px;flex-wrap:wrap;">
+        <a href="{{ logoHref }}" style="display:flex;"><img src="{{ logoSrc }}" alt="Keco Studio Logo" style="display:block;height:40px;width:auto;"></a>
+        <span style="max-width:340px;font-size:14px;line-height:1.5;letter-spacing:-0.01em;color:#4a4a5e;text-wrap:pretty;">{{ tagline }}</span>
+      </div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;">
+        <sc-for list="{{ socials }}" as="s" hint-placeholder-count="7">
+          <a href="{{ s.href }}" target="_blank" rel="noopener" aria-label="{{ s.label }}" style="width:34px;height:34px;border-radius:10px;display:flex;align-items:center;justify-content:center;background:#ffffff;border:1px solid #E6E5FA;transition:background .15s;" style-hover="background:#ECEBFA;"><span style="display:block;width:16px;height:16px;background-image:{{ s.bg }};background-size:contain;background-repeat:no-repeat;background-position:center;"></span></a>
+        </sc-for>
+      </div>
+    </div>
+
+    <div style="display:flex;align-items:center;justify-content:space-between;gap:16px 24px;flex-wrap:wrap;margin-top:24px;padding-top:20px;border-top:1px solid #E6E5FA;font-size:14px;letter-spacing:-0.01em;color:#4a4a5e;">
+      <div style="display:flex;align-items:center;gap:8px 20px;flex-wrap:wrap;">
+        <span>© 2026 Keco Studio</span>
+        <sc-for list="{{ legal }}" as="g" hint-placeholder-count="3">
+          <a href="#" style="color:#4a4a5e;" style-hover="color:#4a5bb8;">{{ g }}</a>
+        </sc-for>
+      </div>
+      <div style="display:flex;align-items:center;gap:4px;padding:4px;border-radius:999px;background:#ffffff;border:1px solid #E6E5FA;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#4a4a5e" stroke-width="1.4" style="margin:0 4px 0 8px;"><circle cx="12" cy="12" r="9"></circle><ellipse cx="12" cy="12" rx="4" ry="9"></ellipse><path d="M3 12h18M12 3v18"></path></svg>
+        <sc-for list="{{ langs }}" as="l" hint-placeholder-count="2">
+          <button onClick="{{ l.select }}" style="border:0;cursor:pointer;padding:4px 12px;border-radius:999px;background:{{ l.bg }};font-family:'DM Sans',sans-serif;font-weight:600;font-size:14px;letter-spacing:-0.01em;color:#0f0f1a;" style-hover="background:#F4F3FC;">{{ l.label }}</button>
+        </sc-for>
+      </div>
+    </div>
+  </div>
+</footer>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:&quot;1280px&quot;,&quot;height&quot;:&quot;520px&quot;}}">
+class Component extends DCLogic {
+  state = { lang: 'en' };
+  readLang = () => { let l = 'en'; try { l = localStorage.getItem('keco-lang') || 'en'; } catch (e) {} this.setState({ lang: l }); };
+  componentDidMount() { this.readLang(); window.addEventListener('keco-lang', this.readLang); window.addEventListener('storage', this.readLang); }
+  componentWillUnmount() { window.removeEventListener('keco-lang', this.readLang); window.removeEventListener('storage', this.readLang); }
+  setLang(l) { try { localStorage.setItem('keco-lang', l); } catch (e) {} this.setState({ lang: l }); window.dispatchEvent(new CustomEvent('keco-lang', { detail: l })); }
+  renderVals() {
+    const zh = this.state.lang === 'zh';
+    const t = (en, cn) => zh ? cn : en;
+    const S = 'Keco Solutions.dc.html#';
+    const cols = [
+      [t('Product', '产品'), [[t('Download', '下载'), 'Keco Homepage.dc.html'], [t('Features', '功能'), 'Keco Homepage.dc.html#gdd'], [t('Keco agent', 'Keco Agent'), 'Keco Homepage.dc.html#agent'], [t('MCP integration', 'MCP 集成'), 'Keco Homepage.dc.html#mcp'], [t('Pricing', '价格'), 'Keco Pricing.dc.html'], [t('Marketplace', '市场'), 'Keco Marketplace.dc.html'], [t('Release notes', '更新日志'), 'Keco Docs.dc.html#release-notes']]],
+      [t('Solutions', '解决方案'), [[t('Game Designers', '游戏策划'), S + 'game-designers'], [t('Narrative Teams', '叙事团队'), S + 'narrative-teams'], [t('Technical Designers', '技术策划'), S + 'technical-designers'], [t('Creators', '创作者'), S + 'creators']]],
+      [t('Resources', '资源'), [[t('Tutorials', '教程'), 'Keco Tutorials.dc.html'], [t('Use cases', '使用案例'), 'Keco Use Cases.dc.html'], [t('Documentation', '文档'), 'Keco Docs.dc.html'], [t('Templates', '模板'), 'Keco Marketplace.dc.html#templates'], [t('Components', '组件'), 'Keco Marketplace.dc.html#components'], [t('Plugins', '插件'), 'Keco Marketplace.dc.html#plugins']]],
+      [t('Community', '社区'), [[t('Made with Keco', 'Made with Keco'), 'Keco Made With.dc.html'], [t('Events', '活动'), 'Keco Events.dc.html'], [t('Keco Forums', 'Keco 论坛'), 'Keco Open Source.dc.html#developers'], [t('Developer Community', '开发者社区'), 'https://forum.kecostudio.com'], [t('GitHub', 'GitHub'), 'https://github.com/keco-studio'], [t('All channels', '全部渠道'), 'Keco Community.dc.html']]],
+      [t('Company', '公司'), [[t('Support', '支持'), 'Keco Support.dc.html'], [t('Contact us', '联系我们'), 'Keco Support.dc.html']]]
+    ];
+    const socials = [['Discord', 'discord', 'https://discord.com/invite/KecoStudio'], ['YouTube', 'youtube', 'https://www.youtube.com/@KecoStudio'], ['X', 'x', 'https://x.com/KecoStudio'], ['Instagram', 'instagram', 'https://www.instagram.com/kecostudio'], ['TikTok', 'tiktok', 'https://www.tiktok.com/@kecostudio'], ['Reddit', 'reddit', 'https://www.reddit.com/r/KecoStudio'], ['GitHub', 'github', 'https://github.com/keco-studio']];
+    const res = window.__resources || {};
+    return {
+      logoSrc: res.kecoLogo || './assets/keco-logo.png',
+      logoHref: this.props.isHome ? '#' : 'Keco Homepage.dc.html',
+      tagline: t('The AI-native workspace for designing, testing and balancing game systems.', '面向游戏策划的 AI 原生工作空间：设计、测试并平衡你的游戏系统。'),
+      contactTitle: t('Contact', '联系方式'),
+      cols: cols.map(([title, links]) => ({ title, links: links.map(([label, href]) => ({ label, href, target: /^https?:/.test(href) ? '_blank' : '_self' })) })),
+      socials: socials.map(([label, slug, href]) => ({ label, href, bg: `url("${res['social-' + slug] || `https://cdn.simpleicons.org/${slug}/4a4a5e`}")` })),
+      legal: [t('Terms', '服务条款'), t('Privacy', '隐私政策'), t('Cookies', 'Cookie 设置')],
+      langs: [['en', 'English'], ['zh', '中文']].map(([k, label]) => ({ label, bg: k === this.state.lang ? '#ECEBFA' : 'transparent', select: () => this.setLang(k) }))
+    };
+  }
+}
+</script>
+</body>
+</html>

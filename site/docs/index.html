@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Documentation – Keco</title>
+<meta name="description" content="Keco Studio documentation. Set up your first project, import game data and run a balance check in about 15 minutes.">
+<link rel="canonical" href="https://kecostudio.com/docs">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Documentation – Keco">
+<meta property="og:description" content="Keco Studio documentation. Set up your first project, import game data and run a balance check in about 15 minutes.">
+<meta property="og:url" content="https://kecostudio.com/docs">
+<link rel="icon" type="image/png" href="../assets/keco-logo.png">
+<link rel="preload" as="image" href="../assets/keco-logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700;9..40,800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<style>
+html,body{margin:0;padding:0;background:#F9F9FD;}
+*{box-sizing:border-box;}
+a{color:#1a1a2e;text-decoration:none;}
+a:hover{color:#4a5bb8;}
+button{font:inherit;}
+</style>
+<style>.kd-item .kd-menu{display:none}.kd-item:hover>.kd-menu,.kd-item:focus-within>.kd-menu{display:block}.kd-item:hover>.kd-trig,.kd-item:focus-within>.kd-trig{background:#ECEBFA !important}.kd-item:hover .kd-chev,.kd-item:focus-within .kd-chev{transform:rotate(180deg)}summary::-webkit-details-marker{display:none}details[open] .kd-faq-ic{background:#ECEBFA !important}details[open] .kd-faq-plus{transform:rotate(45deg) !important}[hidden]{display:none !important}.k0:hover{background:#ECEBFA !important;color:#0f0f1a !important}.k1:hover{background:#F4F3FC !important;color:#0f0f1a !important}.k2:hover{background:#ECEBFA !important}.k3:hover{background:#ffffff !important;color:#0f0f1a !important}.k4:hover{color:#0f0f1a !important}.k5:hover{color:#4a5bb8 !important}.k6:hover{background:#F4F3FC !important}</style>
+<script src="../site.js" defer></script>
+</head>
+<body>
+<div style="min-height:100vh;font-family:'Inter',system-ui,sans-serif;color:#0f0f1a;background:#FCFCFD url('../assets/home-bg.png') top center / 100% auto no-repeat;position:relative;overflow-x:clip;">
+  <div style="position:sticky;top:0;z-index:50;display:block;">
+<header style="position:relative;display:flex;align-items:center;justify-content:space-between;gap:clamp(8px,1.2vw,16px);padding:18px clamp(16px,3.3vw,56px);flex-wrap:nowrap;background:rgba(240,240,252,0.42);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,0.45);font-family:'DM Sans',sans-serif;color:#0f0f1a;">
+  <a href="/" style="display:flex;flex-shrink:0;"><img src="../assets/keco-logo.png" alt="Keco Studio Logo" style="display:block;height:clamp(40px,3.9vw,60px);width:auto;"></a>
+  <nav style="display:flex;align-items:center;justify-content:space-between;flex:0 1 640px;gap:clamp(0px,0.6vw,28px);flex-wrap:nowrap;min-width:0;font-weight:600;font-size:15px;letter-spacing:-0.02em;" aria-label="Primary">
+    
+      <div style="position:relative;display:flex;">
+        <a href="/" style="display:flex;align-items:center;gap:4px;color:#0f0f1a;padding:8px clamp(6px,0.8vw,12px);border-radius:999px;background:transparent;transition:background .15s;white-space:nowrap;" class="k0">Product</a>
+        
+      </div>
+    
+      <div style="position:relative;display:flex;" class="kd-item">
+        <button type="button" aria-haspopup="true" style="display:flex;align-items:center;gap:4px;color:#0f0f1a;padding:8px clamp(6px,0.8vw,12px);border-radius:999px;background:transparent;transition:background .15s;white-space:nowrap;border:0;font:inherit;cursor:pointer;" class="k0 kd-trig">Solutions<svg width="14" height="14" viewBox="0 0 14 14" fill="none" style="transition:transform .15s;transform:none;" class="kd-chev"><path d="M3 5l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
+        
+          <div style="position:absolute;top:100%;left:50%;right:auto;transform:translateX(-50%);padding-top:10px;z-index:60;" class="kd-menu">
+            <div style="display:flex;flex-direction:column;gap:6px;padding:8px;border-radius:18px;background:#ffffff;border:1px solid #ECEBFA;box-shadow:0 18px 50px rgba(80,90,180,0.18);">
+              <div style="display:flex;gap:6px;">
+                
+                  <div style="width:280px;display:flex;flex-direction:column;gap:2px;">
+                    
+                      <span style="padding:8px 14px 4px;font-family:'Inter',sans-serif;font-weight:500;font-size:14px;letter-spacing:-0.01em;color:#4a4a5e;">By role</span>
+                    
+                    <div style="display:grid;grid-template-columns:repeat(1, minmax(0,1fr));gap:2px 6px;">
+                    
+                      <a href="/solutions/game-designers" target="_self" rel="noopener" style="display:flex;flex-direction:column;gap:2px;padding:10px 14px;border-radius:12px;background:transparent;color:#0f0f1a;" class="k1">
+                        <span style="display:flex;align-items:center;gap:6px;font-weight:600;font-size:15px;letter-spacing:-0.02em;">For Game Designers</span>
+                        <span style="font-family:'Inter',sans-serif;font-weight:400;font-size:14px;line-height:1.45;letter-spacing:-0.01em;color:#4a4a5e;">Characters, skills, items and balance data</span>
+                      </a>
+                    
+                      <a href="/solutions/narrative-teams" target="_self" rel="noopener" style="display:flex;flex-direction:column;gap:2px;padding:10px 14px;border-radius:12px;background:transparent;color:#0f0f1a;" class="k1">
+                        <span style="display:flex;align-items:center;gap:6px;font-weight:600;font-size:15px;letter-spacing:-0.02em;">For Narrative Teams</span>
+                        <span style="font-family:'Inter',sans-serif;font-weight:400;font-size:14px;line-height:1.45;letter-spacing:-0.01em;color:#4a4a5e;">Scripts, branches, characters and assets</span>
+                      </a>
+                    
+                      <a href="/solutions/technical-designers" target="_self" rel="noopener" style="display:flex;flex-direction:column;gap:2px;padding:10px 14px;border-radius:12px;background:transparent;color:#0f0f1a;" class="k1">
+                        <span style="display:flex;align-items:center;gap:6px;font-weight:600;font-size:15px;letter-spacing:-0.02em;">For Technical Designers</span>
+                        <span style="font-family:'Inter',sans-serif;font-weight:400;font-size:14px;line-height:1.45;letter-spacing:-0.01em;color:#4a4a5e;">Structured data to engine-ready workflows</span>
+                      </a>
+                    
+                      <a href="/solutions/creators" target="_self" rel="noopener" style="display:flex;flex-direction:column;gap:2px;padding:10px 14px;border-radius:12px;background:transparent;color:#0f0f1a;" class="k1">
+                        <span style="display:flex;align-items:center;gap:6px;font-weight:600;font-size:15px;letter-spacing:-0.02em;">For Creators</span>
+                        <span style="font-family:'Inter',sans-serif;font-weight:400;font-size:14px;line-height:1.45;letter-spacing:-0.01em;color:#4a4a5e;">Publish and sell on the Marketplace</span>
+                      </a>
+                    
+                    </div>
+                  </div>
+                
+              </div>
+              
+            </div>
+          </div>
+        
+      </div>
+    
+      <div style="position:relative;display:flex;" class="kd-item">
+        <button type="button" aria-haspopup="true" style="display:flex;align-items:center;gap:4px;color:#0f0f1a;padding:8px clamp(6px,0.8vw,12px);border-radius:999px;background:#ECEBFA;transition:background .15s;white-space:nowrap;border:0;font:inherit;cursor:pointer;" class="k0 kd-trig">Resources<svg width="14" height="14" viewBox="0 0 14 14" fill="none" style="transition:transform .15s;transform:none;" class="kd-chev"><path d="M3 5l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
+        
+          <div style="position:absolute;top:100%;left:50%;right:auto;transform:translateX(-50%);padding-top:10px;z-index:60;" class="kd-menu">
+            <div style="display:flex;flex-direction:column;gap:6px;padding:8px;border-radius:18px;background:#ffffff;border:1px solid #ECEBFA;box-shadow:0 18px 50px rgba(80,90,180,0.18);">
+              <div style="display:flex;gap:6px;">
+                
+                  <div style="width:280px;display:flex;flex-direction:column;gap:2px;">
+                    
+                    <div style="display:grid;grid-template-columns:repeat(1, minmax(0,1fr));gap:2px 6px;">
+                    
+                      <a href="/tutorials" target="_self" rel="noopener" style="display:flex;flex-direction:column;gap:2px;padding:10px 14px;border-radius:12px;background:transparent;color:#0f0f1a;" class="k1">
+                        <span style="display:flex;align-items:center;gap:6px;font-weight:600;font-size:15px;letter-spacing:-0.02em;">Tutorials</span>
+                        <span style="font-family:'Inter',sans-serif;font-weight:400;font-size:14px;line-height:1.45;letter-spacing:-0.01em;color:#4a4a5e;">Video tutorials and guides from the community</span>
+                      </a>
+                    
+                      <a href="/use-cases" target="_self" rel="noopener" style="display:flex;flex-direction:column;gap:2px;padding:10px 14px;border-radius:12px;background:transparent;color:#0f0f1a;" class="k1">
+                        <span style="display:flex;align-items:center;gap:6px;font-weight:600;font-size:15px;letter-spacing:-0.02em;">Use cases</span>
+                        <span style="font-family:'Inter',sans-serif;font-weight:400;font-size:14px;line-height:1.45;letter-spacing:-0.01em;color:#4a4a5e;">Sample games and how they were built</span>
+                      </a>
+                    
+                      <a href="/marketplace" target="_self" rel="noopener" style="display:flex;flex-direction:column;gap:2px;padding:10px 14px;border-radius:12px;background:transparent;color:#0f0f1a;" class="k1">
+                        <span style="display:flex;align-items:center;gap:6px;font-weight:600;font-size:15px;letter-spacing:-0.02em;">Marketplace</span>
+                        <span style="font-family:'Inter',sans-serif;font-weight:400;font-size:14px;line-height:1.45;letter-spacing:-0.01em;color:#4a4a5e;">Templates, components and plugins</span>
+                      </a>
+                    
+                      <a href="/docs" target="_self" rel="noopener" style="display:flex;flex-direction:column;gap:2px;padding:10px 14px;border-radius:12px;background:#F4F3FC;color:#0f0f1a;" class="k1">
+                        <span style="display:flex;align-items:center;gap:6px;font-weight:600;font-size:15px;letter-spacing:-0.02em;">Documentation</span>
+                        <span style="font-family:'Inter',sans-serif;font-weight:400;font-size:14px;line-height:1.45;letter-spacing:-0.01em;color:#4a4a5e;">Technical docs and API reference</span>
+                      </a>
+                    
+                    </div>
+                  </div>
+                
+              </div>
+              
+            </div>
+          </div>
+        
+      </div>
+    
+      <div style="position:relative;display:flex;">
+        <a href="/pricing" style="display:flex;align-items:center;gap:4px;color:#0f0f1a;padding:8px clamp(6px,0.8vw,12px);border-radius:999px;background:transparent;transition:background .15s;white-space:nowrap;" class="k0">Pricing</a>
+        
+      </div>
+    
+      <div style="position:relative;display:flex;" class="kd-item">
+        <a href="/community" style="display:flex;align-items:center;gap:4px;color:#0f0f1a;padding:8px clamp(6px,0.8vw,12px);border-radius:999px;background:transparent;transition:background .15s;white-space:nowrap;" class="k0 kd-trig">Community<svg width="14" height="14" viewBox="0 0 14 14" fill="none" style="transition:transform .15s;transform:none;" class="kd-chev"><path d="M3 5l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
+        
+          <div style="position:absolute;top:100%;left:auto;right:0;transform:none;padding-top:10px;z-index:60;" class="kd-menu">
+            <div style="display:flex;flex-direction:column;gap:6px;padding:8px;border-radius:18px;background:#ffffff;border:1px solid #ECEBFA;box-shadow:0 18px 50px rgba(80,90,180,0.18);">
+              <div style="display:flex;gap:6px;">
+                
+                  <div style="width:280px;display:flex;flex-direction:column;gap:2px;">
+                    
+                      <span style="padding:8px 14px 4px;font-family:'Inter',sans-serif;font-weight:500;font-size:14px;letter-spacing:-0.01em;color:#4a4a5e;">On Keco</span>
+                    
+                    <div style="display:grid;grid-template-columns:repeat(1, minmax(0,1fr));gap:2px 6px;">
+                    
+                      <a href="/made-with-keco" target="_self" rel="noopener" style="display:flex;flex-direction:column;gap:2px;padding:10px 14px;border-radius:12px;background:transparent;color:#0f0f1a;" class="k1">
+                        <span style="display:flex;align-items:center;gap:6px;font-weight:600;font-size:15px;letter-spacing:-0.02em;">Made with Keco</span>
+                        <span style="font-family:'Inter',sans-serif;font-weight:400;font-size:14px;line-height:1.45;letter-spacing:-0.01em;color:#4a4a5e;">Games built by the community</span>
+                      </a>
+                    
+                      <a href="/events" target="_self" rel="noopener" style="display:flex;flex-direction:column;gap:2px;padding:10px 14px;border-radius:12px;background:transparent;color:#0f0f1a;" class="k1">
+                        <span style="display:flex;align-items:center;gap:6px;font-weight:600;font-size:15px;letter-spacing:-0.02em;">Events</span>
+                        <span style="font-family:'Inter',sans-serif;font-weight:400;font-size:14px;line-height:1.45;letter-spacing:-0.01em;color:#4a4a5e;">Game jams, meetups and launches</span>
+                      </a>
+                    
+                      <a href="/open-source#developers" target="_self" rel="noopener" style="display:flex;flex-direction:column;gap:2px;padding:10px 14px;border-radius:12px;background:transparent;color:#0f0f1a;" class="k1">
+                        <span style="display:flex;align-items:center;gap:6px;font-weight:600;font-size:15px;letter-spacing:-0.02em;">Keco Forums</span>
+                        <span style="font-family:'Inter',sans-serif;font-weight:400;font-size:14px;line-height:1.45;letter-spacing:-0.01em;color:#4a4a5e;">Tools and extensions by developers</span>
+                      </a>
+                    
+                    </div>
+                  </div>
+                
+                  <div style="width:566px;display:flex;flex-direction:column;gap:2px;">
+                    
+                      <span style="padding:8px 14px 4px;font-family:'Inter',sans-serif;font-weight:500;font-size:14px;letter-spacing:-0.01em;color:#4a4a5e;">Follow, chat, &amp; build</span>
+                    
+                    <div style="display:grid;grid-template-columns:repeat(2, minmax(0,1fr));gap:2px 6px;">
+                    
+                      <a href="https://github.com/keco-studio" target="_blank" rel="noopener" style="display:flex;flex-direction:column;gap:2px;padding:10px 14px;border-radius:12px;background:transparent;color:#0f0f1a;" class="k1">
+                        <span style="display:flex;align-items:center;gap:6px;font-weight:600;font-size:15px;letter-spacing:-0.02em;">GitHub<svg width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M5 11l6-6M6 5h5v5" stroke="#4a4a5e" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+                        <span style="font-family:'Inter',sans-serif;font-weight:400;font-size:14px;line-height:1.45;letter-spacing:-0.01em;color:#4a4a5e;">The open-source Keco repo</span>
+                      </a>
+                    
+                      <a href="https://forum.kecostudio.com" target="_blank" rel="noopener" style="display:flex;flex-direction:column;gap:2px;padding:10px 14px;border-radius:12px;background:transparent;color:#0f0f1a;" class="k1">
+                        <span style="display:flex;align-items:center;gap:6px;font-weight:600;font-size:15px;letter-spacing:-0.02em;">Developer Community<svg width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M5 11l6-6M6 5h5v5" stroke="#4a4a5e" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+                        <span style="font-family:'Inter',sans-serif;font-weight:400;font-size:14px;line-height:1.45;letter-spacing:-0.01em;color:#4a4a5e;">Ask questions and share feedback</span>
+                      </a>
+                    
+                      <a href="https://discord.com/invite/KecoStudio" target="_blank" rel="noopener" style="display:flex;flex-direction:column;gap:2px;padding:10px 14px;border-radius:12px;background:transparent;color:#0f0f1a;" class="k1">
+                        <span style="display:flex;align-items:center;gap:6px;font-weight:600;font-size:15px;letter-spacing:-0.02em;">Discord<svg width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M5 11l6-6M6 5h5v5" stroke="#4a4a5e" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+                        <span style="font-family:'Inter',sans-serif;font-weight:400;font-size:14px;line-height:1.45;letter-spacing:-0.01em;color:#4a4a5e;">Chat live with designers and the team</span>
+                      </a>
+                    
+                      <a href="https://www.reddit.com/r/KecoStudio" target="_blank" rel="noopener" style="display:flex;flex-direction:column;gap:2px;padding:10px 14px;border-radius:12px;background:transparent;color:#0f0f1a;" class="k1">
+                        <span style="display:flex;align-items:center;gap:6px;font-weight:600;font-size:15px;letter-spacing:-0.02em;">Reddit<svg width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M5 11l6-6M6 5h5v5" stroke="#4a4a5e" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+                        <span style="font-family:'Inter',sans-serif;font-weight:400;font-size:14px;line-height:1.45;letter-spacing:-0.01em;color:#4a4a5e;">r/KecoStudio discussions</span>
+                      </a>
+                    
+                      <a href="https://www.youtube.com/@KecoStudio" target="_blank" rel="noopener" style="display:flex;flex-direction:column;gap:2px;padding:10px 14px;border-radius:12px;background:transparent;color:#0f0f1a;" class="k1">
+                        <span style="display:flex;align-items:center;gap:6px;font-weight:600;font-size:15px;letter-spacing:-0.02em;">YouTube<svg width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M5 11l6-6M6 5h5v5" stroke="#4a4a5e" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+                        <span style="font-family:'Inter',sans-serif;font-weight:400;font-size:14px;line-height:1.45;letter-spacing:-0.01em;color:#4a4a5e;">Walkthroughs and release videos</span>
+                      </a>
+                    
+                      <a href="https://x.com/KecoStudio" target="_blank" rel="noopener" style="display:flex;flex-direction:column;gap:2px;padding:10px 14px;border-radius:12px;background:transparent;color:#0f0f1a;" class="k1">
+                        <span style="display:flex;align-items:center;gap:6px;font-weight:600;font-size:15px;letter-spacing:-0.02em;">X<svg width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M5 11l6-6M6 5h5v5" stroke="#4a4a5e" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+                        <span style="font-family:'Inter',sans-serif;font-weight:400;font-size:14px;line-height:1.45;letter-spacing:-0.01em;color:#4a4a5e;">Product updates and news</span>
+                      </a>
+                    
+                      <a href="https://www.instagram.com/kecostudio" target="_blank" rel="noopener" style="display:flex;flex-direction:column;gap:2px;padding:10px 14px;border-radius:12px;background:transparent;color:#0f0f1a;" class="k1">
+                        <span style="display:flex;align-items:center;gap:6px;font-weight:600;font-size:15px;letter-spacing:-0.02em;">Instagram<svg width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M5 11l6-6M6 5h5v5" stroke="#4a4a5e" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+                        <span style="font-family:'Inter',sans-serif;font-weight:400;font-size:14px;line-height:1.45;letter-spacing:-0.01em;color:#4a4a5e;">Art and behind-the-scenes</span>
+                      </a>
+                    
+                      <a href="https://www.tiktok.com/@kecostudio" target="_blank" rel="noopener" style="display:flex;flex-direction:column;gap:2px;padding:10px 14px;border-radius:12px;background:transparent;color:#0f0f1a;" class="k1">
+                        <span style="display:flex;align-items:center;gap:6px;font-weight:600;font-size:15px;letter-spacing:-0.02em;">TikTok<svg width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M5 11l6-6M6 5h5v5" stroke="#4a4a5e" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+                        <span style="font-family:'Inter',sans-serif;font-weight:400;font-size:14px;line-height:1.45;letter-spacing:-0.01em;color:#4a4a5e;">Short tips and game clips</span>
+                      </a>
+                    
+                    </div>
+                  </div>
+                
+              </div>
+              
+                <a href="/community" style="display:flex;align-items:center;justify-content:space-between;padding:12px 14px;border-radius:12px;background:#F4F3FC;font-weight:600;font-size:15px;letter-spacing:-0.02em;color:#0f0f1a;" class="k0">All community channels<svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7h8M7.5 3.5L11 7l-3.5 3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
+              
+            </div>
+          </div>
+        
+      </div>
+    
+  </nav>
+  <div style="display:flex;align-items:center;flex-shrink:0;gap:clamp(0px,0.5vw,16px);font-weight:600;font-size:15px;letter-spacing:-0.02em;">
+    <button aria-label="Search" style="background:transparent;border:0;padding:7px;border-radius:999px;cursor:pointer;display:flex;color:#0f0f1a;transition:background .15s;" class="k2" id="kd-search-btn" aria-expanded="false" aria-controls="kd-search"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="10.5" cy="10.5" r="7" stroke="currentColor" stroke-width="1.8"></circle><path d="M16 16l5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path></svg></button>
+    <div style="position:relative;display:flex;">
+      <button aria-label="Language" aria-expanded="false" style="background:transparent;border:0;padding:7px;border-radius:999px;cursor:pointer;display:flex;color:#0f0f1a;transition:background .15s;" class="k2"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="12" cy="12" r="9"></circle><ellipse cx="12" cy="12" rx="4" ry="9"></ellipse><path d="M3 12h18M4.5 7.5h15M4.5 16.5h15M12 3v18"></path></svg></button>
+      
+    </div>
+    
+      <a href="/login" style="color:#0f0f1a;padding:8px clamp(6px,0.8vw,12px);border-radius:999px;background:transparent;transition:background .15s;white-space:nowrap;" class="k0">Log in</a>
+      <a href="/signup" style="background:#F4F3FC;padding:8px 16px;border-radius:999px;white-space:nowrap;color:#0f0f1a;box-shadow:0 2px 10px rgba(80,90,180,0.12);" class="k3">Sign Up Free</a>
+    
+    
+  </div>
+  
+    <div style="position:absolute;top:100%;left:0;right:0;z-index:55;display:flex;justify-content:center;padding:12px clamp(16px,3.3vw,56px) 0;" id="kd-search" hidden="">
+      <div style="width:100%;max-width:680px;display:flex;flex-direction:column;border-radius:22px;background:#ffffff;border:1px solid #ECEBFA;box-shadow:0 24px 70px rgba(80,90,180,0.2);overflow:hidden;">
+        <label style="display:flex;align-items:center;gap:12px;padding:14px 18px;border-bottom:1px solid #ECEBFA;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" style="flex-shrink:0;"><circle cx="10.5" cy="10.5" r="7" stroke="#4a4a5e" stroke-width="1.8"></circle><path d="M16 16l5 5" stroke="#4a4a5e" stroke-width="1.8" stroke-linecap="round"></path></svg>
+          <input value="" placeholder="Search pages, templates, docs…" style="flex:1;min-width:0;border:0;outline:0;background:transparent;font-family:'Inter',sans-serif;font-weight:400;font-size:16px;letter-spacing:-0.015em;color:#0f0f1a;" id="kd-q" aria-label="Search Keco">
+          <button style="flex-shrink:0;border:1px solid #E6E5FA;background:#F9F9FD;border-radius:8px;padding:2px 8px;cursor:pointer;font-family:'Inter',sans-serif;font-weight:500;font-size:14px;color:#4a4a5e;" id="kd-esc">Esc</button>
+        </label>
+        <div style="display:flex;flex-direction:column;gap:2px;padding:8px;max-height:min(60vh,420px);overflow-y:auto;" id="kd-results">
+          <span style="padding:8px 12px 4px;font-family:'Inter',sans-serif;font-weight:500;font-size:14px;letter-spacing:-0.01em;color:#4a4a5e;" id="kd-results-title">Popular</span>
+          
+            <a href="/" style="display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 12px;border-radius:12px;background:#F4F3FC;color:#0f0f1a;" class="k1">
+              <span style="display:flex;flex-direction:column;gap:2px;min-width:0;">
+                <span style="font-weight:600;font-size:15px;letter-spacing:-0.02em;">Product</span>
+                <span style="font-family:'Inter',sans-serif;font-weight:400;font-size:14px;letter-spacing:-0.01em;color:#4a4a5e;">Page · GDD to game, Keco agent, MCP integration</span>
+              </span>
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" style="flex-shrink:0;"><path d="M3 7h8M7.5 3.5L11 7l-3.5 3.5" stroke="#4a4a5e" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+            </a>
+          
+            <a href="/solutions/creators" style="display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 12px;border-radius:12px;background:transparent;color:#0f0f1a;" class="k1">
+              <span style="display:flex;flex-direction:column;gap:2px;min-width:0;">
+                <span style="font-weight:600;font-size:15px;letter-spacing:-0.02em;">For Creators</span>
+                <span style="font-family:'Inter',sans-serif;font-weight:400;font-size:14px;letter-spacing:-0.01em;color:#4a4a5e;">Solutions · Publish and sell on the Marketplace</span>
+              </span>
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" style="flex-shrink:0;"><path d="M3 7h8M7.5 3.5L11 7l-3.5 3.5" stroke="#4a4a5e" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+            </a>
+          
+            <a href="/use-cases" style="display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 12px;border-radius:12px;background:transparent;color:#0f0f1a;" class="k1">
+              <span style="display:flex;flex-direction:column;gap:2px;min-width:0;">
+                <span style="font-weight:600;font-size:15px;letter-spacing:-0.02em;">Use cases</span>
+                <span style="font-family:'Inter',sans-serif;font-weight:400;font-size:14px;letter-spacing:-0.01em;color:#4a4a5e;">Resources · Sample games and how they were built</span>
+              </span>
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" style="flex-shrink:0;"><path d="M3 7h8M7.5 3.5L11 7l-3.5 3.5" stroke="#4a4a5e" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+            </a>
+          
+            <a href="/docs" style="display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 12px;border-radius:12px;background:transparent;color:#0f0f1a;" class="k1">
+              <span style="display:flex;flex-direction:column;gap:2px;min-width:0;">
+                <span style="font-weight:600;font-size:15px;letter-spacing:-0.02em;">Documentation</span>
+                <span style="font-family:'Inter',sans-serif;font-weight:400;font-size:14px;letter-spacing:-0.01em;color:#4a4a5e;">Resources · Technical docs and API reference</span>
+              </span>
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" style="flex-shrink:0;"><path d="M3 7h8M7.5 3.5L11 7l-3.5 3.5" stroke="#4a4a5e" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+            </a>
+          
+            <a href="/docs" style="display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 12px;border-radius:12px;background:transparent;color:#0f0f1a;" class="k1">
+              <span style="display:flex;flex-direction:column;gap:2px;min-width:0;">
+                <span style="font-weight:600;font-size:15px;letter-spacing:-0.02em;">Quickstart</span>
+                <span style="font-family:'Inter',sans-serif;font-weight:400;font-size:14px;letter-spacing:-0.01em;color:#4a4a5e;">Documentation · Install, import data, validate balance</span>
+              </span>
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" style="flex-shrink:0;"><path d="M3 7h8M7.5 3.5L11 7l-3.5 3.5" stroke="#4a4a5e" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+            </a>
+          
+          
+        </div>
+      </div>
+    </div>
+  
+  
+</header>
+</div><main>
+
+  <div style="position:relative;z-index:1;max-width:1340px;margin:0 auto;padding:36px clamp(20px,3vw,48px) 120px;display:grid;grid-template-columns:minmax(170px,240px) minmax(0,1fr) minmax(150px,200px);gap:clamp(24px,3vw,56px);align-items:start;">
+
+    <aside style="position:sticky;top:120px;display:flex;flex-direction:column;gap:24px;font-size:15px;letter-spacing:-0.015em;">
+      
+        <div style="display:flex;flex-direction:column;gap:2px;">
+          <span style="padding:0 12px 6px;font-family:'DM Sans',sans-serif;font-weight:700;font-size:14px;letter-spacing:-0.01em;">Get started</span>
+          
+            <a href="#" style="padding:6px 12px;border-radius:10px;background:transparent;color:#4a4a5e;font-weight:400;" class="k1">Overview</a>
+          
+            <a href="#" style="padding:6px 12px;border-radius:10px;background:#ECEBFA;color:#0f0f1a;font-weight:600;" class="k1">Quickstart</a>
+          
+            <a href="#" style="padding:6px 12px;border-radius:10px;background:transparent;color:#4a4a5e;font-weight:400;" class="k1">Installation</a>
+          
+        </div>
+      
+        <div style="display:flex;flex-direction:column;gap:2px;">
+          <span style="padding:0 12px 6px;font-family:'DM Sans',sans-serif;font-weight:700;font-size:14px;letter-spacing:-0.01em;">Core concepts</span>
+          
+            <a href="#" style="padding:6px 12px;border-radius:10px;background:transparent;color:#4a4a5e;font-weight:400;" class="k1">Projects</a>
+          
+            <a href="#" style="padding:6px 12px;border-radius:10px;background:transparent;color:#4a4a5e;font-weight:400;" class="k1">Data tables</a>
+          
+            <a href="#" style="padding:6px 12px;border-radius:10px;background:transparent;color:#4a4a5e;font-weight:400;" class="k1">Mechanics</a>
+          
+            <a href="#" style="padding:6px 12px;border-radius:10px;background:transparent;color:#4a4a5e;font-weight:400;" class="k1">Balance validation</a>
+          
+        </div>
+      
+        <div style="display:flex;flex-direction:column;gap:2px;">
+          <span style="padding:0 12px 6px;font-family:'DM Sans',sans-serif;font-weight:700;font-size:14px;letter-spacing:-0.01em;">AI agent</span>
+          
+            <a href="#" style="padding:6px 12px;border-radius:10px;background:transparent;color:#4a4a5e;font-weight:400;" class="k1">Agent credits</a>
+          
+            <a href="#" style="padding:6px 12px;border-radius:10px;background:transparent;color:#4a4a5e;font-weight:400;" class="k1">Prompting</a>
+          
+        </div>
+      
+        <div style="display:flex;flex-direction:column;gap:2px;">
+          <span style="padding:0 12px 6px;font-family:'DM Sans',sans-serif;font-weight:700;font-size:14px;letter-spacing:-0.01em;">Export</span>
+          
+            <a href="#" style="padding:6px 12px;border-radius:10px;background:transparent;color:#4a4a5e;font-weight:400;" class="k1">Config formats</a>
+          
+            <a href="#" style="padding:6px 12px;border-radius:10px;background:transparent;color:#4a4a5e;font-weight:400;" class="k1">Engine integrations</a>
+          
+        </div>
+      
+    </aside>
+
+    <article style="min-width:0;max-width:760px;font-size:15px;line-height:1.7;letter-spacing:-0.015em;color:#15151f;">
+      <div style="display:flex;align-items:center;gap:8px;font-size:14px;letter-spacing:-0.01em;color:#4a4a5e;">
+        <span>Resources</span><span>/</span><span>Documentation</span><span>/</span><span style="color:#0f0f1a;">Quickstart</span>
+      </div>
+      <h1 style="margin:14px 0 0;font-family:'DM Sans',sans-serif;font-weight:700;font-size:26px;line-height:1.2;letter-spacing:-0.035em;color:#0f0f1a;">Quickstart</h1>
+      <p style="margin:14px 0 0;text-wrap:pretty;">Technical documentation for building with Keco Studio. Start here to set up your first project, import game data, and run a balance check in about 15 minutes.</p>
+
+      <h2 id="before" style="margin:44px 0 0;scroll-margin-top:120px;font-family:'DM Sans',sans-serif;font-weight:700;font-size:24px;letter-spacing:-0.035em;color:#0f0f1a;">Before you begin</h2>
+      <ul style="margin:12px 0 0;padding-left:20px;display:flex;flex-direction:column;gap:6px;">
+        <li>A Keco account. The Starter plan is enough for this guide.</li>
+        <li>macOS 13+ or Windows 11.</li>
+        <li>Optional: a spreadsheet of game data (items, units, or dialogue) to import.</li>
+      </ul>
+
+      <h2 id="install" style="margin:44px 0 0;scroll-margin-top:120px;font-family:'DM Sans',sans-serif;font-weight:700;font-size:24px;letter-spacing:-0.035em;color:#0f0f1a;">1. Install Keco Studio</h2>
+      <p style="margin:12px 0 0;">Download the desktop app from the homepage, or install the CLI to work from your terminal.</p>
+      <pre style="margin:14px 0 0;padding:16px 20px;border-radius:14px;background:#F4F3FC;border:1px solid #E6E5FA;overflow-x:auto;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:14px;line-height:1.6;color:#0f0f1a;"><code>npm install -g @keco/cli
+keco login</code></pre>
+
+      <h2 id="project" style="margin:44px 0 0;scroll-margin-top:120px;font-family:'DM Sans',sans-serif;font-weight:700;font-size:24px;letter-spacing:-0.035em;color:#0f0f1a;">2. Create a project</h2>
+      <p style="margin:12px 0 0;">A project holds your data tables, mechanics, and simulation settings. Start empty or from a Marketplace template.</p>
+      <pre style="margin:14px 0 0;padding:16px 20px;border-radius:14px;background:#F4F3FC;border:1px solid #E6E5FA;overflow-x:auto;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:14px;line-height:1.6;color:#0f0f1a;"><code>keco new my-rpg --template pixel-map</code></pre>
+
+      <h2 id="import" style="margin:44px 0 0;scroll-margin-top:120px;font-family:'DM Sans',sans-serif;font-weight:700;font-size:24px;letter-spacing:-0.035em;color:#0f0f1a;">3. Import your data</h2>
+      <p style="margin:12px 0 0;">Keco reads CSV and XLSX files and keeps references between tables intact, so an item’s <code style="font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:14px;padding:1px 6px;border-radius:6px;background:#F4F3FC;">drop_table</code> column stays linked to your loot table.</p>
+      <pre style="margin:14px 0 0;padding:16px 20px;border-radius:14px;background:#F4F3FC;border:1px solid #E6E5FA;overflow-x:auto;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:14px;line-height:1.6;color:#0f0f1a;"><code>keco import ./data/items.csv --table items</code></pre>
+
+      <h2 id="validate" style="margin:44px 0 0;scroll-margin-top:120px;font-family:'DM Sans',sans-serif;font-weight:700;font-size:24px;letter-spacing:-0.035em;color:#0f0f1a;">4. Validate balance</h2>
+      <p style="margin:12px 0 0;">Run simulated sessions to check progression and economy curves before anything reaches development.</p>
+      <pre style="margin:14px 0 0;padding:16px 20px;border-radius:14px;background:#F4F3FC;border:1px solid #E6E5FA;overflow-x:auto;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:14px;line-height:1.6;color:#0f0f1a;"><code>keco simulate --runs 1000 --report</code></pre>
+
+      <h2 id="next" style="margin:44px 0 0;scroll-margin-top:120px;font-family:'DM Sans',sans-serif;font-weight:700;font-size:24px;letter-spacing:-0.035em;color:#0f0f1a;">Next steps</h2>
+      <ul style="margin:12px 0 0;padding-left:20px;display:flex;flex-direction:column;gap:6px;">
+        <li><a href="#" style="color:#4a5bb8;border-bottom:1px solid #B3BCEC;">Projects</a>: structure tables and mechanics for larger games.</li>
+        <li><a href="/tutorials" style="color:#4a5bb8;border-bottom:1px solid #B3BCEC;">Tutorials</a>: follow video walkthroughs from the community.</li>
+        <li><a href="/use-cases" style="color:#4a5bb8;border-bottom:1px solid #B3BCEC;">Use cases</a>: open a sample game and see how it was built.</li>
+      </ul>
+
+      <div style="display:flex;justify-content:space-between;gap:16px;margin-top:56px;padding-top:24px;border-top:1px solid #E6E5FA;font-family:'DM Sans',sans-serif;font-weight:600;letter-spacing:-0.02em;">
+        <a href="#" style="display:flex;flex-direction:column;gap:2px;color:#0f0f1a;"><span style="font-family:'Inter',sans-serif;font-weight:400;font-size:14px;color:#4a4a5e;">Previous</span>Overview</a>
+        <a href="#" style="display:flex;flex-direction:column;gap:2px;align-items:flex-end;color:#0f0f1a;"><span style="font-family:'Inter',sans-serif;font-weight:400;font-size:14px;color:#4a4a5e;">Next</span>Installation</a>
+      </div>
+    </article>
+
+    <aside style="position:sticky;top:120px;display:flex;flex-direction:column;gap:4px;font-size:14px;letter-spacing:-0.01em;">
+      <span style="padding-bottom:8px;font-family:'DM Sans',sans-serif;font-weight:700;font-size:14px;">On this page</span>
+      
+        <a href="#before" style="padding:4px 0 4px 12px;border-left:2px solid #4a5bb8;color:#0f0f1a;" class="k4">Before you begin</a>
+      
+        <a href="#install" style="padding:4px 0 4px 12px;border-left:2px solid #E6E5FA;color:#4a4a5e;" class="k4">1. Install Keco Studio</a>
+      
+        <a href="#project" style="padding:4px 0 4px 12px;border-left:2px solid #E6E5FA;color:#4a4a5e;" class="k4">2. Create a project</a>
+      
+        <a href="#import" style="padding:4px 0 4px 12px;border-left:2px solid #E6E5FA;color:#4a4a5e;" class="k4">3. Import your data</a>
+      
+        <a href="#validate" style="padding:4px 0 4px 12px;border-left:2px solid #E6E5FA;color:#4a4a5e;" class="k4">4. Validate balance</a>
+      
+        <a href="#next" style="padding:4px 0 4px 12px;border-left:2px solid #E6E5FA;color:#4a4a5e;" class="k4">Next steps</a>
+      
+    </aside>
+  </div>
+  </main><div style="display:block;">
+<footer style="position:relative;z-index:1;border-top:1px solid #E6E5FA;background:linear-gradient(180deg,#F9F9FD 0%,#F1F0FB 100%);font-family:'Inter',system-ui,sans-serif;color:#0f0f1a;">
+  <div style="max-width:1240px;margin:0 auto;padding:clamp(56px,6vw,88px) clamp(20px,3vw,48px) 32px;">
+    <div style="display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:32px 20px;">
+      
+        <nav style="display:flex;flex-direction:column;gap:9px;min-width:0;">
+          <span style="font-family:'DM Sans',sans-serif;font-weight:700;font-size:15px;letter-spacing:-0.02em;margin-bottom:4px;">Product</span>
+          
+            <a href="/" target="_self" rel="noopener" style="font-size:14px;line-height:1.4;letter-spacing:-0.01em;color:#4a4a5e;" class="k5">Download</a>
+          
+            <a href="/" target="_self" rel="noopener" style="font-size:14px;line-height:1.4;letter-spacing:-0.01em;color:#4a4a5e;" class="k5">Features</a>
+          
+            <a href="/solutions/narrative-teams" target="_self" rel="noopener" style="font-size:14px;line-height:1.4;letter-spacing:-0.01em;color:#4a4a5e;" class="k5">Keco agent</a>
+          
+            <a href="/solutions/technical-designers" target="_self" rel="noopener" style="font-size:14px;line-height:1.4;letter-spacing:-0.01em;color:#4a4a5e;" class="k5">MCP integration</a>
+          
+            <a href="/pricing" target="_self" rel="noopener" style="font-size:14px;line-height:1.4;letter-spacing:-0.01em;color:#4a4a5e;" class="k5">Pricing</a>
+          
+            <a href="/marketplace" target="_self" rel="noopener" style="font-size:14px;line-height:1.4;letter-spacing:-0.01em;color:#4a4a5e;" class="k5">Marketplace</a>
+          
+            <a href="/docs" target="_self" rel="noopener" style="font-size:14px;line-height:1.4;letter-spacing:-0.01em;color:#4a4a5e;" class="k5">Release notes</a>
+          
+        </nav>
+      
+        <nav style="display:flex;flex-direction:column;gap:9px;min-width:0;">
+          <span style="font-family:'DM Sans',sans-serif;font-weight:700;font-size:15px;letter-spacing:-0.02em;margin-bottom:4px;">Solutions</span>
+          
+            <a href="/solutions/game-designers" target="_self" rel="noopener" style="font-size:14px;line-height:1.4;letter-spacing:-0.01em;color:#4a4a5e;" class="k5">Game Designers</a>
+          
+            <a href="/solutions/narrative-teams" target="_self" rel="noopener" style="font-size:14px;line-height:1.4;letter-spacing:-0.01em;color:#4a4a5e;" class="k5">Narrative Teams</a>
+          
+            <a href="/solutions/technical-designers" target="_self" rel="noopener" style="font-size:14px;line-height:1.4;letter-spacing:-0.01em;color:#4a4a5e;" class="k5">Technical Designers</a>
+          
+            <a href="/solutions/creators" target="_self" rel="noopener" style="font-size:14px;line-height:1.4;letter-spacing:-0.01em;color:#4a4a5e;" class="k5">Creators</a>
+          
+        </nav>
+      
+        <nav style="display:flex;flex-direction:column;gap:9px;min-width:0;">
+          <span style="font-family:'DM Sans',sans-serif;font-weight:700;font-size:15px;letter-spacing:-0.02em;margin-bottom:4px;">Resources</span>
+          
+            <a href="/tutorials" target="_self" rel="noopener" style="font-size:14px;line-height:1.4;letter-spacing:-0.01em;color:#4a4a5e;" class="k5">Tutorials</a>
+          
+            <a href="/use-cases" target="_self" rel="noopener" style="font-size:14px;line-height:1.4;letter-spacing:-0.01em;color:#4a4a5e;" class="k5">Use cases</a>
+          
+            <a href="/docs" target="_self" rel="noopener" style="font-size:14px;line-height:1.4;letter-spacing:-0.01em;color:#4a4a5e;" class="k5">Documentation</a>
+          
+            <a href="/marketplace" target="_self" rel="noopener" style="font-size:14px;line-height:1.4;letter-spacing:-0.01em;color:#4a4a5e;" class="k5">Templates</a>
+          
+            <a href="/marketplace/components" target="_self" rel="noopener" style="font-size:14px;line-height:1.4;letter-spacing:-0.01em;color:#4a4a5e;" class="k5">Components</a>
+          
+            <a href="/marketplace/plugins" target="_self" rel="noopener" style="font-size:14px;line-height:1.4;letter-spacing:-0.01em;color:#4a4a5e;" class="k5">Plugins</a>
+          
+        </nav>
+      
+        <nav style="display:flex;flex-direction:column;gap:9px;min-width:0;">
+          <span style="font-family:'DM Sans',sans-serif;font-weight:700;font-size:15px;letter-spacing:-0.02em;margin-bottom:4px;">Community</span>
+          
+            <a href="/made-with-keco" target="_self" rel="noopener" style="font-size:14px;line-height:1.4;letter-spacing:-0.01em;color:#4a4a5e;" class="k5">Made with Keco</a>
+          
+            <a href="/events" target="_self" rel="noopener" style="font-size:14px;line-height:1.4;letter-spacing:-0.01em;color:#4a4a5e;" class="k5">Events</a>
+          
+            <a href="/open-source#developers" target="_self" rel="noopener" style="font-size:14px;line-height:1.4;letter-spacing:-0.01em;color:#4a4a5e;" class="k5">Keco Forums</a>
+          
+            <a href="https://forum.kecostudio.com" target="_blank" rel="noopener" style="font-size:14px;line-height:1.4;letter-spacing:-0.01em;color:#4a4a5e;" class="k5">Developer Community</a>
+          
+            <a href="https://github.com/keco-studio" target="_blank" rel="noopener" style="font-size:14px;line-height:1.4;letter-spacing:-0.01em;color:#4a4a5e;" class="k5">GitHub</a>
+          
+            <a href="/community" target="_self" rel="noopener" style="font-size:14px;line-height:1.4;letter-spacing:-0.01em;color:#4a4a5e;" class="k5">All channels</a>
+          
+        </nav>
+      
+        <nav style="display:flex;flex-direction:column;gap:9px;min-width:0;">
+          <span style="font-family:'DM Sans',sans-serif;font-weight:700;font-size:15px;letter-spacing:-0.02em;margin-bottom:4px;">Company</span>
+          
+            <a href="/support" target="_self" rel="noopener" style="font-size:14px;line-height:1.4;letter-spacing:-0.01em;color:#4a4a5e;" class="k5">Support</a>
+          
+            <a href="/support" target="_self" rel="noopener" style="font-size:14px;line-height:1.4;letter-spacing:-0.01em;color:#4a4a5e;" class="k5">Contact us</a>
+          
+        </nav>
+      
+    </div>
+
+    <div style="display:flex;align-items:center;justify-content:space-between;gap:20px 32px;flex-wrap:wrap;margin-top:48px;padding-top:32px;border-top:1px solid #E6E5FA;">
+      <div style="display:flex;align-items:center;gap:14px 24px;flex-wrap:wrap;">
+        <a href="/" style="display:flex;"><img src="../assets/keco-logo.png" alt="Keco Studio Logo" style="display:block;height:40px;width:auto;"></a>
+        <span style="max-width:340px;font-size:14px;line-height:1.5;letter-spacing:-0.01em;color:#4a4a5e;text-wrap:pretty;">The AI-native workspace for designing, testing and balancing game systems.</span>
+      </div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;">
+        
+          <a href="https://discord.com/invite/KecoStudio" target="_blank" rel="noopener" aria-label="Discord" style="width:34px;height:34px;border-radius:10px;display:flex;align-items:center;justify-content:center;background:#ffffff;border:1px solid #E6E5FA;transition:background .15s;" class="k2"><span style="display:block;width:16px;height:16px;background-image:url(&quot;https://cdn.simpleicons.org/discord/4a4a5e&quot;);background-size:contain;background-repeat:no-repeat;background-position:center;"></span></a>
+        
+          <a href="https://www.youtube.com/@KecoStudio" target="_blank" rel="noopener" aria-label="YouTube" style="width:34px;height:34px;border-radius:10px;display:flex;align-items:center;justify-content:center;background:#ffffff;border:1px solid #E6E5FA;transition:background .15s;" class="k2"><span style="display:block;width:16px;height:16px;background-image:url(&quot;https://cdn.simpleicons.org/youtube/4a4a5e&quot;);background-size:contain;background-repeat:no-repeat;background-position:center;"></span></a>
+        
+          <a href="https://x.com/KecoStudio" target="_blank" rel="noopener" aria-label="X" style="width:34px;height:34px;border-radius:10px;display:flex;align-items:center;justify-content:center;background:#ffffff;border:1px solid #E6E5FA;transition:background .15s;" class="k2"><span style="display:block;width:16px;height:16px;background-image:url(&quot;https://cdn.simpleicons.org/x/4a4a5e&quot;);background-size:contain;background-repeat:no-repeat;background-position:center;"></span></a>
+        
+          <a href="https://www.instagram.com/kecostudio" target="_blank" rel="noopener" aria-label="Instagram" style="width:34px;height:34px;border-radius:10px;display:flex;align-items:center;justify-content:center;background:#ffffff;border:1px solid #E6E5FA;transition:background .15s;" class="k2"><span style="display:block;width:16px;height:16px;background-image:url(&quot;https://cdn.simpleicons.org/instagram/4a4a5e&quot;);background-size:contain;background-repeat:no-repeat;background-position:center;"></span></a>
+        
+          <a href="https://www.tiktok.com/@kecostudio" target="_blank" rel="noopener" aria-label="TikTok" style="width:34px;height:34px;border-radius:10px;display:flex;align-items:center;justify-content:center;background:#ffffff;border:1px solid #E6E5FA;transition:background .15s;" class="k2"><span style="display:block;width:16px;height:16px;background-image:url(&quot;https://cdn.simpleicons.org/tiktok/4a4a5e&quot;);background-size:contain;background-repeat:no-repeat;background-position:center;"></span></a>
+        
+          <a href="https://www.reddit.com/r/KecoStudio" target="_blank" rel="noopener" aria-label="Reddit" style="width:34px;height:34px;border-radius:10px;display:flex;align-items:center;justify-content:center;background:#ffffff;border:1px solid #E6E5FA;transition:background .15s;" class="k2"><span style="display:block;width:16px;height:16px;background-image:url(&quot;https://cdn.simpleicons.org/reddit/4a4a5e&quot;);background-size:contain;background-repeat:no-repeat;background-position:center;"></span></a>
+        
+          <a href="https://github.com/keco-studio" target="_blank" rel="noopener" aria-label="GitHub" style="width:34px;height:34px;border-radius:10px;display:flex;align-items:center;justify-content:center;background:#ffffff;border:1px solid #E6E5FA;transition:background .15s;" class="k2"><span style="display:block;width:16px;height:16px;background-image:url(&quot;https://cdn.simpleicons.org/github/4a4a5e&quot;);background-size:contain;background-repeat:no-repeat;background-position:center;"></span></a>
+        
+      </div>
+    </div>
+
+    <div style="display:flex;align-items:center;justify-content:space-between;gap:16px 24px;flex-wrap:wrap;margin-top:24px;padding-top:20px;border-top:1px solid #E6E5FA;font-size:14px;letter-spacing:-0.01em;color:#4a4a5e;">
+      <div style="display:flex;align-items:center;gap:8px 20px;flex-wrap:wrap;">
+        <span>© 2026 Keco Studio</span>
+        
+          <a href="/terms" style="color:#4a4a5e;" class="k5">Terms</a>
+        
+          <a href="/privacy" style="color:#4a4a5e;" class="k5">Privacy</a>
+        
+          <a href="/cookies" style="color:#4a4a5e;" class="k5">Cookies</a>
+        
+      </div>
+      <div style="display:flex;align-items:center;gap:4px;padding:4px;border-radius:999px;background:#ffffff;border:1px solid #E6E5FA;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#4a4a5e" stroke-width="1.4" style="margin:0 4px 0 8px;"><circle cx="12" cy="12" r="9"></circle><ellipse cx="12" cy="12" rx="4" ry="9"></ellipse><path d="M3 12h18M12 3v18"></path></svg>
+        
+          <button style="border:0;cursor:pointer;padding:4px 12px;border-radius:999px;background:#ECEBFA;font-family:'DM Sans',sans-serif;font-weight:600;font-size:14px;letter-spacing:-0.01em;color:#0f0f1a;" class="k6">English</button>
+        
+          <button style="border:0;cursor:pointer;padding:4px 12px;border-radius:999px;background:transparent;font-family:'DM Sans',sans-serif;font-weight:600;font-size:14px;letter-spacing:-0.01em;color:#0f0f1a;" class="k6">中文</button>
+        
+      </div>
+    </div>
+  </div>
+</footer>
+</div>
+</div>
+</body>
+</html>

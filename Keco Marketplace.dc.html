@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="ext-resource-dependency" content="./assets/keco-logo.png" data-resource-id="kecoLogo" />
+<meta name="ext-resource-dependency" content="https://cdn.simpleicons.org/discord/4a4a5e" data-resource-id="social-discord" />
+<meta name="ext-resource-dependency" content="https://cdn.simpleicons.org/youtube/4a4a5e" data-resource-id="social-youtube" />
+<meta name="ext-resource-dependency" content="https://cdn.simpleicons.org/x/4a4a5e" data-resource-id="social-x" />
+<meta name="ext-resource-dependency" content="https://cdn.simpleicons.org/instagram/4a4a5e" data-resource-id="social-instagram" />
+<meta name="ext-resource-dependency" content="https://cdn.simpleicons.org/tiktok/4a4a5e" data-resource-id="social-tiktok" />
+<meta name="ext-resource-dependency" content="https://cdn.simpleicons.org/reddit/4a4a5e" data-resource-id="social-reddit" />
+<meta name="ext-resource-dependency" content="https://cdn.simpleicons.org/github/4a4a5e" data-resource-id="social-github" />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preload" as="image" href="./assets/keco-logo.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700;9..40,800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="./image-slot.js"></script>
+<style>
+html,body{margin:0;padding:0;background:#F9F9FD;}
+*{box-sizing:border-box;}
+a{color:#1a1a2e;text-decoration:none;}
+a:hover{color:#4a5bb8;}
+button{font:inherit;}
+</style>
+</helmet>
+<div style="min-height:100vh;font-family:'Inter',system-ui,sans-serif;color:#0f0f1a;background:#FCFCFD url('./assets/home-bg.png') top center / 100% auto no-repeat;position:relative;overflow-x:clip;">
+  <dc-import name="KecoNav" active="Marketplace" style="position:sticky;top:0;z-index:50;display:block;" hint-size="100%,96px"></dc-import>
+
+  <section style="position:relative;z-index:1;max-width:1340px;margin:0 auto;padding:36px clamp(20px,3vw,48px) 120px;">
+    <div style="display:flex;align-items:center;gap:8px;font-size:14px;letter-spacing:-0.01em;color:#4a4a5e;">
+      <span>Resources</span><span>/</span><span style="color:#0f0f1a;">Marketplace</span>
+    </div>
+    <div style="display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:nowrap;margin:14px 0 48px;">
+      <div style="display:flex;align-items:center;justify-content:space-between;flex:0 1 420px;min-width:0;gap:clamp(8px,2vw,40px);flex-wrap:nowrap;font-family:'DM Sans',sans-serif;font-weight:600;font-size:15px;letter-spacing:-0.02em;">
+        <sc-for list="{{ tabs }}" as="t" hint-placeholder-count="3">
+          <button onClick="{{ t.select }}" style="border:0;cursor:pointer;padding:8px clamp(6px,0.8vw,12px);border-radius:999px;background:{{ t.bg }};color:#0f0f1a;font-weight:600;font-size:15px;letter-spacing:-0.02em;white-space:nowrap;transition:background .15s;" style-hover="background:#ECEBFA;">{{ t.label }}</button>
+        </sc-for>
+      </div>
+      <label style="display:flex;align-items:center;gap:10px;background:#ffffff;border-radius:999px;padding:10px 26px;flex:0 1 380px;min-width:200px;box-shadow:0 2px 12px rgba(80,90,180,0.08);">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="14" cy="10" r="6" stroke="#0f0f1a" stroke-width="1.8"></circle><path d="M9.5 14.5L3 21" stroke="#0f0f1a" stroke-width="2.2" stroke-linecap="round"></path></svg>
+        <input value="{{ query }}" onChange="{{ onQuery }}" placeholder="{{ searchPlaceholder }}" style="border:0;outline:0;background:transparent;font:inherit;font-size:15px;letter-spacing:-0.02em;flex:1;min-width:0;color:#0f0f1a;">
+      </label>
+    </div>
+
+    <div style="padding:0 clamp(0px,3vw,48px);">
+      <h1 style="margin:0;font-family:'DM Sans',sans-serif;font-weight:700;font-size:26px;line-height:1.2;letter-spacing:-0.035em;">{{ heading }}</h1>
+      <p style="margin:4px 0 0;font-size:15px;letter-spacing:-0.015em;color:#15151f;text-wrap:pretty;">{{ blurb }}</p>
+
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;margin:36px 0 26px;font-size:15px;letter-spacing:-0.02em;">
+        <div style="display:flex;gap:8px;">
+          <sc-for list="{{ sorts }}" as="s" hint-placeholder-count="3">
+            <button onClick="{{ s.select }}" style="border:0;cursor:pointer;padding:5px 12px;border-radius:999px;background:{{ s.bg }};color:#0f0f1a;font-size:15px;letter-spacing:-0.02em;" style-hover="background:#E6E5FA;">{{ s.label }}</button>
+          </sc-for>
+        </div>
+        <div style="display:flex;gap:10px;">
+          <sc-for list="{{ filters }}" as="fl" hint-placeholder-count="2">
+            <div style="position:relative;">
+              <button onClick="{{ fl.toggle }}" style="border:0;cursor:pointer;padding:5px 10px;border-radius:999px;background:{{ fl.bg }};color:#0f0f1a;display:flex;align-items:center;gap:4px;font-size:15px;letter-spacing:-0.02em;white-space:nowrap;" style-hover="background:#E6E5FA;">{{ fl.display }}<svg width="12" height="12" viewBox="0 0 14 14" fill="none" style="transition:transform .15s;transform:{{ fl.chev }};"><path d="M3 5l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path></svg></button>
+              <sc-if value="{{ fl.open }}" hint-placeholder-val="{{ false }}">
+                <div style="position:absolute;right:0;top:calc(100% + 6px);z-index:20;min-width:170px;display:flex;flex-direction:column;gap:2px;padding:6px;border-radius:14px;background:#ffffff;border:1px solid #ECEBFA;box-shadow:0 14px 40px rgba(80,90,180,0.16);">
+                  <sc-for list="{{ fl.options }}" as="o" hint-placeholder-count="4">
+                    <button onClick="{{ o.select }}" style="border:0;cursor:pointer;text-align:left;padding:8px 12px;border-radius:10px;background:{{ o.bg }};color:#0f0f1a;font-size:15px;letter-spacing:-0.02em;" style-hover="background:#F4F3FC;">{{ o.label }}</button>
+                  </sc-for>
+                </div>
+              </sc-if>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:44px 30px;">
+        <sc-for list="{{ items }}" as="it" hint-placeholder-count="8">
+          <a href="#" style="display:flex;flex-direction:column;gap:10px;color:#0f0f1a;transition:transform .15s;" style-hover="color:#0f0f1a;transform:translateY(-3px);">
+            <div style="aspect-ratio:300/228;border-radius:14px;overflow:hidden;background:repeating-linear-gradient(135deg,#E6E5FA 0 10px,#EEEDFB 10px 20px);box-shadow:0 4px 16px rgba(80,90,180,0.10);">
+              <image-slot id="{{ it.slot }}" shape="rect" placeholder="{{ it.ph }}"></image-slot>
+            </div>
+            <div style="display:flex;align-items:center;justify-content:space-between;gap:8px;font-size:15px;letter-spacing:-0.03em;">
+              <span>{{ it.name }}</span>
+              <span style="background:#D2D3F5;border-radius:999px;padding:2px 8px;">{{ it.price }}</span>
+            </div>
+            <div style="display:flex;align-items:center;justify-content:space-between;gap:8px;font-size:14px;letter-spacing:-0.01em;color:#4a4a5e;">
+              <span>by {{ it.creator }}</span>
+              <span style="border:1px solid #D2D3F5;border-radius:999px;padding:1px 8px;">{{ it.style }}</span>
+            </div>
+          </a>
+        </sc-for>
+      </div>
+      <sc-if value="{{ empty }}" hint-placeholder-val="{{ false }}">
+        <p style="text-align:center;color:#4a4a5e;font-size:15px;padding:40px 0;">No results match these filters.</p>
+      </sc-if>
+    </div>
+  </section>
+  <dc-import name="KecoFooter" style="display:block;" hint-size="100%,420px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { tab: 'templates', sort: 'Trending', query: '', price: 'All', style: 'All', openFilter: null };
+  data = {
+    templates: { label: 'Templates', heading: 'Keco Studio Game Templates', blurb: 'Explore ready-made game templates across different genres, styles, and mechanics to jump-start your next project.', items: [['Anime Guys','$3.99','Mika Studio','Anime'],['Fantastic','$5.00','Keco Studio','Fantasy'],['Princess','Free','Keco Studio','Cartoon'],['Pixel Map','$9.99','8bit Lab','Pixel'],['Fight World','$7.50','Rogue Forge','3D'],['Plants Family','$8.67','Mika Studio','Cartoon'],['Silk Song','$9.99','Rogue Forge','Fantasy'],['Road King','$8.99','8bit Lab','3D']] },
+    components: { label: 'Components', heading: 'Keco Studio Game Components', blurb: 'Discover reusable components and asset packs you can easily add to your game design.', items: [['Cat icon','$9.99','Mika Studio','Cartoon'],['Pix convert','Free','Keco Studio','Pixel'],['Paper style','$3.50','Paper Co.','Cartoon'],['Like me combo','$1.99','Rogue Forge','Anime'],['retro pix','$9.99','8bit Lab','Pixel'],['cute chatbox','Free','Keco Studio','Anime'],['digital garden','$3.50','Paper Co.','Fantasy'],['3D room','$1.99','Rogue Forge','3D']] },
+    plugins: { label: 'Plugins', heading: 'Keco Studio Plugins', blurb: 'Extend your workspace with tools for balancing, data import, and team workflows.', items: [['Balance Sim','$4.99','Keco Studio','Balance'],['Sheet Sync','Free','Keco Studio','Data'],['Loot Tables','$2.99','Rogue Forge','Balance'],['Dialogue Tree','$5.99','Paper Co.','Narrative'],['XP Curves','Free','8bit Lab','Balance'],['Economy Lab','$6.50','Mika Studio','Balance'],['Playtest Log','$1.99','Keco Studio','Team'],['Version Diff','Free','Keco Studio','Team']] }
+  };
+  componentDidMount() {
+    this.onHash = () => { const k = location.hash.slice(1); if (this.data[k] && k !== this.state.tab) this.setState({ tab: k, query: '', style: 'All' }); };
+    this.onHash();
+    window.addEventListener('hashchange', this.onHash);
+    this.onDoc = e => { if (this.state.openFilter && !e.target.closest('[data-filter]')) this.setState({ openFilter: null }); };
+  }
+  componentWillUnmount() { window.removeEventListener('hashchange', this.onHash); }
+  selectTab(k) {
+    this.setState({ tab: k, query: '', style: 'All', openFilter: null });
+    try { history.replaceState(null, '', '#' + k); } catch (e) {}
+  }
+  renderVals() {
+    const { tab, sort, query, price, style, openFilter } = this.state;
+    const d = this.data[tab];
+    const q = query.trim().toLowerCase();
+    const num = p => p === 'Free' ? 0 : parseFloat(p.slice(1));
+    let items = d.items.map(([name, pr, creator, st], i) => ({ name, price: pr, creator, style: st, slot: `${tab}-${i}`, ph: `${d.label.slice(0, -1).toLowerCase()} cover` }));
+    if (sort === 'Best') items = [...items].reverse();
+    if (sort === 'Recent') items = [...items.slice(4), ...items.slice(0, 4)];
+    if (q) items = items.filter(it => it.name.toLowerCase().includes(q));
+    if (price === 'Free') items = items.filter(it => num(it.price) === 0);
+    if (price === 'Under $5') items = items.filter(it => num(it.price) > 0 && num(it.price) < 5);
+    if (price === '$5 and up') items = items.filter(it => num(it.price) >= 5);
+    if (style !== 'All') items = items.filter(it => it.style === style);
+    const styles = ['All', ...new Set(d.items.map(x => x[3]))];
+    const mkFilter = (key, label, options, val) => ({
+      display: val === 'All' ? label : `${label}: ${val}`,
+      bg: val === 'All' ? '#F4F3FC' : '#E6E5FA',
+      open: openFilter === key,
+      chev: openFilter === key ? 'rotate(180deg)' : 'none',
+      toggle: () => this.setState(s => ({ openFilter: s.openFilter === key ? null : key })),
+      options: options.map(o => ({ label: o, bg: o === val ? '#F4F3FC' : 'transparent', select: () => this.setState({ [key]: o, openFilter: null }) }))
+    });
+    return {
+      tabs: Object.entries(this.data).map(([k, v]) => ({ label: v.label, bg: k === tab ? '#ECEBFA' : 'transparent', select: () => this.selectTab(k) })),
+      sorts: ['Trending', 'Best', 'Recent'].map(s => ({ label: s, bg: s === sort ? '#F4F3FC' : 'transparent', select: () => this.setState({ sort: s }) })),
+      filters: [mkFilter('price', 'Price', ['All', 'Free', 'Under $5', '$5 and up'], price), mkFilter('style', tab === 'plugins' ? 'Type' : 'Style', styles, style)],
+      heading: d.heading, blurb: d.blurb,
+      searchPlaceholder: `Search ${d.label} ...`,
+      query, onQuery: e => this.setState({ query: e.target.value }),
+      items, empty: items.length === 0
+    };
+  }
+}
+</script>
+</body>
+</html>

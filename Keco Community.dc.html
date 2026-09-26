@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="ext-resource-dependency" content="./assets/keco-logo.png" data-resource-id="kecoLogo" />
+<meta name="ext-resource-dependency" content="https://cdn.simpleicons.org/discord/4a4a5e" data-resource-id="social-discord" />
+<meta name="ext-resource-dependency" content="https://cdn.simpleicons.org/youtube/4a4a5e" data-resource-id="social-youtube" />
+<meta name="ext-resource-dependency" content="https://cdn.simpleicons.org/x/4a4a5e" data-resource-id="social-x" />
+<meta name="ext-resource-dependency" content="https://cdn.simpleicons.org/instagram/4a4a5e" data-resource-id="social-instagram" />
+<meta name="ext-resource-dependency" content="https://cdn.simpleicons.org/tiktok/4a4a5e" data-resource-id="social-tiktok" />
+<meta name="ext-resource-dependency" content="https://cdn.simpleicons.org/reddit/4a4a5e" data-resource-id="social-reddit" />
+<meta name="ext-resource-dependency" content="https://cdn.simpleicons.org/github/4a4a5e" data-resource-id="social-github" />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preload" as="image" href="./assets/keco-logo.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700;9..40,800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+html,body{margin:0;padding:0;background:#F9F9FD;}
+*{box-sizing:border-box;}
+a{color:#1a1a2e;text-decoration:none;}
+a:hover{color:#4a5bb8;}
+button{font:inherit;}
+</style>
+</helmet>
+<div style="min-height:100vh;font-family:'Inter',system-ui,sans-serif;color:#0f0f1a;background:#FCFCFD url('./assets/home-bg.png') top center / 100% auto no-repeat;position:relative;overflow-x:clip;">
+  <dc-import name="KecoNav" active="Community" style="position:sticky;top:0;z-index:50;display:block;" hint-size="100%,96px"></dc-import>
+
+  <section style="position:relative;z-index:1;max-width:1180px;margin:0 auto;padding:36px clamp(20px,3vw,48px) 120px;">
+    <div style="display:flex;align-items:center;gap:8px;font-size:14px;letter-spacing:-0.01em;color:#4a4a5e;">
+      <span style="color:#0f0f1a;">Community</span>
+    </div>
+    <h1 style="margin:14px 0 0;font-family:'DM Sans',sans-serif;font-weight:700;font-size:26px;line-height:1.2;letter-spacing:-0.035em;">Community</h1>
+    <p style="margin:14px 0 0;max-width:680px;font-size:15px;line-height:1.6;letter-spacing:-0.015em;color:#15151f;text-wrap:pretty;">Find every place the Keco community meets. Chat with other designers, share what you’ve built, contribute to the code, and join upcoming events.</p>
+
+    <div style="display:flex;flex-direction:column;gap:48px;margin-top:44px;">
+      <sc-for list="{{ groups }}" as="g" hint-placeholder-count="3">
+        <div id="{{ g.id }}" style="display:flex;flex-direction:column;gap:16px;scroll-margin-top:120px;">
+          <h2 style="margin:0;font-family:'DM Sans',sans-serif;font-weight:700;font-size:18px;letter-spacing:-0.03em;">{{ g.title }}</h2>
+          <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px;">
+            <sc-for list="{{ g.items }}" as="c" hint-placeholder-count="4">
+              <a href="{{ c.href }}" target="{{ c.target }}" rel="noopener" style="display:flex;align-items:flex-start;gap:14px;padding:20px;border-radius:18px;background:rgba(255,255,255,0.8);border:1px solid #E6E5FA;box-shadow:0 6px 24px rgba(80,90,180,0.06);color:#0f0f1a;transition:transform .15s,box-shadow .15s;" style-hover="color:#0f0f1a;transform:translateY(-2px);box-shadow:0 12px 32px rgba(80,90,180,0.12);">
+                <span style="flex-shrink:0;width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;background:#ffffff;border:1px solid #ECEBFA;"><span role="img" aria-label="{{ c.label }}" style="display:block;width:{{ c.logoW }};height:22px;background-image:{{ c.bgImg }};background-size:contain;background-repeat:no-repeat;background-position:center;"></span></span>
+                <span style="display:flex;flex-direction:column;gap:4px;min-width:0;flex:1;">
+                  <span style="display:flex;align-items:center;justify-content:space-between;gap:8px;font-family:'DM Sans',sans-serif;font-weight:600;font-size:16px;letter-spacing:-0.025em;">{{ c.label }}<svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="{{ c.icon }}" stroke="#4a4a5e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+                  <span style="font-size:14px;line-height:1.5;letter-spacing:-0.01em;color:#4a4a5e;text-wrap:pretty;">{{ c.desc }}</span>
+                  <span style="margin-top:4px;font-size:14px;letter-spacing:-0.01em;color:#4a5bb8;">{{ c.handle }}</span>
+                </span>
+              </a>
+            </sc-for>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+  <dc-import name="KecoFooter" style="display:block;" hint-size="100%,420px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    const ext = 'M5 11l6-6M6 5h5v5', arrow = 'M3 8h9M8.5 4.5L12 8l-3.5 3.5';
+    const logos = { MK: './assets/keco-logo.png', EV: './assets/keco-logo.png', FO: './assets/keco-logo.png', GH: 'https://cdn.simpleicons.org/github', DV: './assets/keco-logo.png', DC: 'https://cdn.simpleicons.org/discord', RD: 'https://cdn.simpleicons.org/reddit', YT: 'https://cdn.simpleicons.org/youtube', X: 'https://cdn.simpleicons.org/x', IG: 'https://cdn.simpleicons.org/instagram', TT: 'https://cdn.simpleicons.org/tiktok' };
+    const C = (label, mono, desc, handle, href) => { const e = /^https?:/.test(href); return { label, mono, desc, handle, href, logo: logos[mono], bgImg: `url("${logos[mono]}")`, logoW: logos[mono].includes('keco-logo') ? '32px' : '22px', target: e ? '_blank' : '_self', icon: e ? ext : arrow }; };
+    const groups = [
+      { id: 'keco', title: 'On Keco', items: [
+        C('Made with Keco', 'MK', 'A curated showcase of games built by the community.', 'Browse the gallery', 'Keco Made With.dc.html'),
+        C('Events', 'EV', 'Game jams, virtual meetups, launches and developer news.', 'See upcoming events', 'Keco Events.dc.html'),
+        C('Keco Forums', 'DV', 'Tools, exporters and extensions built by developers.', 'Community projects list', 'Keco Open Source.dc.html#developers'),
+      ] },
+      { id: 'social', title: 'Follow Keco', items: [
+        C('YouTube', 'YT', 'Walkthroughs, release videos and livestreams.', '@KecoStudio', 'https://www.youtube.com/@KecoStudio'),
+        C('X', 'X', 'Product updates and community highlights.', '@KecoStudio', 'https://x.com/KecoStudio'),
+        C('Instagram', 'IG', 'Art, screenshots and behind-the-scenes.', '@kecostudio', 'https://www.instagram.com/kecostudio'),
+        C('TikTok', 'TT', 'Short tips and games made with Keco.', '@kecostudio', 'https://www.tiktok.com/@kecostudio')
+      ] },
+      { id: 'chat', title: 'Chat & build', items: [
+        C('GitHub', 'GH', 'Explore the open-source Keco repo and contribute a fix.', 'github.com/keco-studio', 'https://github.com/keco-studio'),
+        C('Developer Community', 'FO', 'Ask questions, report bugs, and share feedback with the team.', 'forum.kecostudio.com', 'https://forum.kecostudio.com'),
+        C('Discord', 'DC', 'Chat live with designers, get help, and meet the team.', 'discord.gg/KecoStudio', 'https://discord.com/invite/KecoStudio'),
+        C('Reddit', 'RD', 'Longer discussions, design breakdowns and tips.', 'r/KecoStudio', 'https://www.reddit.com/r/KecoStudio')
+      ] }
+    ];
+    return { groups };
+  }
+}
+</script>
+</body>
+</html>

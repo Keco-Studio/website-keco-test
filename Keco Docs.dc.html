@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="ext-resource-dependency" content="./assets/keco-logo.png" data-resource-id="kecoLogo" />
+<meta name="ext-resource-dependency" content="https://cdn.simpleicons.org/discord/4a4a5e" data-resource-id="social-discord" />
+<meta name="ext-resource-dependency" content="https://cdn.simpleicons.org/youtube/4a4a5e" data-resource-id="social-youtube" />
+<meta name="ext-resource-dependency" content="https://cdn.simpleicons.org/x/4a4a5e" data-resource-id="social-x" />
+<meta name="ext-resource-dependency" content="https://cdn.simpleicons.org/instagram/4a4a5e" data-resource-id="social-instagram" />
+<meta name="ext-resource-dependency" content="https://cdn.simpleicons.org/tiktok/4a4a5e" data-resource-id="social-tiktok" />
+<meta name="ext-resource-dependency" content="https://cdn.simpleicons.org/reddit/4a4a5e" data-resource-id="social-reddit" />
+<meta name="ext-resource-dependency" content="https://cdn.simpleicons.org/github/4a4a5e" data-resource-id="social-github" />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preload" as="image" href="./assets/keco-logo.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700;9..40,800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+html,body{margin:0;padding:0;background:#F9F9FD;}
+*{box-sizing:border-box;}
+a{color:#1a1a2e;text-decoration:none;}
+a:hover{color:#4a5bb8;}
+button{font:inherit;}
+</style>
+</helmet>
+<div style="min-height:100vh;font-family:'Inter',system-ui,sans-serif;color:#0f0f1a;background:#FCFCFD url('./assets/home-bg.png') top center / 100% auto no-repeat;position:relative;overflow-x:clip;">
+  <dc-import name="KecoNav" active="Documentation" style="position:sticky;top:0;z-index:50;display:block;" hint-size="100%,96px"></dc-import>
+
+  <div style="position:relative;z-index:1;max-width:1340px;margin:0 auto;padding:36px clamp(20px,3vw,48px) 120px;display:grid;grid-template-columns:minmax(170px,240px) minmax(0,1fr) minmax(150px,200px);gap:clamp(24px,3vw,56px);align-items:start;">
+
+    <aside style="position:sticky;top:120px;display:flex;flex-direction:column;gap:24px;font-size:15px;letter-spacing:-0.015em;">
+      <sc-for list="{{ sidebar }}" as="g" hint-placeholder-count="4">
+        <div style="display:flex;flex-direction:column;gap:2px;">
+          <span style="padding:0 12px 6px;font-family:'DM Sans',sans-serif;font-weight:700;font-size:14px;letter-spacing:-0.01em;">{{ g.title }}</span>
+          <sc-for list="{{ g.links }}" as="l" hint-placeholder-count="3">
+            <a href="#" style="padding:6px 12px;border-radius:10px;background:{{ l.bg }};color:{{ l.color }};font-weight:{{ l.weight }};" style-hover="background:#F4F3FC;color:#0f0f1a;">{{ l.label }}</a>
+          </sc-for>
+        </div>
+      </sc-for>
+    </aside>
+
+    <article style="min-width:0;max-width:760px;font-size:15px;line-height:1.7;letter-spacing:-0.015em;color:#15151f;">
+      <div style="display:flex;align-items:center;gap:8px;font-size:14px;letter-spacing:-0.01em;color:#4a4a5e;">
+        <span>Resources</span><span>/</span><span>Documentation</span><span>/</span><span style="color:#0f0f1a;">Quickstart</span>
+      </div>
+      <h1 style="margin:14px 0 0;font-family:'DM Sans',sans-serif;font-weight:700;font-size:26px;line-height:1.2;letter-spacing:-0.035em;color:#0f0f1a;">Quickstart</h1>
+      <p style="margin:14px 0 0;text-wrap:pretty;">Technical documentation for building with Keco Studio. Start here to set up your first project, import game data, and run a balance check in about 15 minutes.</p>
+
+      <h2 id="before" style="margin:44px 0 0;scroll-margin-top:120px;font-family:'DM Sans',sans-serif;font-weight:700;font-size:24px;letter-spacing:-0.035em;color:#0f0f1a;">Before you begin</h2>
+      <ul style="margin:12px 0 0;padding-left:20px;display:flex;flex-direction:column;gap:6px;">
+        <li>A Keco account. The Starter plan is enough for this guide.</li>
+        <li>macOS 13+ or Windows 11.</li>
+        <li>Optional: a spreadsheet of game data (items, units, or dialogue) to import.</li>
+      </ul>
+
+      <h2 id="install" style="margin:44px 0 0;scroll-margin-top:120px;font-family:'DM Sans',sans-serif;font-weight:700;font-size:24px;letter-spacing:-0.035em;color:#0f0f1a;">1. Install Keco Studio</h2>
+      <p style="margin:12px 0 0;">Download the desktop app from the homepage, or install the CLI to work from your terminal.</p>
+      <pre style="margin:14px 0 0;padding:16px 20px;border-radius:14px;background:#F4F3FC;border:1px solid #E6E5FA;overflow-x:auto;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:14px;line-height:1.6;color:#0f0f1a;"><code>npm install -g @keco/cli
+keco login</code></pre>
+
+      <h2 id="project" style="margin:44px 0 0;scroll-margin-top:120px;font-family:'DM Sans',sans-serif;font-weight:700;font-size:24px;letter-spacing:-0.035em;color:#0f0f1a;">2. Create a project</h2>
+      <p style="margin:12px 0 0;">A project holds your data tables, mechanics, and simulation settings. Start empty or from a Marketplace template.</p>
+      <pre style="margin:14px 0 0;padding:16px 20px;border-radius:14px;background:#F4F3FC;border:1px solid #E6E5FA;overflow-x:auto;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:14px;line-height:1.6;color:#0f0f1a;"><code>keco new my-rpg --template pixel-map</code></pre>
+
+      <h2 id="import" style="margin:44px 0 0;scroll-margin-top:120px;font-family:'DM Sans',sans-serif;font-weight:700;font-size:24px;letter-spacing:-0.035em;color:#0f0f1a;">3. Import your data</h2>
+      <p style="margin:12px 0 0;">Keco reads CSV and XLSX files and keeps references between tables intact, so an item’s <code style="font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:14px;padding:1px 6px;border-radius:6px;background:#F4F3FC;">drop_table</code> column stays linked to your loot table.</p>
+      <pre style="margin:14px 0 0;padding:16px 20px;border-radius:14px;background:#F4F3FC;border:1px solid #E6E5FA;overflow-x:auto;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:14px;line-height:1.6;color:#0f0f1a;"><code>keco import ./data/items.csv --table items</code></pre>
+
+      <h2 id="validate" style="margin:44px 0 0;scroll-margin-top:120px;font-family:'DM Sans',sans-serif;font-weight:700;font-size:24px;letter-spacing:-0.035em;color:#0f0f1a;">4. Validate balance</h2>
+      <p style="margin:12px 0 0;">Run simulated sessions to check progression and economy curves before anything reaches development.</p>
+      <pre style="margin:14px 0 0;padding:16px 20px;border-radius:14px;background:#F4F3FC;border:1px solid #E6E5FA;overflow-x:auto;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:14px;line-height:1.6;color:#0f0f1a;"><code>keco simulate --runs 1000 --report</code></pre>
+
+      <h2 id="next" style="margin:44px 0 0;scroll-margin-top:120px;font-family:'DM Sans',sans-serif;font-weight:700;font-size:24px;letter-spacing:-0.035em;color:#0f0f1a;">Next steps</h2>
+      <ul style="margin:12px 0 0;padding-left:20px;display:flex;flex-direction:column;gap:6px;">
+        <li><a href="#" style="color:#4a5bb8;border-bottom:1px solid #B3BCEC;">Projects</a>: structure tables and mechanics for larger games.</li>
+        <li><a href="Keco Tutorials.dc.html" style="color:#4a5bb8;border-bottom:1px solid #B3BCEC;">Tutorials</a>: follow video walkthroughs from the community.</li>
+        <li><a href="Keco Use Cases.dc.html" style="color:#4a5bb8;border-bottom:1px solid #B3BCEC;">Use cases</a>: open a sample game and see how it was built.</li>
+      </ul>
+
+      <div style="display:flex;justify-content:space-between;gap:16px;margin-top:56px;padding-top:24px;border-top:1px solid #E6E5FA;font-family:'DM Sans',sans-serif;font-weight:600;letter-spacing:-0.02em;">
+        <a href="#" style="display:flex;flex-direction:column;gap:2px;color:#0f0f1a;"><span style="font-family:'Inter',sans-serif;font-weight:400;font-size:14px;color:#4a4a5e;">Previous</span>Overview</a>
+        <a href="#" style="display:flex;flex-direction:column;gap:2px;align-items:flex-end;color:#0f0f1a;"><span style="font-family:'Inter',sans-serif;font-weight:400;font-size:14px;color:#4a4a5e;">Next</span>Installation</a>
+      </div>
+    </article>
+
+    <aside style="position:sticky;top:120px;display:flex;flex-direction:column;gap:4px;font-size:14px;letter-spacing:-0.01em;">
+      <span style="padding-bottom:8px;font-family:'DM Sans',sans-serif;font-weight:700;font-size:14px;">On this page</span>
+      <sc-for list="{{ toc }}" as="t" hint-placeholder-count="6">
+        <a href="{{ t.href }}" style="padding:4px 0 4px 12px;border-left:2px solid {{ t.line }};color:{{ t.color }};" style-hover="color:#0f0f1a;">{{ t.label }}</a>
+      </sc-for>
+    </aside>
+  </div>
+  <dc-import name="KecoFooter" style="display:block;" hint-size="100%,420px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { active: 'before' };
+  toc = [['before', 'Before you begin'], ['install', '1. Install Keco Studio'], ['project', '2. Create a project'], ['import', '3. Import your data'], ['validate', '4. Validate balance'], ['next', 'Next steps']];
+  componentDidMount() {
+    this.onScroll = () => {
+      let cur = this.toc[0][0];
+      for (const [id] of this.toc) { const el = document.getElementById(id); if (el && el.getBoundingClientRect().top < 160) cur = id; }
+      if (cur !== this.state.active) this.setState({ active: cur });
+    };
+    window.addEventListener('scroll', this.onScroll, { passive: true });
+  }
+  componentWillUnmount() { window.removeEventListener('scroll', this.onScroll); }
+  renderVals() {
+    const groups = [['Get started', ['Overview', 'Quickstart', 'Installation']], ['Core concepts', ['Projects', 'Data tables', 'Mechanics', 'Balance validation']], ['AI agent', ['Agent credits', 'Prompting']], ['Export', ['Config formats', 'Engine integrations']]];
+    return {
+      sidebar: groups.map(([title, links]) => ({ title, links: links.map(l => ({ label: l, bg: l === 'Quickstart' ? '#ECEBFA' : 'transparent', color: l === 'Quickstart' ? '#0f0f1a' : '#4a4a5e', weight: l === 'Quickstart' ? 600 : 400 })) })),
+      toc: this.toc.map(([id, label]) => ({ href: '#' + id, label, line: id === this.state.active ? '#4a5bb8' : '#E6E5FA', color: id === this.state.active ? '#0f0f1a' : '#4a4a5e' }))
+    };
+  }
+}
+</script>
+</body>
+</html>

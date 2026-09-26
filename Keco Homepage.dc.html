@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="ext-resource-dependency" content="./assets/keco-logo.png" data-resource-id="kecoLogo" />
+<meta name="ext-resource-dependency" content="https://cdn.simpleicons.org/discord/4a4a5e" data-resource-id="social-discord" />
+<meta name="ext-resource-dependency" content="https://cdn.simpleicons.org/youtube/4a4a5e" data-resource-id="social-youtube" />
+<meta name="ext-resource-dependency" content="https://cdn.simpleicons.org/x/4a4a5e" data-resource-id="social-x" />
+<meta name="ext-resource-dependency" content="https://cdn.simpleicons.org/instagram/4a4a5e" data-resource-id="social-instagram" />
+<meta name="ext-resource-dependency" content="https://cdn.simpleicons.org/tiktok/4a4a5e" data-resource-id="social-tiktok" />
+<meta name="ext-resource-dependency" content="https://cdn.simpleicons.org/reddit/4a4a5e" data-resource-id="social-reddit" />
+<meta name="ext-resource-dependency" content="https://cdn.simpleicons.org/github/4a4a5e" data-resource-id="social-github" />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+<template id="__bundler_thumbnail" data-bg-color="#E6E5FA"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="#E6E5FA"/><text x="50" y="63" text-anchor="middle" font-family="DM Sans, sans-serif" font-weight="800" font-size="36" fill="#0f0f1a">K</text></svg></template>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preload" as="image" href="./assets/keco-logo.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700;9..40,800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<script src="./image-slot.js"></script>
+<style>
+html,body{margin:0;padding:0;background:#F9F9FD;}
+*{box-sizing:border-box;}
+a{color:#1a1a2e;text-decoration:none;}
+a:hover{color:#4a5bb8;}
+button{font:inherit;}
+</style>
+</helmet>
+<div style="min-height:100vh;font-family:'Inter',system-ui,sans-serif;color:#0f0f1a;background:#FCFCFD url('./assets/home-bg.png') top center / 100% auto no-repeat;position:relative;overflow-x:clip;">
+
+  <dc-import name="KecoNav" is-home="true" active="" style="position:sticky;top:0;z-index:50;display:block;" hint-size="100%,96px"></dc-import>
+
+  <section style="position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;text-align:center;padding:clamp(48px,6vw,96px) 24px 160px;">
+    <h1 style="margin: 0; max-width: 760px; font-family: 'DM Sans',sans-serif; font-weight: 700; font-size: clamp(48px,5.6vw,88px); line-height: 0.92; letter-spacing: -0.03em; text-wrap: balance">{{ h1 }}</h1>
+    <p style="margin:48px 0 0;max-width:760px;font-family:'Inter',sans-serif;font-size:15px;line-height:1.6;letter-spacing:-0.015em;color:#15151f;text-wrap:pretty;">{{ intro }}</p>
+    <div style="margin-top:32px;padding:24px 38px;border-radius:999px;background:radial-gradient(ellipse at center,rgba(214,204,246,0.55) 0%,rgba(230,224,250,0.35) 45%,rgba(249,249,253,0) 72%);">
+      <a href="#" style="display:flex;align-items:center;gap:14px;height:60px;padding:0 40px 0 22px;border-radius:17px;background:linear-gradient(90deg,#CDCBF3 0%,#C1C5F1 55%,#B3BCEC 100%);color:#0a0a12;font-family:'Inter',sans-serif;font-weight:700;font-size:20px;letter-spacing:-0.035em;box-shadow:0 18px 50px rgba(160,150,230,0.28);transition:transform .15s,box-shadow .15s;" style-hover="transform:translateY(-2px);box-shadow:0 22px 60px rgba(150,140,230,0.4);color:#0a0a12;" style-active="transform:translateY(0);">
+        <img src="./assets/spark.png" alt="" style="display:block;width:50px;height:50px;object-fit:contain;">{{ cta }}
+      </a>
+    </div>
+  </section>
+
+  <section style="position:relative;z-index:1;max-width:1240px;margin:-80px auto 0;padding:0 clamp(20px,3vw,48px);">
+    <div style="aspect-ratio:16/9;border-radius:24px;overflow:hidden;background:repeating-linear-gradient(135deg,#E6E5FA 0 10px,#EEEDFB 10px 20px);border:1px solid #E6E5FA;box-shadow:0 30px 90px rgba(80,90,180,0.18);">
+      <image-slot id="home-hero-media" shape="rect" placeholder="Product screenshot, animation or video"></image-slot>
+    </div>
+  </section>
+
+  <section style="position:relative;z-index:1;max-width:1240px;margin:0 auto;padding:clamp(96px,11vw,160px) clamp(20px,3vw,48px) 0;">
+    <h2 style="margin:0;max-width:1080px;font-family:'DM Sans',sans-serif;font-weight:700;font-size:clamp(28px,3.4vw,48px);line-height:1.08;letter-spacing:-0.01em;text-wrap:pretty;"><span style="color:#0f0f1a;">{{ statementA }}</span> <span style="color:#8A8AA3;">{{ statementB }}</span></h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));margin-top:clamp(56px,6vw,88px);border-top:1px solid #E6E5FA;">
+      <sc-for list="{{ pillars }}" as="p" hint-placeholder-count="3">
+        <div style="display:flex;flex-direction:column;gap:12px;padding:28px clamp(16px,2vw,32px) 8px 0;border-right:{{ p.divider }};">
+          <span style="font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:14px;letter-spacing:0.02em;color:#8A8AA3;">{{ p.fig }}</span>
+          <div style="margin:8px 0 12px;aspect-ratio:4/3;border-radius:16px;overflow:hidden;background:repeating-linear-gradient(135deg,#EEEDFB 0 10px,#F4F3FC 10px 20px);">
+            <image-slot id="{{ p.slot }}" shape="rect" placeholder="Illustration or GIF"></image-slot>
+          </div>
+          <span style="font-family:'DM Sans',sans-serif;font-weight:700;font-size:18px;letter-spacing:-0.03em;">{{ p.title }}</span>
+          <span style="max-width:360px;font-size:15px;line-height:1.6;letter-spacing:-0.015em;color:#4a4a5e;text-wrap:pretty;">{{ p.desc }}</span>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <sc-for list="{{ features }}" as="f" hint-placeholder-count="3">
+    <section id="{{ f.id }}" style="position:relative;z-index:1;max-width:1240px;margin:0 auto;padding:clamp(112px,12vw,176px) clamp(20px,3vw,48px) 0;">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:clamp(24px,5vw,96px);align-items:start;">
+        <div style="display:flex;flex-direction:column;gap:14px;">
+          <span style="font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:14px;letter-spacing:0.02em;color:#4a5bb8;">{{ f.kicker }}</span>
+          <h2 style="margin:0;font-family:'DM Sans',sans-serif;font-weight:700;font-size:clamp(34px,4vw,56px);line-height:1.18;letter-spacing:-0.01em;"><span style="display:block;">{{ f.titleA }}</span><span style="display:block;">{{ f.titleB }}</span></h2>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:flex-start;gap:28px;padding-top:clamp(0px,2.4vw,34px);">
+          <p style="margin:0;max-width:560px;font-size:clamp(17px,1.5vw,20px);line-height:1.55;letter-spacing:-0.02em;color:#2a2a3a;text-wrap:pretty;">{{ f.desc }}</p>
+          <a href="{{ f.href }}" style="display:flex;align-items:center;gap:6px;font-family:'DM Sans',sans-serif;font-weight:600;font-size:16px;letter-spacing:-0.02em;color:#4a4a5e;transition:gap .15s,color .15s;" style-hover="color:#0f0f1a;gap:10px;">{{ learnMore }}<svg width="15" height="15" viewBox="0 0 14 14" fill="none"><path d="M3 7h8M7.5 3.5L11 7l-3.5 3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
+        </div>
+      </div>
+      <div style="margin-top:clamp(48px,5vw,72px);aspect-ratio:16/8.5;border-radius:24px;overflow:hidden;background:repeating-linear-gradient(135deg,#E6E5FA 0 10px,#EEEDFB 10px 20px);border:1px solid #E6E5FA;box-shadow:0 24px 70px rgba(80,90,180,0.12);">
+        <image-slot id="{{ f.slot }}" shape="rect" placeholder="{{ f.ph }}"></image-slot>
+      </div>
+    </section>
+  </sc-for>
+
+
+  <section id="faq" style="position:relative;z-index:1;max-width:1240px;margin:0 auto;padding:clamp(112px,12vw,176px) clamp(20px,3vw,48px) 0;">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:clamp(24px,5vw,96px);align-items:start;">
+      <div style="display:flex;flex-direction:column;gap:14px;">
+        <span style="font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:14px;letter-spacing:0.02em;color:#4a5bb8;">FAQ</span>
+        <h2 style="margin:0;font-family:'DM Sans',sans-serif;font-weight:700;font-size:clamp(34px,4vw,56px);line-height:1.08;letter-spacing:-0.01em;text-wrap:balance;">{{ faqTitle }}</h2>
+        <p style="display:flex;flex-direction:column;align-items:flex-start;gap:4px;margin:6px 0 0;max-width:360px;font-size:15px;line-height:1.6;letter-spacing:-0.015em;color:#4a4a5e;"><span>{{ faqMore }}</span><a href="Keco Support.dc.html" style="color:#0f0f1a;border-bottom:1px solid #B3BCEC;">{{ faqContact }}</a></p>
+      </div>
+      <div style="display:flex;flex-direction:column;border-top:1px solid #E6E5FA;">
+        <sc-for list="{{ faqs }}" as="q" hint-placeholder-count="6">
+          <div style="border-bottom:1px solid #E6E5FA;">
+            <button onClick="{{ q.toggle }}" aria-expanded="{{ q.open }}" style="width:100%;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:22px 0;border:0;background:transparent;cursor:pointer;text-align:left;font-family:'DM Sans',sans-serif;font-weight:600;font-size:18px;letter-spacing:-0.025em;color:#0f0f1a;" style-hover="color:#4a5bb8;">{{ q.q }}<span style="flex-shrink:0;width:28px;height:28px;border-radius:999px;display:flex;align-items:center;justify-content:center;background:{{ q.iconBg }};transition:background .15s;"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" style="transition:transform .2s;transform:{{ q.rot }};"><path d="M7 2.5v9M2.5 7h9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path></svg></span></button>
+            <sc-if value="{{ q.open }}" hint-placeholder-val="{{ false }}">
+              <p style="margin:0;padding:0 44px 24px 0;font-size:15px;line-height:1.65;letter-spacing:-0.015em;color:#4a4a5e;text-wrap:pretty;">{{ q.a }}</p>
+            </sc-if>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+  <section style="position:relative;z-index:1;max-width:1240px;margin:0 auto;padding:clamp(112px,12vw,176px) clamp(20px,3vw,48px) 140px;">
+    <div style="display:flex;flex-direction:column;align-items:center;text-align:center;padding:clamp(48px,6vw,88px) 24px;border-radius:32px;background:linear-gradient(180deg,#E6E5FA 0%,#F4F3FC 100%);border:1px solid #E6E5FA;">
+      <span style="font-family: 'DM Sans',sans-serif; font-weight: 600; font-size: 18px; letter-spacing: -0.01em; color: #4a5bb8">{{ closingKicker }}</span>
+      <h2 style="margin:20px 0 0;max-width:720px;font-family:'DM Sans',sans-serif;font-weight:700;font-size:clamp(30px,3.4vw,48px);line-height:1.08;letter-spacing:-0.01em;text-wrap:balance;">{{ closing }}</h2>
+      <p style="margin:18px 0 0;max-width:560px;font-size:15px;line-height:1.6;letter-spacing:-0.015em;color:#4a4a5e;text-wrap:pretty;">{{ closingSub }}</p>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:32px;">
+        <a href="#" style="display:flex;align-items:center;gap:10px;height:52px;padding:0 26px 0 14px;border-radius:15px;background:linear-gradient(90deg,#CDCBF3 0%,#C1C5F1 55%,#B3BCEC 100%);font-family:'Inter',sans-serif;font-weight:700;font-size:16px;letter-spacing:-0.025em;color:#0a0a12;box-shadow:0 18px 44px rgba(160,150,230,0.3);" style-hover="color:#0a0a12;transform:translateY(-1px);"><img src="./assets/spark.png" alt="" style="display:block;width:34px;height:34px;object-fit:contain;">{{ cta }}</a>
+        <a href="Keco Pricing.dc.html" style="display:flex;align-items:center;height:52px;padding:0 24px;border-radius:15px;background:#ffffff;border:1px solid #D2D3F5;font-family:'DM Sans',sans-serif;font-weight:600;font-size:16px;letter-spacing:-0.02em;color:#0f0f1a;" style-hover="background:#ECEBFA;color:#0f0f1a;">{{ seePricing }}</a>
+      </div>
+    </div>
+  </section>
+  <dc-import name="KecoFooter" is-home="true" style="display:block;" hint-size="100%,420px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{}">
+class Component extends DCLogic {
+  state = { lang: 'en', faqOpen: 0 };
+  T = {"en":{"h1":"From game ideas to systems that work.","p":"Keco Studio is the AI-native workspace for game designers to organize data, build mechanics, collaborate, and validate balance before development.","cta":"Download Keco Studio","learnMore":"Learn more","seePricing":"See pricing","statementA":"Design your game’s systems. Prove they work.","statementB":"Keco brings your mechanics, data and content into one place that AI can understand.","pillars":[["From GDD to playable","Turn a game design document into a playable prototype in one click."],["An agent in your workspace","Edit tables, generate art assets, draft design docs and convert files, all from one prompt."],["Connected to any LLM","Through MCP, language models read your design docs and write straight into your engine. No code."]],"features":[["gdd","01 · GDD to game","From design doc","to playable game","Write your mechanics once. Keco reads your game design document, structures the rules, numbers and content inside it, and builds a playable version you can test right away.","Keco Solutions.dc.html#game-designers","GDD → playable game demo"],["agent","02 · Keco agent","An agent that","knows your game","Ask the built-in agent to rebalance a table, generate sprites and item art, draft a design doc, or turn a messy spreadsheet into clean, linked data. It works on your real project, not a blank chat.","Keco Solutions.dc.html#narrative-teams","Agent editing tables and generating assets"],["mcp","03 · MCP integration","Zero-code","engine integration","Connect your favorite language model to Keco over MCP. It can read your design docs, reason about your systems, and write changes directly into your game engine without a line of code.","Keco Solutions.dc.html#technical-designers","LLM → Keco → game engine flow"]],"closing":"Turn your next game idea into something playable.","closingKicker":"Get started today","closingSub":"Bring your creativity. Keco handles the systems, data and balance, so you can spend more time making the game you imagined.","faqTitle":"Frequently asked questions","faqMore":"Can’t find what you’re looking for?","faqContact":"Get in touch with the team","faqs":[["What is Keco Studio?","Keco Studio is an AI-native workspace for game designers. It brings your mechanics, numbers and content into one connected system, so you can design, test and balance your game before development starts."],["Who is Keco for?","Game designers, narrative teams and technical designers, from solo creators to full studios. You don’t need to write code to use it."],["Can Keco really turn a GDD into a playable game?","Yes. Import or write your game design document and Keco structures the rules, numbers and content inside it, then generates a playable prototype you can test and iterate on."],["What can the Keco agent do?","It works directly on your project: editing and rebalancing tables, generating art assets, drafting design docs, and converting spreadsheets or scripts into clean, linked data."],["What is MCP and why does it matter?","MCP (Model Context Protocol) lets language models connect to Keco. They can read your design docs and write changes straight into your game engine without any code."],["Which formats and engines are supported?","Keco imports CSV and XLSX, and exports JSON, CSV and custom schemas. Exporters for Godot and Unity are available, with more engines on the way."],["Is Keco free to use?","The Starter plan is free and includes the core tools. Pro and Studio add AI agent credits, collaboration and priority support. See Pricing for details."]]},"zh":{"h1":"从游戏灵感，到真正可运行的系统。","p":"Keco Studio 是面向游戏策划的 AI 原生工作空间：整理数据、构建玩法机制、团队协作，并在开发前验证数值平衡。","cta":"下载 Keco Studio","learnMore":"了解更多","seePricing":"查看价格","statementA":"设计游戏系统，并验证它可行。","statementB":"Keco 把机制、数值和内容汇集在一处，让 AI 也能读懂。","pillars":[["从 GDD 到可玩游戏","一键把游戏设计文档变成可以直接试玩的原型。"],["工作空间里的 Agent","修改表格、生成美术素材、撰写设计文档、整理转换文件，一句话搞定。"],["连接任意大语言模型","通过 MCP，大语言模型可以读取设计文档，并直接写入游戏引擎，无需代码。"]],"features":[["gdd","01 · GDD 生成游戏","从设计文档","到可玩游戏","玩法机制只需写一次。Keco 读取你的游戏设计文档，把其中的规则、数值和内容结构化，并生成一个可以立即测试的可玩版本。","Keco Solutions.dc.html#game-designers","GDD → 可玩游戏演示"],["agent","02 · Keco Agent","懂你游戏的","AI Agent","让内置 Agent 帮你调整数值表、生成角色和道具素材、撰写设计文档，或把杂乱的表格整理成干净、互相关联的数据。它直接作用于你的真实项目，而不是一个空白对话框。","Keco Solutions.dc.html#narrative-teams","Agent 编辑表格与生成素材"],["mcp","03 · MCP 集成","零代码","连接游戏引擎","通过 MCP 把你常用的大语言模型接入 Keco。它可以读取设计文档、理解你的游戏系统，并把修改直接写入游戏引擎，全程无需代码。","Keco Solutions.dc.html#technical-designers","LLM → Keco → 游戏引擎流程"]],"closing":"把下一个游戏创意，变成可以玩的作品。","closingKicker":"立即开始","closingSub":"你负责创意，Keco 帮你搞定系统、数据和数值平衡，让你把更多时间花在打造心中的那款游戏上。","faqTitle":"常见问题","faqMore":"没有找到答案？","faqContact":"联系我们的团队","faqs":[["Keco Studio 是什么？","Keco Studio 是面向游戏策划的 AI 原生工作空间。它把机制、数值和内容汇集成一个互相关联的系统，让你在开发之前就能完成设计、测试和数值平衡。"],["Keco 适合哪些人？","游戏策划、叙事团队和技术策划，从独立创作者到完整的工作室都适用。使用 Keco 不需要写代码。"],["Keco 真的能把 GDD 变成可玩游戏吗？","可以。导入或撰写游戏设计文档后，Keco 会把其中的规则、数值和内容结构化，并生成一个可以测试和迭代的可玩原型。"],["Keco Agent 能做什么？","它直接作用于你的项目：编辑和调整数值表、生成美术素材、撰写设计文档，以及把表格或剧本转换成干净、互相关联的数据。"],["MCP 是什么？有什么用？","MCP（模型上下文协议）让大语言模型可以连接 Keco。模型能读取你的设计文档，并把修改直接写入游戏引擎，全程无需代码。"],["支持哪些格式和引擎？","Keco 支持导入 CSV 和 XLSX，导出 JSON、CSV 和自定义格式。目前已提供 Godot 和 Unity 导出器，更多引擎即将支持。"],["Keco 可以免费使用吗？","Starter 套餐免费，包含核心工具。Pro 和 Studio 套餐提供 AI Agent 额度、团队协作和优先支持，详情请查看价格页面。"]]}};
+  readLang = () => { let l = 'en'; try { l = localStorage.getItem('keco-lang') || 'en'; } catch (e) {} this.setState({ lang: l }); };
+  componentDidMount() { this.readLang(); window.addEventListener('keco-lang', this.readLang); window.addEventListener('storage', this.readLang); }
+  componentWillUnmount() { window.removeEventListener('keco-lang', this.readLang); window.removeEventListener('storage', this.readLang); }
+  renderVals() {
+    const c = this.T[this.state.lang] || this.T.en;
+    return {
+      faqTitle: c.faqTitle, faqMore: c.faqMore, faqContact: c.faqContact,
+      faqs: c.faqs.map(([q, a], i) => { const open = this.state.faqOpen === i; return { q, a, open, rot: open ? 'rotate(45deg)' : 'none', iconBg: open ? '#ECEBFA' : '#F4F3FC', toggle: () => this.setState({ faqOpen: open ? -1 : i }) }; }),
+      h1: c.h1, intro: c.p, cta: c.cta, learnMore: c.learnMore, seePricing: c.seePricing,
+      statementA: c.statementA, statementB: c.statementB, closing: c.closing, closingKicker: c.closingKicker, closingSub: c.closingSub,
+      pillars: c.pillars.map(([title, desc], i) => ({ title, desc, fig: 'FIG 0.' + (i + 1), slot: 'home-pillar-' + i, divider: i < 2 ? '1px solid #E6E5FA' : '0' })),
+      features: c.features.map(([id, kicker, titleA, titleB, desc, href, ph]) => ({ id, kicker, titleA, titleB, desc, href, ph, slot: 'home-feature-' + id }))
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="ext-resource-dependency" content="./assets/keco-logo.png" data-resource-id="kecoLogo" />
+<meta name="ext-resource-dependency" content="https://cdn.simpleicons.org/discord/4a4a5e" data-resource-id="social-discord" />
+<meta name="ext-resource-dependency" content="https://cdn.simpleicons.org/youtube/4a4a5e" data-resource-id="social-youtube" />
+<meta name="ext-resource-dependency" content="https://cdn.simpleicons.org/x/4a4a5e" data-resource-id="social-x" />
+<meta name="ext-resource-dependency" content="https://cdn.simpleicons.org/instagram/4a4a5e" data-resource-id="social-instagram" />
+<meta name="ext-resource-dependency" content="https://cdn.simpleicons.org/tiktok/4a4a5e" data-resource-id="social-tiktok" />
+<meta name="ext-resource-dependency" content="https://cdn.simpleicons.org/reddit/4a4a5e" data-resource-id="social-reddit" />
+<meta name="ext-resource-dependency" content="https://cdn.simpleicons.org/github/4a4a5e" data-resource-id="social-github" />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preload" as="image" href="./assets/keco-logo.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700;9..40,800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+html,body{margin:0;padding:0;background:#F9F9FD;}
+*{box-sizing:border-box;}
+a{color:#1a1a2e;text-decoration:none;}
+a:hover{color:#4a5bb8;}
+button{font:inherit;}
+</style>
+</helmet>
+<div style="min-height:100vh;font-family:'Inter',system-ui,sans-serif;color:#0f0f1a;background:#FCFCFD url('./assets/home-bg.png') top center / 100% auto no-repeat;position:relative;overflow-x:clip;">
+
+  <dc-import name="KecoNav" active="Pricing" style="position:sticky;top:0;z-index:50;display:block;" hint-size="100%,96px"></dc-import>
+
+  <section style="position:relative;z-index:1;max-width:1180px;margin:0 auto;padding:clamp(40px,5vw,72px) clamp(20px,3vw,48px) 120px;">
+    <div style="display:flex;flex-direction:column;align-items:center;text-align:center;margin-bottom:56px;">
+      <h1 style="margin:0;font-family:'DM Sans',sans-serif;font-weight:700;font-size:clamp(40px,4.4vw,64px);line-height:0.95;letter-spacing:-0.03em;text-wrap:balance;">Pricing</h1>
+      <p style="margin:20px 0 0;max-width:560px;font-size:15px;line-height:1.6;letter-spacing:-0.015em;color:#15151f;text-wrap:pretty;">Start free, then scale with AI agent credits as your team grows.</p>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,max(300px,calc((100% - 28px)/2))),1fr));gap:28px;">
+      <sc-for list="{{ plans }}" as="p" hint-placeholder-count="4">
+        <div style="position:relative;display:flex;flex-direction:column;padding:36px 36px 34px;border-radius:24px;background:rgba(255,255,255,0.78);border:{{ p.border }};box-shadow:0 10px 40px rgba(80,90,180,0.08);backdrop-filter:blur(8px);">
+          <sc-if value="{{ p.popular }}" hint-placeholder-val="{{ false }}">
+            <span style="position:absolute;top:-30px;left:50%;transform:translateX(-50%);padding:12px 26px;border-radius:999px;background:radial-gradient(ellipse at center,rgba(214,204,246,0.7) 0%,rgba(230,224,250,0.4) 45%,rgba(249,249,253,0) 72%);pointer-events:none;">
+              <span style="display:flex;align-items:center;gap:6px;height:32px;padding:0 16px 0 8px;border-radius:11px;background:linear-gradient(90deg,#CDCBF3 0%,#C1C5F1 55%,#B3BCEC 100%);box-shadow:0 10px 30px rgba(160,150,230,0.35);font-family:'Inter',sans-serif;font-weight:700;font-size:14px;letter-spacing:-0.02em;color:#0a0a12;white-space:nowrap;"><img src="./assets/spark.png" alt="" style="display:block;width:24px;height:24px;object-fit:contain;">Most popular</span>
+            </span>
+          </sc-if>
+          <h2 style="margin:0;font-family:'DM Sans',sans-serif;font-weight:700;font-size:26px;letter-spacing:-0.035em;">{{ p.name }}</h2>
+          <p style="margin:6px 0 0;font-size:15px;letter-spacing:-0.015em;color:#4a4a5e;">{{ p.tagline }}</p>
+          <div style="margin-top:28px;font-family:'DM Sans',sans-serif;font-weight:700;font-size:20px;line-height:1;letter-spacing:-0.03em;">{{ p.price }}</div>
+          <div style="margin-top:12px;font-size:15px;font-weight:600;letter-spacing:-0.015em;color:#4a5bb8;">{{ p.credits }}</div>
+          <ul style="list-style:none;margin:24px 0 32px;padding:0;display:flex;flex-direction:column;gap:14px;flex:1;">
+            <sc-for list="{{ p.features }}" as="f" hint-placeholder-count="4">
+              <li style="display:flex;align-items:center;gap:14px;font-size:15px;letter-spacing:-0.015em;color:{{ f.color }};">
+                <sc-if value="{{ f.ok }}" hint-placeholder-val="{{ true }}">
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.2 3L13 4.5" stroke="#4a5bb8" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                </sc-if>
+                <sc-if value="{{ f.no }}" hint-placeholder-val="{{ false }}">
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 4l8 8M12 4l-8 8" stroke="#A9A9BC" stroke-width="1.4" stroke-linecap="round"></path></svg>
+                </sc-if>
+                {{ f.label }}
+              </li>
+            </sc-for>
+          </ul>
+          <a href="#" style="display:flex;align-items:center;justify-content:center;height:52px;border-radius:14px;background:{{ p.btnBg }};border:1px solid #D2D3F5;font-family:'DM Sans',sans-serif;font-weight:600;font-size:16px;letter-spacing:-0.02em;color:#0f0f1a;transition:background .15s,transform .15s;" style-hover="background:#ECEBFA;color:#0f0f1a;transform:translateY(-1px);">{{ p.cta }}</a>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <section id="faq" style="position:relative;z-index:1;max-width:1180px;margin:0 auto;padding:clamp(24px,4vw,56px) clamp(20px,3vw,48px) 140px;">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:clamp(24px,5vw,96px);align-items:start;">
+      <div style="display:flex;flex-direction:column;gap:14px;">
+        <span style="font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:14px;letter-spacing:0.02em;color:#4a5bb8;">FAQ</span>
+        <h2 style="margin:0;font-family:'DM Sans',sans-serif;font-weight:700;font-size:clamp(34px,4vw,56px);line-height:1.08;letter-spacing:-0.01em;text-wrap:balance;">Frequently asked questions</h2>
+        <p style="display:flex;flex-direction:column;align-items:flex-start;gap:4px;margin:6px 0 0;max-width:360px;font-size:15px;line-height:1.6;letter-spacing:-0.015em;color:#4a4a5e;"><span>Questions about billing or a custom plan?</span><a href="Keco Support.dc.html" style="color:#0f0f1a;border-bottom:1px solid #B3BCEC;">Get in touch with the team</a></p>
+      </div>
+      <div style="display:flex;flex-direction:column;border-top:1px solid #E6E5FA;">
+        <sc-for list="{{ faqs }}" as="q" hint-placeholder-count="6">
+          <div style="border-bottom:1px solid #E6E5FA;">
+            <button onClick="{{ q.toggle }}" aria-expanded="{{ q.open }}" style="width:100%;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:22px 0;border:0;background:transparent;cursor:pointer;text-align:left;font-family:'DM Sans',sans-serif;font-weight:600;font-size:18px;letter-spacing:-0.025em;color:#0f0f1a;" style-hover="color:#4a5bb8;">{{ q.q }}<span style="flex-shrink:0;width:28px;height:28px;border-radius:999px;display:flex;align-items:center;justify-content:center;background:{{ q.iconBg }};transition:background .15s;"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" style="transition:transform .2s;transform:{{ q.rot }};"><path d="M7 2.5v9M2.5 7h9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path></svg></span></button>
+            <sc-if value="{{ q.open }}" hint-placeholder-val="{{ false }}">
+              <p style="margin:0;padding:0 44px 24px 0;font-size:15px;line-height:1.65;letter-spacing:-0.015em;color:#4a4a5e;text-wrap:pretty;">{{ q.a }}</p>
+            </sc-if>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+  <dc-import name="KecoFooter" style="display:block;" hint-size="100%,420px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { faqOpen: 0 };
+  faqData = [
+    ['What are agent credits?', 'Agent credits are used each time the Keco AI agent does work for you, such as generating tables, art assets or design docs. Simple edits use fewer credits; larger generations use more.'],
+    ['What happens if I run out of credits?', 'Your projects and data stay fully available. AI agent features pause until your credits reset at the start of your next billing cycle, or you can upgrade your plan at any time.'],
+    ['Can I change or cancel my plan anytime?', 'Yes. Upgrade, downgrade or cancel from your account settings. Upgrades apply immediately; downgrades and cancellations take effect at the end of your current billing period.'],
+    ['Do unused credits roll over?', 'Credits reset each month and don’t roll over. Studio and Enterprise teams can contact us about pooled or annual credit options.'],
+    ['Are Marketplace purchases included in my plan?', 'No. Templates, components and plugins on the Marketplace are bought separately, and many are free. Once purchased, they’re yours to use in any project.'],
+    ['Do you offer discounts for students or indie teams?', 'Yes. Students, educators and small indie teams can get discounted Pro plans. Contact us with a few details about your project.'],
+    ['What payment methods do you accept?', 'We accept all major credit and debit cards. Enterprise customers can also pay by invoice.']
+  ];
+  renderVals() {
+    const plans = [
+      { name: 'Starter', tagline: 'Try the core tools for free', price: 'Free', credits: 'No agent credits', cta: 'Choose Starter', features: [['Dialogue table generation'], ['Basic config export'], ['Community support'], ['AI agent', false]] },
+      { name: 'Pro', tagline: 'AI agent for solo creators', price: '$10/month', credits: '10,000 agent credits included', cta: 'Choose Pro', popular: true, features: [['AI agent access'], ['Script conversion pipeline'], ['All export formats'], ['Email support']] },
+      { name: 'Studio', tagline: 'Built for teams and studios', price: '$50/month', credits: '50,000 agent credits included', cta: 'Choose Studio', features: [['Priority processing'], ['Team collaboration'], ['Commercial usage rights'], ['Priority support']] },
+      { name: 'Enterprise', tagline: 'Custom deployments at scale', price: 'Custom', credits: 'Custom credits volume', cta: 'Contact sales', features: [['Per-seat pricing'], ['Self-hosted / SSO'], ['Dedicated consultation'], ['Custom contract']] }
+    ].map(p => ({
+      ...p,
+      popular: !!p.popular,
+      border: p.popular ? '1.5px solid #B3BCEC' : '1px solid #E6E5FA',
+      btnBg: p.popular ? 'linear-gradient(90deg,#CDCBF3 0%,#C1C5F1 55%,#B3BCEC 100%)' : '#ffffff',
+      features: p.features.map(([label, ok = true]) => ({ label, ok, no: !ok, color: ok ? '#15151f' : '#A9A9BC' }))
+    }));
+    return {
+      plans,
+      faqs: this.faqData.map(([q, a], i) => { const open = this.state.faqOpen === i; return { q, a, open, rot: open ? 'rotate(45deg)' : 'none', iconBg: open ? '#ECEBFA' : '#F4F3FC', toggle: () => this.setState({ faqOpen: open ? -1 : i }) }; })
+    };
+  }
+}
+</script>
+</body>
+</html>

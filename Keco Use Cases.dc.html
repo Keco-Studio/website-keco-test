@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="ext-resource-dependency" content="./assets/keco-logo.png" data-resource-id="kecoLogo" />
+<meta name="ext-resource-dependency" content="https://cdn.simpleicons.org/discord/4a4a5e" data-resource-id="social-discord" />
+<meta name="ext-resource-dependency" content="https://cdn.simpleicons.org/youtube/4a4a5e" data-resource-id="social-youtube" />
+<meta name="ext-resource-dependency" content="https://cdn.simpleicons.org/x/4a4a5e" data-resource-id="social-x" />
+<meta name="ext-resource-dependency" content="https://cdn.simpleicons.org/instagram/4a4a5e" data-resource-id="social-instagram" />
+<meta name="ext-resource-dependency" content="https://cdn.simpleicons.org/tiktok/4a4a5e" data-resource-id="social-tiktok" />
+<meta name="ext-resource-dependency" content="https://cdn.simpleicons.org/reddit/4a4a5e" data-resource-id="social-reddit" />
+<meta name="ext-resource-dependency" content="https://cdn.simpleicons.org/github/4a4a5e" data-resource-id="social-github" />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preload" as="image" href="./assets/keco-logo.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700;9..40,800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="./image-slot.js"></script>
+<style>
+html,body{margin:0;padding:0;background:#F9F9FD;}
+*{box-sizing:border-box;}
+a{color:#1a1a2e;text-decoration:none;}
+a:hover{color:#4a5bb8;}
+button{font:inherit;}
+</style>
+</helmet>
+<div style="min-height:100vh;font-family:'Inter',system-ui,sans-serif;color:#0f0f1a;background:#FCFCFD url('./assets/home-bg.png') top center / 100% auto no-repeat;position:relative;overflow-x:clip;">
+  <dc-import name="KecoNav" active="Use cases" style="position:sticky;top:0;z-index:50;display:block;" hint-size="100%,96px"></dc-import>
+
+  <section style="position:relative;z-index:1;max-width:1180px;margin:0 auto;padding:36px clamp(20px,3vw,48px) 120px;">
+    <div style="display:flex;align-items:center;gap:8px;font-size:14px;letter-spacing:-0.01em;color:#4a4a5e;">
+      <span>Resources</span><span>/</span><span style="color:#0f0f1a;">Use cases</span>
+    </div>
+    <h1 style="margin:14px 0 0;font-family:'DM Sans',sans-serif;font-weight:700;font-size:26px;line-height:1.2;letter-spacing:-0.035em;">Use cases</h1>
+    <p style="margin:14px 0 0;max-width:680px;font-size:15px;line-height:1.6;letter-spacing:-0.015em;color:#15151f;text-wrap:pretty;">See how sample games are built in Keco Studio, step by step. Each one starts from Marketplace packs you can open, remix, and make your own.</p>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,max(300px,calc((100% - 28px)/2))),1fr));gap:28px;margin-top:44px;">
+      <sc-for list="{{ cases }}" as="c" hint-placeholder-count="4">
+        <article style="display:flex;flex-direction:column;border-radius:24px;overflow:hidden;background:rgba(255,255,255,0.8);border:1px solid #E6E5FA;box-shadow:0 10px 40px rgba(80,90,180,0.08);">
+          <div style="aspect-ratio:16/9;background:repeating-linear-gradient(135deg,#E6E5FA 0 10px,#EEEDFB 10px 20px);">
+            <image-slot id="{{ c.slot }}" shape="rect" placeholder="sample game screenshot"></image-slot>
+          </div>
+          <div style="display:flex;flex-direction:column;flex:1;padding:28px 30px 30px;">
+            <div style="display:flex;align-items:center;gap:8px;font-size:14px;letter-spacing:-0.01em;">
+              <span style="padding:2px 10px;border-radius:999px;background:#E6E5FA;">{{ c.genre }}</span>
+              <span style="padding:2px 10px;border-radius:999px;border:1px solid #D2D3F5;color:#4a4a5e;">Free sample</span>
+            </div>
+            <h2 style="margin:14px 0 0;font-family:'DM Sans',sans-serif;font-weight:700;font-size:22px;letter-spacing:-0.035em;">{{ c.title }}</h2>
+            <p style="margin:6px 0 0;font-size:15px;line-height:1.55;letter-spacing:-0.015em;color:#4a4a5e;text-wrap:pretty;">{{ c.desc }}</p>
+            <ol style="list-style:none;margin:22px 0 28px;padding:0;display:flex;flex-direction:column;gap:12px;flex:1;">
+              <sc-for list="{{ c.steps }}" as="s" hint-placeholder-count="3">
+                <li style="display:flex;align-items:center;gap:12px;font-size:15px;letter-spacing:-0.015em;color:#15151f;">
+                  <span style="flex-shrink:0;width:26px;height:26px;border-radius:999px;display:flex;align-items:center;justify-content:center;background:#F4F3FC;border:1px solid #D2D3F5;font-family:'DM Sans',sans-serif;font-weight:700;font-size:14px;">{{ s.n }}</span>
+                  <span>{{ s.pre }} <a href="{{ s.href }}" style="font-weight:600;color:#4a5bb8;border-bottom:1px solid #B3BCEC;" style-hover="color:#0f0f1a;">{{ s.item }}</a> {{ s.post }}</span>
+                </li>
+              </sc-for>
+            </ol>
+            <div style="display:flex;gap:10px;flex-wrap:wrap;">
+              <a href="#" style="display:flex;align-items:center;justify-content:center;height:46px;padding:0 22px;border-radius:14px;background:linear-gradient(90deg,#CDCBF3 0%,#C1C5F1 55%,#B3BCEC 100%);font-family:'DM Sans',sans-serif;font-weight:600;font-size:15px;letter-spacing:-0.02em;color:#0f0f1a;" style-hover="color:#0f0f1a;transform:translateY(-1px);">Open sample</a>
+              <a href="Keco Tutorials.dc.html" style="display:flex;align-items:center;justify-content:center;height:46px;padding:0 22px;border-radius:14px;background:#ffffff;border:1px solid #D2D3F5;font-family:'DM Sans',sans-serif;font-weight:600;font-size:15px;letter-spacing:-0.02em;color:#0f0f1a;" style-hover="background:#ECEBFA;color:#0f0f1a;">Watch walkthrough</a>
+            </div>
+          </div>
+        </article>
+      </sc-for>
+    </div>
+  </section>
+  <dc-import name="KecoFooter" style="display:block;" hint-size="100%,420px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    const mp = 'Keco Marketplace.dc.html#';
+    const cases = [
+      ['Pixel Dungeon Crawler', 'Roguelike', 'Procedural rooms, loot drops and enemy scaling, tuned with simulated runs before the first playtest.', [['Start from the', 'Pixel Map', 'templates', 'template'], ['Add', 'retro pix', 'components', 'sprites and tiles'], ['Tune drop rates with', 'Loot Tables', 'plugins', '']]],
+      ['Pocket Card Battler', 'Strategy', 'A deck-building duel where card costs and combos are validated against thousands of matches.', [['Start from the', 'Fantastic', 'templates', 'template'], ['Add', 'Like me combo', 'components', 'card effects'], ['Validate costs with', 'Balance Sim', 'plugins', '']]],
+      ['Cozy Farm Sim', 'Simulation', 'Crops, seasons and a shop economy that stays rewarding across a full 30-day run.', [['Start from the', 'Plants Family', 'templates', 'template'], ['Add', 'digital garden', 'components', 'assets'], ['Model prices with', 'Economy Lab', 'plugins', '']]],
+      ['Visual Novel Starter', 'Narrative', 'Branching dialogue and character routes generated from a single dialogue table.', [['Start from the', 'Princess', 'templates', 'template'], ['Add', 'cute chatbox', 'components', 'dialogue UI'], ['Map routes with', 'Dialogue Tree', 'plugins', '']]]
+    ].map(([title, genre, desc, steps], i) => ({
+      title, genre, desc, slot: `usecase-${i}`,
+      steps: steps.map(([pre, item, tab, post], j) => ({ n: j + 1, pre, item, post, href: mp + tab }))
+    }));
+    return { cases };
+  }
+}
+</script>
+</body>
+</html>
