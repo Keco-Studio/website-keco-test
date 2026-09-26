@@ -24,6 +24,8 @@ Then open e.g.
 http://localhost:8743/Keco%20Homepage.dc.html
 ```
 
+Press `Ctrl+C` in the terminal to stop the server when you're done.
+
 ## Deploying `site/`
 
 `site/` is a static folder ready to serve as-is (e.g. drag it into
