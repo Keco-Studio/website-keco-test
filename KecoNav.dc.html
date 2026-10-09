@@ -241,7 +241,7 @@ class Component extends DCLogic {
   componentDidMount() { document.addEventListener('click', this.guardLinks, true); this.readUser(); this.readLang(); window.addEventListener('storage', this.readUser); window.addEventListener('storage', this.readLang); window.addEventListener('keco-auth', this.readUser); window.addEventListener('keydown', this.onGlobalKey); document.addEventListener('mousedown', this.onDocDown); }
   componentWillUnmount() { document.removeEventListener('click', this.guardLinks, true); clearTimeout(this.toastTimer); window.removeEventListener('storage', this.readUser); window.removeEventListener('storage', this.readLang); window.removeEventListener('keco-auth', this.readUser); window.removeEventListener('keydown', this.onGlobalKey); document.removeEventListener('mousedown', this.onDocDown); }
   accountVals() {
-    const u = this.state.user || (this.props.demoUser && !this.state.demoOut ? { name: 'Alex Chen', email: 'alex@kecostudio.com' } : null);
+    const u = this.state.user || (this.props.demoUser && !this.state.demoOut ? { name: 'Alex Chen', email: 'alex@keco.studio' } : null);
     return {
       loggedIn: !!u, loggedOut: !u,
       userName: u?.name || 'Keco user', userEmail: u?.email || '',
@@ -284,7 +284,7 @@ class Component extends DCLogic {
         ] },
         { title: 'Follow, chat, & build', cols: 2, links: [
           L('GitHub', 'The open-source Keco repo', 'https://github.com/keco-studio'),
-          L('Developer Community', 'Ask questions and share feedback', 'https://forum.kecostudio.com'),
+          L('Developer Community', 'Ask questions and share feedback', 'https://forum.keco.studio'),
           L('Discord', 'Chat live with designers and the team', 'https://discord.com/invite/KecoStudio'),
           L('Reddit', 'r/KecoStudio discussions', 'https://www.reddit.com/r/KecoStudio'),
           L('YouTube', 'Walkthroughs and release videos', 'https://www.youtube.com/@KecoStudio'),

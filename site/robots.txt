@@ -3,4 +3,4 @@ Allow: /
 Disallow: /login
 Disallow: /signup
 
-Sitemap: https://kecostudio.com/sitemap.xml
+Sitemap: https://www.keco.studio/sitemap.xml
