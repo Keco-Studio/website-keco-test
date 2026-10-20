@@ -131,7 +131,7 @@ button{font:inherit;}
 </x-dc>
 <script type="text/x-dc" data-dc-script>
 class Component extends DCLogic {
-  state = { user: { name: 'Alex Chen', email: 'alex@kecostudio.com' }, ready: false, filter: 'All', query: '', done: { account: true }, extra: [] };
+  state = { user: { name: 'Alex Chen', email: 'alex@keco.studio' }, ready: false, filter: 'All', query: '', done: { account: true }, extra: [] };
   base = [
     ['Pixel Dungeon Crawler', 'Edited 2 hours ago', false, 0],
     ['Card Battler Balance', 'Edited yesterday', true, 1],
@@ -141,7 +141,7 @@ class Component extends DCLogic {
     ['Loot Table Tests', 'Edited last month', false, 5]
   ];
   componentDidMount() {
-    this.read = () => { let u = null; try { u = JSON.parse(localStorage.getItem('keco-auth') || 'null'); } catch (e) {} this.setState({ user: u || { name: 'Alex Chen', email: 'alex@kecostudio.com' }, ready: true }); };
+    this.read = () => { let u = null; try { u = JSON.parse(localStorage.getItem('keco-auth') || 'null'); } catch (e) {} this.setState({ user: u || { name: 'Alex Chen', email: 'alex@keco.studio' }, ready: true }); };
     this.read();
     window.addEventListener('storage', this.read);
     window.addEventListener('keco-auth', this.read);
